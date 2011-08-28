@@ -1,0 +1,314 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">False</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="8805" fromTop="2" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="6608" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1709" fromTop="15" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="7862" fromTop="12" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="7289" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="7659" fromTop="4" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="8323" fromTop="14" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="8782" fromTop="2" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="6633" fromTop="20" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="5889" fromTop="6" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="5544" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="4835" fromTop="6" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="3320" fromTop="8" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1882" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files\NUnit 2.5.10\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="LogIn" priority="0" />
+      <Item value="StaticResourceExtension`0" priority="0" />
+      <Item value="static" priority="0" />
+      <Item value="void" priority="3" />
+      <Item value="if" priority="10" />
+      <Item value="logintext" priority="1" />
+      <Item value="string" priority="16" />
+      <Item value="L" priority="3" />
+      <Item value="is" priority="0" />
+      <Item value="null" priority="7" />
+      <Item value="P" priority="2" />
+      <Item value="StylusOutOfRangeEvent" priority="0" />
+      <Item value="MessageBox`0" priority="6" />
+      <Item value="Enter`0" priority="0" />
+      <Item value="passtext" priority="0" />
+      <Item value="else" priority="13" />
+      <Item value="bool" priority="14" />
+      <Item value="l" priority="0" />
+      <Item value="try" priority="3" />
+      <Item value="false" priority="11" />
+      <Item value="true" priority="3" />
+      <Item value="allOK" priority="0" />
+      <Item value="admin`0" priority="0" />
+      <Item value="new" priority="13" />
+      <Item value="admin" priority="0" />
+      <Item value="ArrayTypeMismatchException`0" priority="0" />
+      <Item value="private" priority="2" />
+      <Item value="tipe" priority="1" />
+      <Item value="user`0" priority="3" />
+      <Item value="user" priority="1" />
+      <Item value="login`0" priority="0" />
+      <Item value="username" priority="3" />
+      <Item value="int" priority="7" />
+      <Item value="guardOn" priority="2" />
+      <Item value="alarmOn" priority="2" />
+      <Item value="keyOnOff" priority="1" />
+      <Item value="datX" priority="1" />
+      <Item value="cellgroupId" priority="0" />
+      <Item value="catRoom" priority="1" />
+      <Item value="etagi" priority="0" />
+      <Item value="TabContollers`0" priority="0" />
+      <Item value="public" priority="3" />
+      <Item value="Rooms`0" priority="3" />
+      <Item value="Floor" priority="2" />
+      <Item value="ObservableCollection" priority="0" />
+      <Item value="RoomsEnter`0" priority="0" />
+      <Item value="floor" priority="3" />
+      <Item value="String`0" priority="0" />
+      <Item value="Convert`0" priority="1" />
+      <Item value="listBox1_MouseLeftButtonClick`0" priority="0" />
+      <Item value="RoomSelection" priority="1" />
+      <Item value="Room" priority="0" />
+      <Item value="DateTime`0" priority="10" />
+      <Item value="Keys`0" priority="2" />
+      <Item value="base" priority="2" />
+      <Item value="using" priority="5" />
+      <Item value="ALFA_Client" priority="2" />
+      <Item value="ClientServiceReference" priority="2" />
+      <Item value="IClientServiceCallback`0" priority="0" />
+      <Item value="InstanceContext" priority="0" />
+      <Item value="ClientServiceCallback`0" priority="0" />
+      <Item value="ClientServiceClient`0" priority="0" />
+      <Item value="ClientServiceClient" priority="0" />
+      <Item value="instanceContext" priority="0" />
+      <Item value="_clientService" priority="4" />
+      <Item value="InstanceContext`0" priority="0" />
+      <Item value="_yfloor" priority="1" />
+      <Item value="_yComPort" priority="4" />
+      <Item value="setkey" priority="1" />
+      <Item value="key" priority="2" />
+      <Item value="_key" priority="2" />
+      <Item value="KeySelection" priority="5" />
+      <Item value="ButtonSetkey" priority="0" />
+      <Item value="comboBoxTypeKey" priority="2" />
+      <Item value="comboBoxMin" priority="1" />
+      <Item value="comboBoxHour" priority="3" />
+      <Item value="textBoxSetKey" priority="1" />
+      <Item value="ButtonReadkey" priority="0" />
+      <Item value="byte" priority="0" />
+      <Item value="textBoxFIO" priority="3" />
+      <Item value="ControllerId" priority="0" />
+      <Item value="KeySelectionToset" priority="0" />
+      <Item value="dateTime" priority="0" />
+      <Item value="dataFinish" priority="1" />
+      <Item value="calendar1" priority="4" />
+      <Item value="ToString`0" priority="0" />
+      <Item value="RoomSelectionToUnsetKey" priority="0" />
+      <Item value="Exception`0" priority="0" />
+      <Item value="Users`0" priority="2" />
+      <Item value="entities" priority="0" />
+      <Item value="users" priority="0" />
+      <Item value="from" priority="9" />
+      <Item value="Entities" priority="3" />
+      <Item value="AlfaEntities`0" priority="3" />
+      <Item value="alfaEntities" priority="10" />
+      <Item value="AlfaEntities" priority="3" />
+      <Item value="System" priority="2" />
+      <Item value="Linq" priority="1" />
+      <Item value="where" priority="4" />
+      <Item value="userse" priority="3" />
+      <Item value="login" priority="0" />
+      <Item value="password" priority="0" />
+      <Item value="select" priority="3" />
+      <Item value="Diagnostics" priority="0" />
+      <Item value="Debug`0" priority="0" />
+      <Item value="IEquatable" priority="1" />
+      <Item value="userItem" priority="11" />
+      <Item value="OrderedParallelQuery" priority="0" />
+      <Item value="IGrouping" priority="0" />
+      <Item value="roomCateory" priority="1" />
+      <Item value="floorId" priority="1" />
+      <Item value="Window`0" priority="0" />
+      <Item value="floorse" priority="1" />
+      <Item value="IEnumerable" priority="1" />
+      <Item value="Rooms" priority="0" />
+      <Item value="roomses" priority="0" />
+      <Item value="roomse" priority="1" />
+      <Item value="foreach" priority="1" />
+      <Item value="this" priority="1" />
+      <Item value="RoomsEnter" priority="0" />
+      <Item value="room" priority="8" />
+      <Item value="return" priority="3" />
+      <Item value="PreviewTouchUpEvent" priority="0" />
+      <Item value="ConnectToService`0" priority="0" />
+      <Item value="portName" priority="0" />
+      <Item value="exception" priority="2" />
+      <Item value="Keys" priority="0" />
+      <Item value="keyses" priority="1" />
+      <Item value="roomId" priority="0" />
+      <Item value="KeysEnter" priority="0" />
+      <Item value="keyse" priority="9" />
+      <Item value="selectedDate" priority="4" />
+      <Item value="double" priority="0" />
+      <Item value="dameer1" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
+      <Item value="Text" priority="7" />
+      <Item value="IsEnabled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Length" priority="1" />
+      <Item value="ToString`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.MessageBox">
+      <Item value="Show`0" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt32`0" priority="0" />
+      <Item value="ToByte`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.RoomsEnter">
+      <Item value="Room" priority="0" />
+      <Item value="RoomID" priority="0" />
+      <Item value="ControllerId" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.ObjectModel.ObservableCollection`1">
+      <Item value="Clear`0" priority="0" />
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.ClientServiceReference.ClientServiceClient">
+      <Item value="ReadKey`0" priority="1" />
+      <Item value="Join`0" priority="1" />
+      <Item value="SetKey`0" priority="0" />
+      <Item value="UnsetKey`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.KeysEnter">
+      <Item value="Key" priority="1" />
+      <Item value="Name" priority="1" />
+      <Item value="TipeKey" priority="0" />
+      <Item value="Number" priority="2" />
+      <Item value="FinishDate" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.Button">
+      <Item value="IsEnabled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.ComboBox">
+      <Item value="SelectedIndex" priority="4" />
+      <Item value="Text" priority="0" />
+      <Item value="SelectedValue" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Date" priority="0" />
+      <Item value="Hour" priority="1" />
+      <Item value="AddHours`0" priority="3" />
+      <Item value="AddMinutes`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Controls.Calendar">
+      <Item value="SelectedDate" priority="5" />
+      <Item value="IsEnabled" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Parse`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Nullable`1">
+      <Item value="ToString`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.Entities.AlfaEntities">
+      <Item value="Users" priority="1" />
+      <Item value="Floors" priority="0" />
+      <Item value="Rooms" priority="1" />
+      <Item value="SaveChanges`0" priority="0" />
+      <Item value="Keys" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.Entities.Users">
+      <Item value="Login" priority="0" />
+      <Item value="Password" priority="0" />
+      <Item value="Remove" priority="0" />
+      <Item value="UserName" priority="0" />
+      <Item value="GuardOn" priority="0" />
+      <Item value="RoomCategories" priority="0" />
+      <Item value="AlarmOn" priority="0" />
+      <Item value="KeyOnOff" priority="0" />
+      <Item value="DatX" priority="0" />
+      <Item value="CellGroupID" priority="0" />
+      <Item value="Type" priority="0" />
+      <Item value="Floors" priority="0" />
+      <Item value="FloorId" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="First`1" priority="1" />
+      <Item value="Count`1" priority="0" />
+      <Item value="FirstOrDefault`1" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Diagnostics.Debug">
+      <Item value="WriteLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.Entities.Floors">
+      <Item value="FloorId" priority="0" />
+      <Item value="ComPort" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.Entities.Rooms">
+      <Item value="FloorId" priority="0" />
+      <Item value="RoomId" priority="0" />
+      <Item value="RoomNumber" priority="0" />
+      <Item value="LightOn" priority="1" />
+      <Item value="ConrollerId" priority="0" />
+      <Item value="IsProtected" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.RoomCollection">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Threading.Thread">
+      <Item value="Sleep`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ALFA_Client.Entities.Keys">
+      <Item value="RoomId" priority="0" />
+      <Item value="CellNumber" priority="2" />
+      <Item value="Type" priority="0" />
+      <Item value="FIO" priority="0" />
+      <Item value="keyCode" priority="1" />
+      <Item value="EndDate" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Double">
+      <Item value="Parse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Loya.Dameer.Dameer">
+      <Item value="Value" priority="0" />
+      <Item value="Format" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.BitConverter">
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

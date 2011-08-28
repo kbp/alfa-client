@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3fb3db80-61ab-4bc3-94fe-1223e9a9a225" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/Design_Time_Addresses/AlfaServer/ClientService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="53251e0f-8975-4560-836f-525639d7bed9" SourceId="1" SourceUrl="http://localhost:8000/Design_Time_Addresses/AlfaServer/ClientService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3dc12261-fe85-4f2f-ae8a-b4c16725d825" SourceId="1" SourceUrl="http://localhost:8000/Design_Time_Addresses/AlfaServer/ClientService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="fca1d5e7-3069-4553-8fd7-b1f4f420da41" SourceId="1" SourceUrl="http://localhost:8000/Design_Time_Addresses/AlfaServer/ClientService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

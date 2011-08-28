@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SetKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="number" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsetKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="number" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsetKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnsetKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReadKeyResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetRoomToProtect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="isProtected" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetRoomToProtectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetRoomToProtectResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetLight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="lightOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetLightResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetLightResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Join">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="JoinResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetMasterKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetMasterKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetMasterKeyResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoomToFloor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="roomNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="roomClass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="onLine" type="xs:boolean" />
+        <xs:element minOccurs="0" name="roomCategory" type="xs:int" />
+        <xs:element minOccurs="0" name="isProtected" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRoomToFloorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddRoomToFloorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFloor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="floorName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFloorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddFloorResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopFloorPolling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopFloorPollingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StopFloorPollingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartFloorPolling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartFloorPollingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StartFloorPollingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertAboutControllerNotResponsible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertGerkon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertUnsetKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertChangeRoomsOnTheFloor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertChangeFloors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,102 @@
+﻿<Window x:Class="ALFA_Client.User"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ALFA_Client" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="user" Height="546" Width="843" Loaded="WindowLoaded" xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer">
+    <Window.Resources>
+        <local:RoomCollection x:Key="RoomsDataSource"/>
+        <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="2,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Room}"/>
+                                <TextBlock Text="{Binding Path=GuardOn}"/>
+                                <TextBlock Text="{Binding Path=LightOn}"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <local:KeysCollection x:Key="KeysDataSource"/>
+        <Style x:Key="ListBoxItemStyle2" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="2,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Number}"/>
+                                <TextBlock Text="{Binding Path=TipeKey}"/>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text="{Binding Path=Key}"/>
+                                <TextBlock Text="{Binding Path=FinishDate}"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
+        <ListBox Height="445" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" Name="listBox1" VerticalAlignment="Top" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
+        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" Height="180" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="247,12,0,0" Name="listBox2" VerticalAlignment="Top" Width="562" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
+        <Button Content="Считать ключ" Height="23" HorizontalAlignment="Left" Margin="247,227,0,0" Name="ButtonReadkey" VerticalAlignment="Top" Width="103" Click="ButtonReadkeyClick" />
+        <Button Content="Назначить ключ" Height="23" HorizontalAlignment="Left" Margin="247,406,0,0" Name="ButtonSetkey" VerticalAlignment="Top" Width="116" Click="ButtonSetkeyClick" />
+        <Button Content="Отменить ключ" Height="23" HorizontalAlignment="Left" Margin="410,403,0,0" Name="ButtonUnsetkey" VerticalAlignment="Top" Width="116" Click="ButtonUnsetkeyClick" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="371,227,0,0" Name="textBoxSetKey" VerticalAlignment="Top" Width="192" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="371,322,0,0" Name="textBoxFIO" VerticalAlignment="Top" Width="192" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="371,274,0,0" Name="comboBoxTypeKey" VerticalAlignment="Top" Width="192">
+            <ComboBoxItem Content="Гостевой"/>
+            <ComboBoxItem Content="Горничный"/>
+            <ComboBoxItem Content="Тех. служебный"/>
+        </ComboBox>
+        <Label Content="Ключ действителен до:" Height="28" HorizontalAlignment="Left" Margin="607,196,0,0" Name="label1" VerticalAlignment="Top" />
+        <Label Content="Тип ключа:" Height="28" HorizontalAlignment="Left" Margin="247,269,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Left" Margin="247,320,0,0" Name="label5" VerticalAlignment="Top" />
+        <my:Dameer HorizontalAlignment="Left"  Margin="607,222,0,0" Name="dameer1" VerticalAlignment="Top" Width="198" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" />
+    </Grid>
+</Window>

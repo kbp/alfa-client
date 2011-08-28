@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ClientService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IClientService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IClientService_SetKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetKey" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UnsetKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsetKey" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UnsetKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsetKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ReadKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadKey" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_ReadKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetRoomToProtect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRoomToProtect" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetRoomToProtect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRoomToProtectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetLight_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetLight" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetLight_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetLightResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_Join_InputMessage">
+    <wsdl:part name="parameters" element="tns:Join" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_Join_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetMasterKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMasterKey" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetMasterKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMasterKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddRoomToFloor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoomToFloor" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddRoomToFloor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRoomToFloorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddFloor_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFloor" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AddFloor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFloorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_StopFloorPolling_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopFloorPolling" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_StopFloorPolling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopFloorPollingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_StartFloorPolling_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartFloorPolling" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_StartFloorPolling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartFloorPollingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertAboutControllerNotResponsible" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertGerkon_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertGerkon" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertUnsetKey_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertUnsetKey" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertChangeRoomsOnTheFloor_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertChangeRoomsOnTheFloor" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertChangeFloors_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertChangeFloors" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="true" name="IClientService">
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetKey" message="tns:IClientService_SetKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetKeyResponse" message="tns:IClientService_SetKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UnsetKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UnsetKey" message="tns:IClientService_UnsetKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UnsetKeyResponse" message="tns:IClientService_UnsetKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReadKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/ReadKey" message="tns:IClientService_ReadKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ReadKeyResponse" message="tns:IClientService_ReadKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetRoomToProtect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetRoomToProtect" message="tns:IClientService_SetRoomToProtect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetRoomToProtectResponse" message="tns:IClientService_SetRoomToProtect_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetLight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetLight" message="tns:IClientService_SetLight_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetLightResponse" message="tns:IClientService_SetLight_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Join">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/Join" message="tns:IClientService_Join_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/JoinResponse" message="tns:IClientService_Join_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetMasterKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetMasterKey" message="tns:IClientService_SetMasterKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetMasterKeyResponse" message="tns:IClientService_SetMasterKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddRoomToFloor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddRoomToFloor" message="tns:IClientService_AddRoomToFloor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddRoomToFloorResponse" message="tns:IClientService_AddRoomToFloor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AddFloor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/AddFloor" message="tns:IClientService_AddFloor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AddFloorResponse" message="tns:IClientService_AddFloor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StopFloorPolling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/StopFloorPolling" message="tns:IClientService_StopFloorPolling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/StopFloorPollingResponse" message="tns:IClientService_StopFloorPolling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="StartFloorPolling">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/StartFloorPolling" message="tns:IClientService_StartFloorPolling_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/StartFloorPollingResponse" message="tns:IClientService_StartFloorPolling_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerNotResponsible">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" message="tns:IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertGerkon">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertGerkon" message="tns:IClientService_AlertGerkon_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertUnsetKey">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertUnsetKey" message="tns:IClientService_AlertUnsetKey_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertChangeRoomsOnTheFloor">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertChangeRoomsOnTheFloor" message="tns:IClientService_AlertChangeRoomsOnTheFloor_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertChangeFloors">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertChangeFloors" message="tns:IClientService_AlertChangeFloors_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IClientService" type="tns:IClientService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IClientService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SetKey">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsetKey">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UnsetKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadKey">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/ReadKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRoomToProtect">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetRoomToProtect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetLight">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetLight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Join">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/Join" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMasterKey">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetMasterKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRoomToFloor">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AddRoomToFloor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFloor">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AddFloor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopFloorPolling">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/StopFloorPolling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartFloorPolling">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/StartFloorPolling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertAboutControllerNotResponsible">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertGerkon">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertGerkon" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertUnsetKey">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertUnsetKey" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertChangeRoomsOnTheFloor">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertChangeRoomsOnTheFloor" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertChangeFloors">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertChangeFloors" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ClientService">
+    <wsdl:port name="NetTcpBinding_IClientService" binding="tns:NetTcpBinding_IClientService">
+      <soap12:address location="net.tcp://localhost:8732/Design_Time_Addresses/AlfaServer/ClientService/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8732/Design_Time_Addresses/AlfaServer/ClientService/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
