@@ -13,30 +13,28 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                        <Border x:Name="Bd" SnapsToDevicePixels="true" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
-                            <StackPanel Orientation="Horizontal">
+                    	<ControlTemplate.Resources>
+                    		<Storyboard x:Key="Storyboard2">
+                    			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="stackPanel">
+                    				<EasingColorKeyFrame KeyTime="0" Value="#FFFF0202"/>
+                    				<EasingColorKeyFrame KeyTime="0:0:1" Value="#FF141212"/>
+                    			</ColorAnimationUsingKeyFrames>
+                    		</Storyboard>
+                    	</ControlTemplate.Resources>
+                        <Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                            <StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="Black">
                                 <TextBlock Text="{Binding Path=Room}"/>
-                                <TextBlock Text="{Binding Path=GuardOn}"/>
+                                <CheckBox Content="охрана" IsChecked="{Binding Path=GuardOn}"/>
                                 <TextBlock Text="{Binding Path=LightOn}"/>
                             </StackPanel>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="true">
-                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
-                            </Trigger>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="IsSelected" Value="true"/>
-                                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
-                                </MultiTrigger.Conditions>
-                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-                            </MultiTrigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
+                    	<ControlTemplate.Triggers>
+                    		<DataTrigger Binding="{Binding Path=Alarm}" Value="True">
+                    			<DataTrigger.EnterActions>
+                    				<BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+                    			</DataTrigger.EnterActions>                    			             		
+							</DataTrigger>
+                    	</ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -82,7 +80,7 @@
         </Style>
     </Window.Resources>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
-        <ListBox Height="445" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,0" Name="listBox1" VerticalAlignment="Top" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
         <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" Height="180" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="247,12,0,0" Name="listBox2" VerticalAlignment="Top" Width="562" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
         <Button Content="Считать ключ" Height="23" HorizontalAlignment="Left" Margin="247,227,0,0" Name="ButtonReadkey" VerticalAlignment="Top" Width="103" Click="ButtonReadkeyClick" />
         <Button Content="Назначить ключ" Height="23" HorizontalAlignment="Left" Margin="247,406,0,0" Name="ButtonSetkey" VerticalAlignment="Top" Width="116" Click="ButtonSetkeyClick" />
@@ -98,5 +96,7 @@
         <Label Content="Тип ключа:" Height="28" HorizontalAlignment="Left" Margin="247,269,0,0" Name="label4" VerticalAlignment="Top" />
         <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Left" Margin="247,320,0,0" Name="label5" VerticalAlignment="Top" />
         <my:Dameer HorizontalAlignment="Left"  Margin="607,222,0,0" Name="dameer1" VerticalAlignment="Top" Width="198" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="674,400,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <CheckBox Content="CheckBox" Height="16" HorizontalAlignment="Left" Margin="638,447,0,0" Name="checkBox1" VerticalAlignment="Top" />
     </Grid>
 </Window>

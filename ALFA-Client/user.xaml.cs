@@ -20,9 +20,7 @@ namespace ALFA_Client
         {
             InitializeComponent();
 
-            InstanceContext instanceContext = new InstanceContext(new ClientServiceCallback());
-
-            _clientService = new ClientServiceClient(instanceContext);
+            _clientService = ServiceClient.GetInstance().GetClientServiceClient();
 
             RommsL = this.Resources["RoomsDataSource"] as RoomCollection;
             _keysCollectionL = this.Resources["KeysDataSource"] as KeysCollection;
@@ -77,7 +75,7 @@ namespace ALFA_Client
         {
             RommsL.Fill(_floorId);
 // (wtf) не правильно. а если сервер не отвечает????
-//            _clientService.Join(_yComPort);
+            //_clientService.Join(_yComPort);
             // todo надо повешать какой индикатор что сервак не отвечает и нужен метод ping
             //bool b = _clientService.Join(_yComPort);
             //ConnectToService();
@@ -244,6 +242,16 @@ namespace ALFA_Client
                     MessageBox.Show("Не удалось удалить ключ.");
                 }
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+
+            foreach (RoomsEnter roomsEnter in RommsL)
+            {
+                    roomsEnter.Alarm = true;
+            }
+            
         }
 
 

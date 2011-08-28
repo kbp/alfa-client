@@ -3,34 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
-using System.Data.Sql;
-using System.Data.SqlClient;
+using System.ComponentModel;
+using ALFA_Client.ClientServiceReference;
 
 namespace ALFA_Client
 {
     using Entities;
 
-    public class RoomsEnter
+    public class RoomsEnter : INotifyPropertyChanged
     {
-        public RoomsEnter(int roomId, int room, bool guardOn, bool lightOn, int controllerId)
+        public RoomsEnter(int roomId, int room, bool guardOn, bool lightOn, byte controllerId)
         {
             _room = room;
             _roomId = roomId;
             _guardOn = guardOn;
             _lightOn = lightOn;
             _controllerId = controllerId;
+            _alarm = false;
         }
 
         private int _room;
         private int _roomId;
         private bool _guardOn;
         private bool _lightOn;
-        private int _controllerId;
+        private byte _controllerId;
+        private bool _alarm = false;
 
         public int Room
         {
             get { return _room; }
             set { _room = value; }
+        }
+        
+        public bool Alarm
+        {
+            get { return _alarm; }
+            set
+            {
+                _alarm = value;
+                NotifyPropertyChanged("Alarm");
+            }
         }
 
         public int RoomId
@@ -42,7 +54,20 @@ namespace ALFA_Client
         public bool GuardOn
         {
             get { return _guardOn; }
-            set { _guardOn = value; }
+            set
+            {
+                _guardOn = value;
+                AlfaEntities alfaEntities = new AlfaEntities();
+
+                var room = (from rooms in alfaEntities.Rooms.Include("Floor")
+                            where rooms.RoomId == _roomId
+                            select rooms).FirstOrDefault();
+                if (room != null)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(room.Floors.ComPort,
+                                                                                          _controllerId, value);
+                }
+            }
         }
 
         public bool LightOn
@@ -51,15 +76,34 @@ namespace ALFA_Client
             set { _lightOn = value; }
         }
 
-        public int ControllerId
+        public byte ControllerId
         {
             get { return _controllerId; }
             set { _controllerId = value; }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
+
     }
 
      public class RoomCollection : ObservableCollection<RoomsEnter>
      {
+         public RoomCollection()
+         {
+             _roomCollection = this;
+         }
+
+         private static RoomCollection _roomCollection;
+
+
         //const string Conn = @"Data Source=microsoft-pc;Initial Catalog=ALFA;Integrated Security=True";
 //        
 //         public void Fill(int floorid)
@@ -79,6 +123,17 @@ namespace ALFA_Client
 //            tabRooms.Close();
 //            sqlRoom.Close();
 //        }
+
+         public static void UpdateGerkon(long roomId)
+         {
+             foreach (RoomsEnter roomsEnter in _roomCollection)
+             {
+                 if (roomsEnter.RoomId == roomId)
+                 {
+                     roomsEnter.Alarm = true;
+                 }
+             }
+         }
 
          public void Fill(int floorId)
          {
@@ -102,7 +157,7 @@ namespace ALFA_Client
                  if (room.RoomNumber != null)
                  {
                      this.Add(new RoomsEnter(room.RoomId, (int) room.RoomNumber, (bool) room.IsProtected,
-                                             (bool) room.LightOn, room.ConrollerId));
+                                             (bool)room.LightOn, (byte)room.ConrollerId));
                  }
              }
 

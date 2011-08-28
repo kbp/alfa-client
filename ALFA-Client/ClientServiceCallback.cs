@@ -19,9 +19,10 @@ namespace ALFA_Client
             _logger.Debug("controller not responsible port name {0}, controller number {1}");
         }
 
-        public void AlertGerkon(string portName, byte controllerNumber)
+        public void AlertGerkon(long roomId)
         {
             _logger.Debug("gercon port name {0}, controller number {1}");
+            RoomCollection.UpdateGerkon(roomId);
         }
 
         public void AlertUnsetKey(string portName, byte controllerNumber)

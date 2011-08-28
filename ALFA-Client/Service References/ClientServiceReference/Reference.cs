@@ -56,7 +56,7 @@ namespace ALFA_Client.ClientServiceReference {
         void AlertAboutControllerNotResponsible(string portName, byte controllerNumber);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertGerkon")]
-        void AlertGerkon(string portName, byte controllerNumber);
+        void AlertGerkon(long roomId);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertUnsetKey")]
         void AlertUnsetKey(string portName, byte controllerNumber);
