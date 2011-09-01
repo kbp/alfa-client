@@ -24,8 +24,8 @@
                         <Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
                             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="Black">
                                 <TextBlock Text="{Binding Path=Room}"/>
-                                <CheckBox Content="охрана" IsChecked="{Binding Path=GuardOn}"/>
-                                <TextBlock Text="{Binding Path=LightOn}"/>
+                                <CheckBox Content="Охрана" IsChecked="{Binding Path=GuardOn}"/>
+                                <CheckBox Content="Свет" IsChecked="{Binding Path=LightOn}"/>
                             </StackPanel>
                         </Border>
                     	<ControlTemplate.Triggers>
@@ -78,9 +78,54 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="ListBoxItemStyle3" TargetType="{x:Type ListBoxItem}">
+        	<Setter Property="Background" Value="Transparent"/>
+        	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="Padding" Value="2,0,0,0"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type ListBoxItem}">
+        				<ControlTemplate.Resources>
+        					<Storyboard x:Key="Storyboard2">
+        						<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="stackPanel">
+        							<EasingColorKeyFrame KeyTime="0" Value="#FFFF0202"/>
+        							<EasingColorKeyFrame KeyTime="0:0:1" Value="#00141212"/>
+        							<EasingColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+        							<EasingColorKeyFrame KeyTime="0:0:3" Value="#00FF0000"/>
+        							<EasingColorKeyFrame KeyTime="0:0:4" Value="Red"/>
+        							<EasingColorKeyFrame KeyTime="0:0:5" Value="#00FF0000"/>
+        							<EasingColorKeyFrame KeyTime="0:0:6" Value="Red"/>
+        							<EasingColorKeyFrame KeyTime="0:0:7" Value="#00FF0000"/>
+        							<EasingColorKeyFrame KeyTime="0:0:8" Value="Red"/>
+        							<EasingColorKeyFrame KeyTime="0:0:9" Value="#00FF0000"/>
+        							<EasingColorKeyFrame KeyTime="0:0:10" Value="Red"/>
+        							<EasingColorKeyFrame KeyTime="0:0:11" Value="#00FF0000"/>
+        						</ColorAnimationUsingKeyFrames>
+        					</Storyboard>
+        					<Storyboard x:Key="Storyboard1"/>
+        				</ControlTemplate.Resources>
+        				<Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+        					<StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="#00000000">
+        						<TextBlock Text="{Binding Room}"/>
+        						<CheckBox Content="Охрана" IsChecked="{Binding GuardOn}"/>
+                                <CheckBox Content="Свет" IsChecked="{Binding LightOn}"/>
+        					</StackPanel>
+        				</Border>
+        				<ControlTemplate.Triggers>
+        					<DataTrigger Binding="{Binding Alarm}" Value="True">
+        						<DataTrigger.EnterActions>
+        							<BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+        						</DataTrigger.EnterActions>                    			             		
+        					</DataTrigger>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
     </Window.Resources>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
-        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle1}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
+        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
         <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" Height="180" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="247,12,0,0" Name="listBox2" VerticalAlignment="Top" Width="562" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
         <Button Content="Считать ключ" Height="23" HorizontalAlignment="Left" Margin="247,227,0,0" Name="ButtonReadkey" VerticalAlignment="Top" Width="103" Click="ButtonReadkeyClick" />
         <Button Content="Назначить ключ" Height="23" HorizontalAlignment="Left" Margin="247,406,0,0" Name="ButtonSetkey" VerticalAlignment="Top" Width="116" Click="ButtonSetkeyClick" />
@@ -97,6 +142,5 @@
         <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Left" Margin="247,320,0,0" Name="label5" VerticalAlignment="Top" />
         <my:Dameer HorizontalAlignment="Left"  Margin="607,222,0,0" Name="dameer1" VerticalAlignment="Top" Width="198" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" />
         <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="674,400,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
-        <CheckBox Content="CheckBox" Height="16" HorizontalAlignment="Left" Margin="638,447,0,0" Name="checkBox1" VerticalAlignment="Top" />
     </Grid>
 </Window>

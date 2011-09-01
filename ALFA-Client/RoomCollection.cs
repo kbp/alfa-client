@@ -59,7 +59,7 @@ namespace ALFA_Client
                 _guardOn = value;
                 AlfaEntities alfaEntities = new AlfaEntities();
 
-                var room = (from rooms in alfaEntities.Rooms.Include("Floor")
+                var room = (from rooms in alfaEntities.Rooms.Include("Floors")
                             where rooms.RoomId == _roomId
                             select rooms).FirstOrDefault();
                 if (room != null)
@@ -73,7 +73,20 @@ namespace ALFA_Client
         public bool LightOn
         {
             get { return _lightOn; }
-            set { _lightOn = value; }
+            set 
+            { 
+                _lightOn = value;
+                AlfaEntities alfaEntities = new AlfaEntities();
+
+                var room = (from rooms in alfaEntities.Rooms.Include("Floors")
+                            where rooms.RoomId == _roomId
+                            select rooms).FirstOrDefault();
+                if (room != null)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetLight(room.Floors.ComPort, _controllerId,
+                                                                                  value);
+                }
+            }
         }
 
         public byte ControllerId
