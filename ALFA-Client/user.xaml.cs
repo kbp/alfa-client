@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Linq;
+using NLog;
 
 
 namespace ALFA_Client
@@ -20,6 +21,8 @@ namespace ALFA_Client
         {
             InitializeComponent();
 
+            Logger logger = LogManager.GetCurrentClassLogger();
+            logger.Info("user windows init");
             _clientService = ServiceClient.GetInstance().GetClientServiceClient();
 
             RommsL = this.Resources["RoomsDataSource"] as RoomCollection;
