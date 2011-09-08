@@ -3,7 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ALFA_Client" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="user" Height="546" Width="843" Loaded="WindowLoaded" xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer">
+       
+    
+
     <Window.Resources>
+       
+
+        
         <local:RoomCollection x:Key="RoomsDataSource"/>
         <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="Transparent"/>
@@ -79,13 +85,17 @@
             </Setter>
         </Style>
         <Style x:Key="ListBoxItemStyle3" TargetType="{x:Type ListBoxItem}">
-        	<Setter Property="Background" Value="Transparent"/>
+                      
+            <Setter Property="Background" Value="Transparent"/>
         	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         	<Setter Property="Padding" Value="2,0,0,0"/>
         	<Setter Property="Template">
         		<Setter.Value>
         			<ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        
+                        
+                        
         				<ControlTemplate.Resources>
         					<Storyboard x:Key="Storyboard2">
         						<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="stackPanel">
@@ -107,13 +117,63 @@
         				</ControlTemplate.Resources>
         				<Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
         					<StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="#00000000">
-        						<TextBlock Text="{Binding Room}"/>
-        						<CheckBox Content="Охрана" IsChecked="{Binding GuardOn}"/>
-                                <CheckBox Content="Свет" IsChecked="{Binding LightOn}"/>
+                                <TextBlock Text="{Binding Room}"  FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+<!--        						<CheckBox Content="Охрана" IsChecked="{Binding GuardOn}"/>-->
+
+                                <CheckBox IsChecked="{Binding GuardOn}">
+                                    <CheckBox.Template>
+                                        <ControlTemplate TargetType="CheckBox">
+                                            <StackPanel>
+                                                <Image x:Name="_image" Source="imguardoff.png"/>
+                                            </StackPanel>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsChecked" Value="True">
+                                                    <Setter TargetName="_image" Property="Source" Value="imguardon.png"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </CheckBox.Template>
+                                </CheckBox>
+                                <CheckBox IsChecked="{Binding LightOn}">
+                                    <CheckBox.Template>
+                                        <ControlTemplate TargetType="CheckBox">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image x:Name="_image" Source="imlightoff.png"/>
+                                            </StackPanel>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsChecked" Value="True">
+                                                    <Setter TargetName="_image" Property="Source" Value="imlighton.png"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </CheckBox.Template>
+                                </CheckBox>
+
+<!--                                <CheckBox Content="Свет" IsChecked="{Binding LightOn}"/>-->
         					</StackPanel>
         				</Border>
+                        
+             
+                        
         				<ControlTemplate.Triggers>
-        					<DataTrigger Binding="{Binding Alarm}" Value="True">
+
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger> 
+                            
+                            <DataTrigger Binding="{Binding Alarm}" Value="True">
         						<DataTrigger.EnterActions>
         							<BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
         						</DataTrigger.EnterActions>                    			             		
@@ -123,24 +183,94 @@
         		</Setter.Value>
         	</Setter>
         </Style>
+      
+        <DataTemplate x:Key="EquityTemplate">
+
+            <Grid>
+
+                <Rectangle Margin="2" >
+
+                    <Rectangle.Fill>
+
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+
+                            <LinearGradientBrush.GradientStops>
+
+                                <GradientStopCollection>
+
+                                    <GradientStop Color="#aaffffff" Offset="0"/>
+
+                                    <GradientStop Color="transparent" Offset="1"/>
+
+                                </GradientStopCollection>
+
+                            </LinearGradientBrush.GradientStops>
+
+                        </LinearGradientBrush>
+
+                    </Rectangle.Fill>
+
+                </Rectangle>
+
+                <Grid x:Name="StackPanel1" Height="29.1333333333334" Margin="5" >
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="40"/>
+
+                        <ColumnDefinition Width="80"/>
+
+                        <ColumnDefinition Width="80"/>
+
+                        <ColumnDefinition Width="660" />
+
+
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock FontFamily="Segoe UI"    x:Name="TextBlock1" Grid.Column="1"  Width="Auto"  Text="{Binding Mode=OneWay, Path=Number}" Margin="-0.5,0,15.5,12.4666666666666" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto"/>
+
+                    <TextBlock  FontFamily="Segoe UI" Margin="0,0,0,0" Width="Auto" Height="16.6666666666668" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TextBlock1_Copy" Text="{Binding Mode=OneWay, Path=TipeKey}"   FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis"/>
+
+                    <TextBlock  FontFamily="Segoe UI" x:Name="TextBlock2"  Grid.Column="2" Width="60"  Text="{Binding Path=Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="8.005,0,11.995,14.466" Height="Auto" Grid.ColumnSpan="1"/>
+
+                    <TextBlock FontFamily="Segoe UI"  FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Margin="0,14.401,0,0.065" Width="60" Height="Auto" Grid.Column="2" Grid.ColumnSpan="1" x:Name="TextBlock2_Copy" Text="{Binding Mode=OneWay, Path=Key}"  HorizontalAlignment="Center" Background="{x:Null}"/>
+
+                    <TextBlock  FontFamily="Segoe UI" x:Name="TextBlock" Grid.Column="3"  Text="{Binding Mode=OneWay, Path=FinishDate}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Bottom" Margin="18.4,0,0,-0.001" Height="15.667" HorizontalAlignment="Stretch"/>
+
+
+
+                </Grid>
+
+            </Grid>
+
+        </DataTemplate>
     </Window.Resources>
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="Black" Offset="0"/>
+			<GradientStop Color="White" Offset="1"/>
+			<GradientStop Color="#FF7B7B7B" Offset="0.81"/>
+			<GradientStop Color="#FF4B4B4B" Offset="0.341"/>
+		</LinearGradientBrush>
+	</Window.Background>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
-        <ListBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" Width="213" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}" MouseDoubleClick="ListBox1MouseLeftButtonClick" />
-        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" Height="180" HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="247,12,0,0" Name="listBox2" VerticalAlignment="Top" Width="562" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
-        <Button Content="Считать ключ" Height="23" HorizontalAlignment="Left" Margin="247,227,0,0" Name="ButtonReadkey" VerticalAlignment="Top" Width="103" Click="ButtonReadkeyClick" />
-        <Button Content="Назначить ключ" Height="23" HorizontalAlignment="Left" Margin="247,406,0,0" Name="ButtonSetkey" VerticalAlignment="Top" Width="116" Click="ButtonSetkeyClick" />
-        <Button Content="Отменить ключ" Height="23" HorizontalAlignment="Left" Margin="410,403,0,0" Name="ButtonUnsetkey" VerticalAlignment="Top" Width="116" Click="ButtonUnsetkeyClick" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="371,227,0,0" Name="textBoxSetKey" VerticalAlignment="Top" Width="192" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="371,322,0,0" Name="textBoxFIO" VerticalAlignment="Top" Width="192" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="371,274,0,0" Name="comboBoxTypeKey" VerticalAlignment="Top" Width="192">
+        <!--        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" ItemsSource="{Binding}" Margin="247,12,18,316" Name="listBox2" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
+        <Button Content="Считать ключ" Margin="0,0,477,258" Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
+        <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,51" Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
+        <Button Content="Отменить ключ" Margin="0,0,264,51" Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />
+        <TextBox Margin="0,0,264,258" Name="textBoxSetKey" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="192" />
+        <TextBox Margin="0,0,264,163" Name="textBoxFIO" HorizontalAlignment="Right" Width="192" Height="23" VerticalAlignment="Bottom" />
+        <ComboBox Margin="0,0,264,211" Name="comboBoxTypeKey" HorizontalAlignment="Right" Width="192" Height="23" VerticalAlignment="Bottom">
             <ComboBoxItem Content="Гостевой"/>
             <ComboBoxItem Content="Горничный"/>
             <ComboBoxItem Content="Тех. служебный"/>
         </ComboBox>
-        <Label Content="Ключ действителен до:" Height="28" HorizontalAlignment="Left" Margin="607,196,0,0" Name="label1" VerticalAlignment="Top" />
-        <Label Content="Тип ключа:" Height="28" HorizontalAlignment="Left" Margin="247,269,0,0" Name="label4" VerticalAlignment="Top" />
-        <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Left" Margin="247,320,0,0" Name="label5" VerticalAlignment="Top" />
-        <my:Dameer HorizontalAlignment="Left"  Margin="607,222,0,0" Name="dameer1" VerticalAlignment="Top" Width="198" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" />
-        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="674,400,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Label Content="Ключ действителен до:" Height="28" HorizontalAlignment="Right" Margin="0,0,93.076,284" Name="label1" VerticalAlignment="Bottom" />
+        <Label Content="Тип ключа:" Height="28" HorizontalAlignment="Right" Margin="0,0,518.996,211" Name="label4" VerticalAlignment="Bottom" />
+        <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Right" Margin="0,0,490.056,160" Name="label5" VerticalAlignment="Bottom" />
+        <my:Dameer  Margin="0,0,22,252" Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="198" />
+        <Button Content="Button" Margin="0,0,78,85" Name="button1" Click="button1_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" />
+        <ListBox ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}" MouseDoubleClick="ListBox1MouseLeftButtonClick" HorizontalAlignment="Left" Width="213" />
     </Grid>
 </Window>

@@ -19,6 +19,21 @@ namespace ALFA_Client
             _logger.Debug("controller not responsible port name {0}, controller number {1}");
         }
 
+        public void AlertAboutControllerBeganRespond(string portName, byte controllerNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AlertComPortNotResponsible(string portName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AlertComPortBeganRespond(string portName)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AlertGerkon(long roomId)
         {
             _logger.Debug("gercon port name {0}, controller number {1}");

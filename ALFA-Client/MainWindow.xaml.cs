@@ -18,7 +18,7 @@ namespace ALFA_Client
 
         private void LogInClick(object sender, RoutedEventArgs e)
         {
-            Enter(logintext.Text, passtext.Text);
+            Enter(logintext.Text, passtext.Password);
         }
 
         private Logger _logger = LogManager.GetCurrentClassLogger();

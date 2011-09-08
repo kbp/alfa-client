@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AlfaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AlfaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="AlfaModelStoreContainer">
           <EntitySet Name="CellGroup" EntityType="AlfaModel.Store.CellGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Floors" EntityType="AlfaModel.Store.Floors" store:Type="Tables" Schema="dbo" />
@@ -55,6 +55,8 @@
           <Property Name="IPAddress" Type="nchar" MaxLength="50" />
           <Property Name="ComPort" Type="varchar" MaxLength="10" />
           <Property Name="ReaderProtocol" Type="smallint" />
+          <Property Name="Online" Type="bit" />
+          <Property Name="IsPolling" Type="bit" />
         </EntityType>
         <EntityType Name="Keys">
           <Key>
@@ -63,7 +65,7 @@
           <Property Name="KeyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CellNumber" Type="int" Nullable="false" />
           <Property Name="keyCode" Type="varchar" Nullable="false" MaxLength="16" />
-          <Property Name="FIO" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="FIO" Type="varchar" MaxLength="255" />
           <Property Name="GuestIdn" Type="int" />
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="RemoveDate" Type="datetime" />
@@ -271,6 +273,8 @@
           <Property Name="ReaderProtocol" Type="Int16" />
           <NavigationProperty Name="Rooms" Relationship="AlfaModel.FK_Rooms_Floors" FromRole="Floors" ToRole="Rooms" />
           <NavigationProperty Name="Users" Relationship="AlfaModel.FK_Users_Floor" FromRole="Floors" ToRole="Users" />
+          <Property Type="Boolean" Name="Online" />
+          <Property Type="Boolean" Name="IsPolling" />
         </EntityType>
         <EntityType Name="Keys">
           <Key>
@@ -471,7 +475,9 @@
             <ScalarProperty Name="Primech" ColumnName="Primech" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Floors"><EntityTypeMapping TypeName="AlfaModel.Floors"><MappingFragment StoreEntitySet="Floors">
-            <ScalarProperty Name="FloorId" ColumnName="FloorId" />
+            <ScalarProperty Name="IsPolling" ColumnName="IsPolling" />
+                <ScalarProperty Name="Online" ColumnName="Online" />
+                <ScalarProperty Name="FloorId" ColumnName="FloorId" />
             <ScalarProperty Name="FloorName" ColumnName="FloorName" />
             <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
             <ScalarProperty Name="ComPort" ColumnName="ComPort" />

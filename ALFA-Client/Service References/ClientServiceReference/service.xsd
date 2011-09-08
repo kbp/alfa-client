@@ -172,11 +172,50 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetDataBaseConnectionString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetDataBaseConnectionStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetDataBaseConnectionStringResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AlertAboutControllerNotResponsible">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertAboutControllerBeganRespond">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertComPortNotResponsible">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlertComPortBeganRespond">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

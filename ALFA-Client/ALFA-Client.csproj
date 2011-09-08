@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AlfaModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="FloorCollection.cs" />
     <Compile Include="KeysCollection.cs" />
     <Compile Include="RoomCollection.cs" />
     <Compile Include="Service References\ClientServiceReference\Reference.cs">
@@ -95,6 +96,10 @@
       <DependentUpon>user.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserCollection.cs" />
+    <Page Include="ExpressionLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -173,6 +178,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="imguardoff.png" />
+    <Resource Include="imguardon.png" />
+    <Resource Include="imlightoff.png" />
+    <Resource Include="imlighton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

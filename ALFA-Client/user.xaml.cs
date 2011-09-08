@@ -80,7 +80,7 @@ namespace ALFA_Client
 // (wtf) не правильно. а если сервер не отвечает????
             //_clientService.Join(_yComPort);
             // todo надо повешать какой индикатор что сервак не отвечает и нужен метод ping
-            //bool b = _clientService.Join(_yComPort);
+            bool b = _clientService.Join(_yComPort);
             //ConnectToService();
             ButtonSetkey.IsEnabled = false;
             ButtonUnsetkey.IsEnabled = false;

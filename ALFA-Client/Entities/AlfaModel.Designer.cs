@@ -530,6 +530,54 @@ namespace ALFA_Client.Entities
         private Nullable<global::System.Int16> _ReaderProtocol;
         partial void OnReaderProtocolChanging(Nullable<global::System.Int16> value);
         partial void OnReaderProtocolChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Online
+        {
+            get
+            {
+                return _Online;
+            }
+            set
+            {
+                OnOnlineChanging(value);
+                ReportPropertyChanging("Online");
+                _Online = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Online");
+                OnOnlineChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Online;
+        partial void OnOnlineChanging(Nullable<global::System.Boolean> value);
+        partial void OnOnlineChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsPolling
+        {
+            get
+            {
+                return _IsPolling;
+            }
+            set
+            {
+                OnIsPollingChanging(value);
+                ReportPropertyChanging("IsPolling");
+                _IsPolling = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsPolling");
+                OnIsPollingChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsPolling;
+        partial void OnIsPollingChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsPollingChanged();
 
         #endregion
     

@@ -101,8 +101,23 @@
   <wsdl:message name="IClientService_StartFloorPolling_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartFloorPollingResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientService_SetDataBaseConnectionString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetDataBaseConnectionString" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetDataBaseConnectionString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetDataBaseConnectionStringResponse" />
+  </wsdl:message>
   <wsdl:message name="IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertAboutControllerNotResponsible" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertAboutControllerBeganRespond_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertAboutControllerBeganRespond" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertComPortNotResponsible_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertComPortNotResponsible" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_AlertComPortBeganRespond_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AlertComPortBeganRespond" />
   </wsdl:message>
   <wsdl:message name="IClientService_AlertGerkon_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertGerkon" />
@@ -161,8 +176,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IClientService/StartFloorPolling" message="tns:IClientService_StartFloorPolling_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/StartFloorPollingResponse" message="tns:IClientService_StartFloorPolling_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetDataBaseConnectionString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetDataBaseConnectionString" message="tns:IClientService_SetDataBaseConnectionString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetDataBaseConnectionStringResponse" message="tns:IClientService_SetDataBaseConnectionString_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerNotResponsible">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" message="tns:IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerBeganRespond">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerBeganRespond" message="tns:IClientService_AlertAboutControllerBeganRespond_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertComPortNotResponsible">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertComPortNotResponsible" message="tns:IClientService_AlertComPortNotResponsible_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertComPortBeganRespond">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertComPortBeganRespond" message="tns:IClientService_AlertComPortBeganRespond_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertGerkon">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertGerkon" message="tns:IClientService_AlertGerkon_OutputCallbackMessage" />
@@ -279,8 +307,35 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SetDataBaseConnectionString">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetDataBaseConnectionString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AlertAboutControllerNotResponsible">
       <soap12:operation soapAction="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertAboutControllerBeganRespond">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertAboutControllerBeganRespond" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertComPortNotResponsible">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertComPortNotResponsible" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlertComPortBeganRespond">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/AlertComPortBeganRespond" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

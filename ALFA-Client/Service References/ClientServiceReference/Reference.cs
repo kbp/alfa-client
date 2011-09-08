@@ -47,6 +47,9 @@ namespace ALFA_Client.ClientServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/StartFloorPolling", ReplyAction="http://tempuri.org/IClientService/StartFloorPollingResponse")]
         bool StartFloorPolling(string portName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/SetDataBaseConnectionString", ReplyAction="http://tempuri.org/IClientService/SetDataBaseConnectionStringResponse")]
+        bool SetDataBaseConnectionString(string name, string ip, string login, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -54,6 +57,15 @@ namespace ALFA_Client.ClientServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible")]
         void AlertAboutControllerNotResponsible(string portName, byte controllerNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertAboutControllerBeganRespond")]
+        void AlertAboutControllerBeganRespond(string portName, byte controllerNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertComPortNotResponsible")]
+        void AlertComPortNotResponsible(string portName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertComPortBeganRespond")]
+        void AlertComPortBeganRespond(string portName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertGerkon")]
         void AlertGerkon(long roomId);
@@ -138,6 +150,10 @@ namespace ALFA_Client.ClientServiceReference {
         
         public bool StartFloorPolling(string portName) {
             return base.Channel.StartFloorPolling(portName);
+        }
+        
+        public bool SetDataBaseConnectionString(string name, string ip, string login, string password) {
+            return base.Channel.SetDataBaseConnectionString(name, ip, login, password);
         }
     }
 }

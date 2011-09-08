@@ -12,13 +12,14 @@ namespace ALFA_Client
 
     public class RoomsEnter : INotifyPropertyChanged
     {
-        public RoomsEnter(int roomId, int room, bool guardOn, bool lightOn, byte controllerId)
+        public RoomsEnter(int roomId, int room, bool guardOn, bool lightOn, byte controllerId, bool online)
         {
             _room = room;
             _roomId = roomId;
             _guardOn = guardOn;
             _lightOn = lightOn;
             _controllerId = controllerId;
+            _online = online;
             _alarm = false;
         }
 
@@ -26,6 +27,7 @@ namespace ALFA_Client
         private int _roomId;
         private bool _guardOn;
         private bool _lightOn;
+        private bool _online;
         private byte _controllerId;
         private bool _alarm = false;
 
@@ -43,6 +45,12 @@ namespace ALFA_Client
                 _alarm = value;
                 NotifyPropertyChanged("Alarm");
             }
+        }
+
+        public bool Online
+        {
+            get { return _online; }
+            set { _online = value;}
         }
 
         public int RoomId
@@ -169,8 +177,9 @@ namespace ALFA_Client
 
                  if (room.RoomNumber != null)
                  {
-                     this.Add(new RoomsEnter(room.RoomId, (int) room.RoomNumber, (bool) room.IsProtected,
-                                             (bool)room.LightOn, (byte)room.ConrollerId));
+                     if (room.OnLine != null)
+                         this.Add(new RoomsEnter(room.RoomId, (int) room.RoomNumber, (bool) room.IsProtected,
+                                                 (bool)room.LightOn, (byte)room.ConrollerId, (bool)room.OnLine));
                  }
              }
 
