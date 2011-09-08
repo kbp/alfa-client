@@ -23,11 +23,6 @@ namespace ALFA_Client
 
         private Logger _logger = LogManager.GetCurrentClassLogger();
 
-        //todo заменить  messageBox на что нить приличное
-        //todo большинство if можно убрать если выбрать значения по умолчанию в базе данных
-        //(wtf) нельзя называть переменные одной буквой. только прям в ппц простых местах. типо цикла фор на 2 строки.
-        //(wtf) все имена всех переменных должны быть написаны на английском языке, без транслитов, и иметь осмысленные названия
-        //(wtf) l и p прикольные названия, но нихуя не понятные
         private void Enter(string login, string password)
         {
             AlfaEntities alfaEntities = new AlfaEntities();
@@ -38,9 +33,6 @@ namespace ALFA_Client
             }
             else
             {
-                //(wtf) нельзя оборачивать весь код одним try, нифига не понятно где искать ошибки. если оборачиваешь в трай что то, 
-                //(wtf) надо выводить куда то экзепшн, либо в логи либо в System.Diagnostics.Debug.WriteLine(); либо еще куда
-                //(wtf) и вобще try - плохо, надо везде стараться обойтись ифами
                  Users userItem =   (from userse in alfaEntities.Users
                                     where ((userse.Login == login) && (userse.Password == password) && (userse.Remove == null))
                                     select userse).FirstOrDefault();

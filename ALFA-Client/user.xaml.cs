@@ -26,27 +26,10 @@ namespace ALFA_Client
             _clientService = ServiceClient.GetInstance().GetClientServiceClient();
 
             RommsL = this.Resources["RoomsDataSource"] as RoomCollection;
-            _keysCollectionL = this.Resources["KeysDataSource"] as KeysCollection;
+//            _keysCollectionL = this.Resources["KeysDataSource"] as KeysCollection;
 
             _floorId = floor;
 
-            //определение сом порта этажа
-            // todo надо переписать под универсальную строку коннекта когда будет создан админ
-//            string conn = @"Data Source=microsoft-pc;Initial Catalog=ALFA;Integrated Security=True";
-//            SqlConnection sqlComPort = new SqlConnection(conn);
-//            sqlComPort.Open();
-//            string infoAboutComPort = @"SELECT ComPort FROM Floors
-//                                          WHERE (FloorName = '" + _floorId + "')";
-//            SqlCommand sqlinfoAboutComPort = new SqlCommand(infoAboutComPort, sqlComPort);
-//            SqlDataReader rezultat = sqlinfoAboutComPort.ExecuteReader();
-//            rezultat.Read();
-//            _yComPort = (string)rezultat["ComPort"];
-//            rezultat.Close();
-//            sqlComPort.Close();
-
-            
-            
-            
             // ну согласись, лучше чем верхняя портянка, даже если предположить что ты не знаешь Linq то тут все понятно
             AlfaEntities alfaEntities = new AlfaEntities();
 
@@ -54,9 +37,15 @@ namespace ALFA_Client
             _yComPort = (from floorse in alfaEntities.Floors
                          where floorse.FloorId == _floorId
                          select floorse.ComPort).FirstOrDefault();
+
+            _connection = new Thread(ConnectToService);
+            _connection.Start();
         }
 
+        private Thread _connection;
+
         private int _floorId;
+
         public int Floor
         {
             get { return _floorId; }
@@ -77,16 +66,9 @@ namespace ALFA_Client
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
             RommsL.Fill(_floorId);
-// (wtf) не правильно. а если сервер не отвечает????
-            //_clientService.Join(_yComPort);
-            // todo надо повешать какой индикатор что сервак не отвечает и нужен метод ping
-            bool b = _clientService.Join(_yComPort);
-            //ConnectToService();
             ButtonSetkey.IsEnabled = false;
             ButtonUnsetkey.IsEnabled = false;
             comboBoxTypeKey.IsEnabled = false;
-           //comboBoxMinutes.IsEnabled = false;
-           // comboBoxHour.IsEnabled = false;
             textBoxFIO.IsEnabled = false;
             dameer1.IsEnabled = false;
             textBoxSetKey.IsEnabled = false;
@@ -100,11 +82,9 @@ namespace ALFA_Client
                 {
                     return;
                 }
-                else
-                {
-                    Thread.Sleep(3000);
-                    _clientService.Join(_yComPort);
-                }
+                
+                Thread.Sleep(3000);
+                _clientService.Join(_yComPort);
             }
             catch (Exception exception)
             {
@@ -112,13 +92,11 @@ namespace ALFA_Client
             }
         }
 
-
-
         private void ListBox1MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
         {
-            RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
-            if (roomSelection != null) 
-                _keysCollectionL.Fill(roomSelection.RoomId);
+//            RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
+//            if (roomSelection != null) 
+//                _keysCollectionL.Fill(roomSelection.RoomId);
         }
 
         private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
@@ -179,9 +157,6 @@ namespace ALFA_Client
 
                 MessageBox.Show("Не удалось считать ключ!");
             }
-            
-
-
         }
 
         private void ButtonSetkeyClick(object sender, RoutedEventArgs e)
@@ -207,7 +182,7 @@ namespace ALFA_Client
                 //почему номер ячейки в контроллере байтовский???????????????
                 if (keySelectionToset != null && roomSelectionTosetKey != null)
                 {
-                    bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _yComPort, (byte) roomSelectionTosetKey.ControllerId,
+                    bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _yComPort, roomSelectionTosetKey.ControllerId,
                                                       textBoxFIO.Text, selectedDate);
                 
                     if (setkey == true)
@@ -233,7 +208,7 @@ namespace ALFA_Client
             //почему тут уже ControllerId byte а в setkey был int???????????
             if (roomSelectionToUnsetKey != null && keySelection != null)
             {
-                bool unsetkey = _clientService.UnsetKey(_yComPort, (byte) roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
+                bool unsetkey = _clientService.UnsetKey(_yComPort, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
                 if (unsetkey == true)
                 {
                     RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
@@ -249,14 +224,10 @@ namespace ALFA_Client
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
             foreach (RoomsEnter roomsEnter in RommsL)
             {
-                    roomsEnter.Alarm = true;
+                roomsEnter.Alarm = true;
             }
-            
         }
-
-
     }
 }

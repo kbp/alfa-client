@@ -69,8 +69,6 @@ namespace ALFA_Client
             
             foreach (Keys keyse in keyses)
             {
-                // так он же тебе подписал в чем ты ошибся =) 
-                // ты пытался тип стрин перегнать в стринг, при том считая что это не стринг, а массив байтов
                 base.Add(new KeysEnter(keyse.CellNumber, keyse.Type, keyse.FIO, keyse.keyCode, keyse.EndDate));
             }
         }

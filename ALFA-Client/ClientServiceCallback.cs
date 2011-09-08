@@ -17,16 +17,18 @@ namespace ALFA_Client
         public void AlertAboutControllerNotResponsible(string portName, byte controllerNumber)
         {
             _logger.Debug("controller not responsible port name {0}, controller number {1}");
+            RoomCollection.RemoveByControllerNumber(controllerNumber);
         }
 
         public void AlertAboutControllerBeganRespond(string portName, byte controllerNumber)
         {
-            throw new NotImplementedException();
+            _logger.Debug("controller began respond port name {0}, controller number {1}");
+            RoomCollection.AddByControllerNumber(portName, controllerNumber);
+
         }
 
         public void AlertComPortNotResponsible(string portName)
         {
-            throw new NotImplementedException();
         }
 
         public void AlertComPortBeganRespond(string portName)

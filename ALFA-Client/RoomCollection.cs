@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using ALFA_Client.ClientServiceReference;
 
 namespace ALFA_Client
 {
@@ -21,6 +19,8 @@ namespace ALFA_Client
             _controllerId = controllerId;
             _online = online;
             _alarm = false;
+            _keys = new KeysCollection();
+            _keys.Fill(roomId);
         }
 
         private int _room;
@@ -64,7 +64,6 @@ namespace ALFA_Client
             get { return _guardOn; }
             set
             {
-                _guardOn = value;
                 AlfaEntities alfaEntities = new AlfaEntities();
 
                 var room = (from rooms in alfaEntities.Rooms.Include("Floors")
@@ -72,8 +71,10 @@ namespace ALFA_Client
                             select rooms).FirstOrDefault();
                 if (room != null)
                 {
-                    ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(room.Floors.ComPort,
-                                                                                          _controllerId, value);
+                    if (ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(room.Floors.ComPort, _controllerId, value))
+                    {
+                        _guardOn = value;
+                    }
                 }
             }
         }
@@ -83,7 +84,7 @@ namespace ALFA_Client
             get { return _lightOn; }
             set 
             { 
-                _lightOn = value;
+                //todo сдлать обработку ошибок, точней обработку FALSE значений которые возвращает сервер
                 AlfaEntities alfaEntities = new AlfaEntities();
 
                 var room = (from rooms in alfaEntities.Rooms.Include("Floors")
@@ -91,8 +92,10 @@ namespace ALFA_Client
                             select rooms).FirstOrDefault();
                 if (room != null)
                 {
-                    ServiceClient.GetInstance().GetClientServiceClient().SetLight(room.Floors.ComPort, _controllerId,
-                                                                                  value);
+                    if (ServiceClient.GetInstance().GetClientServiceClient().SetLight(room.Floors.ComPort, _controllerId, value))
+                    {
+                        _lightOn = value;
+                    }
                 }
             }
         }
@@ -101,6 +104,17 @@ namespace ALFA_Client
         {
             get { return _controllerId; }
             set { _controllerId = value; }
+        }
+
+        private KeysCollection _keys;
+        public KeysCollection Keys
+        {
+            get { return _keys; }
+            set
+            {
+                NotifyPropertyChanged("Keys");
+                _keys = value;
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -115,7 +129,7 @@ namespace ALFA_Client
 
     }
 
-     public class RoomCollection : ObservableCollection<RoomsEnter>
+     public class RoomCollection : ObservableCollection<RoomsEnter>, INotifyPropertyChanged
      {
          public RoomCollection()
          {
@@ -123,27 +137,6 @@ namespace ALFA_Client
          }
 
          private static RoomCollection _roomCollection;
-
-
-        //const string Conn = @"Data Source=microsoft-pc;Initial Catalog=ALFA;Integrated Security=True";
-//        
-//         public void Fill(int floorid)
-//        {
-//            SqlConnection sqlRoom = new SqlConnection(Conn);
-//            sqlRoom.Open();
-//            string infoAboutRooms = @"SELECT RoomId, RoomNumber, IsProtected, LightOn, ControllerId FROM RoomCollection
-//                                 WHERE (FloorId = '" + floorid + "')";
-//            SqlCommand sqlInfoAboutRooms = new SqlCommand(infoAboutRooms, sqlRoom);
-//            SqlDataReader tabRooms = sqlInfoAboutRooms.ExecuteReader();
-//
-//            while (tabRooms.Read())
-//            {
-//                base.Add(new RoomsEnter((int)tabRooms["RoomId"], (int)tabRooms["RoomNumber"], (bool)tabRooms["IsProtected"], (bool)tabRooms["LightOn"], (int)tabRooms["ControllerId"]));
-//            }
-//
-//            tabRooms.Close();
-//            sqlRoom.Close();
-//        }
 
          public static void UpdateGerkon(long roomId)
          {
@@ -158,13 +151,16 @@ namespace ALFA_Client
 
          public void Fill(int floorId)
          {
+             _roomsCount = 0;
              AlfaEntities alfaEntities = new AlfaEntities();
              IEnumerable<Rooms> rooms = from roomse in alfaEntities.Rooms
                                         where roomse.FloorId == floorId
                                         select roomse;
 
+             //todo можно убрать вместе с ифами когда будут выставлены дефалтные значения в базе
              foreach (var room in rooms)
              {
+                 _roomsCount++;
                  if (room.IsProtected == null)
                  {
                      room.IsProtected = false;
@@ -180,13 +176,87 @@ namespace ALFA_Client
                      if (room.OnLine != null)
                          this.Add(new RoomsEnter(room.RoomId, (int) room.RoomNumber, (bool) room.IsProtected,
                                                  (bool)room.LightOn, (byte)room.ConrollerId, (bool)room.OnLine));
+
                  }
              }
 
-             // в случае пустых данных в базе сохранить дефалтные данные
-             //todo можно убрать вместе с ифами когда будут выставлены дефалтные значения в базе
-             alfaEntities.SaveChanges();
+             Counter = "" + this.Count + "/" + _roomsCount;
+             Counter = "" + this.Count + "/" + _roomsCount;
+             //todo wtf
+         }
+
+         public static void RemoveByControllerNumber(byte controllerNumber)
+         {
+             foreach (RoomsEnter roomsEnter in _roomCollection)
+             {
+                 if (roomsEnter.ControllerId == controllerNumber)
+                 {
+                     _roomCollection.Remove(roomsEnter);
+                 }
+             }
+             _roomCollection.Counter = "" + _roomCollection.Count + "/" + _roomCollection._roomsCount;
+         }
+
+         public static void AddByControllerNumber(string portName, byte controllerNumber)
+         {
+             AlfaEntities alfaEntities = new AlfaEntities();
+
+             Rooms room = (from roomse in alfaEntities.Rooms.Include("Floors")
+                           where roomse.Floors.ComPort == portName && roomse.ConrollerId == controllerNumber
+                           select roomse).FirstOrDefault();
+
+             if (room.IsProtected == null)
+             {
+                 room.IsProtected = false;
+             }
+
+             if (room.LightOn == null)
+             {
+                 room.LightOn = true;
+             }
+
+             if (room != null)
+             {
+                 _roomCollection.Add(new RoomsEnter(room.RoomId, (int)room.RoomNumber, (bool) room.IsProtected, (bool) room.LightOn, 
+                     (byte) room.ConrollerId, (bool)room.OnLine));
+             }
+
+             _roomCollection.Counter = "" + _roomCollection.Count + "/" + _roomCollection._roomsCount;
+         }
+
+         public static void UpdateKeys(string portName, byte controllerNumber)
+         {
+             foreach (RoomsEnter roomsEnter in _roomCollection)
+             {
+                 if (roomsEnter.ControllerId == controllerNumber)
+                 {
+                     roomsEnter.Keys.Fill(roomsEnter.RoomId);
+                     return;
+                 }
+             }
+         }
+
+         private int _roomsCount;
+
+         private string _counter;
+         public string Counter
+         {
+             get { return _counter; }
+             set
+             {
+                 NotifyPropertyChanged("Counter");
+                 _counter = value;
+             }
+         }
+
+         public event PropertyChangedEventHandler PropertyChanged;
+
+         private void NotifyPropertyChanged(String info)
+         {
+             if (PropertyChanged != null)
+             {
+                 PropertyChanged(this, new PropertyChangedEventArgs(info));
+             }
          }
      }
-
 }

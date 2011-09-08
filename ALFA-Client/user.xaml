@@ -14,6 +14,7 @@
         <Style x:Key="ListBoxItemStyle1" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             <Setter Property="Padding" Value="2,0,0,0"/>
             <Setter Property="Template">
@@ -255,7 +256,8 @@
 	</Window.Background>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
         <!--        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" ItemsSource="{Binding}" Margin="247,12,18,316" Name="listBox2" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />
+<!--        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Path=Keys}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True"/>
         <Button Content="Считать ключ" Margin="0,0,477,258" Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
         <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,51" Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
         <Button Content="Отменить ключ" Margin="0,0,264,51" Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />
@@ -271,6 +273,7 @@
         <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Right" Margin="0,0,490.056,160" Name="label5" VerticalAlignment="Bottom" />
         <my:Dameer  Margin="0,0,22,252" Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="198" />
         <Button Content="Button" Margin="0,0,78,85" Name="button1" Click="button1_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" />
-        <ListBox ItemsSource="{Binding}" Margin="10,10,0,12" Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}" MouseDoubleClick="ListBox1MouseLeftButtonClick" HorizontalAlignment="Left" Width="213" />
+        <ListBox ItemsSource="{Binding}" Margin="10,10,0,51" Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="213" IsSynchronizedWithCurrentItem="True"/>
+        <TextBlock Text="{Binding Path=Counter}" HorizontalAlignment="Left" Margin="12,0,0,12" Name="textCounter" Width="211" Height="23" VerticalAlignment="Bottom" />
     </Grid>
 </Window>
