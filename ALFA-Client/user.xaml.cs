@@ -24,8 +24,8 @@ namespace ALFA_Client
             Logger logger = LogManager.GetCurrentClassLogger();
             logger.Info("user windows init");
             _clientService = ServiceClient.GetInstance().GetClientServiceClient();
-
-            RommsL = this.Resources["RoomsDataSource"] as RoomCollection;
+//            ррбля!
+            _roomCollection = this.Resources["RoomsDataSource"] as RoomCollection;
 //            _keysCollectionL = this.Resources["KeysDataSource"] as KeysCollection;
 
             _floorId = floor;
@@ -60,12 +60,11 @@ namespace ALFA_Client
             set { _yComPort = value; }
         } 
 
-        RoomCollection RommsL;
-        KeysCollection _keysCollectionL;
+        private RoomCollection _roomCollection;
         
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            RommsL.Fill(_floorId);
+            _roomCollection.Fill(_floorId);
             ButtonSetkey.IsEnabled = false;
             ButtonUnsetkey.IsEnabled = false;
             comboBoxTypeKey.IsEnabled = false;
@@ -183,13 +182,13 @@ namespace ALFA_Client
                 if (keySelectionToset != null && roomSelectionTosetKey != null)
                 {
                     bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _yComPort, roomSelectionTosetKey.ControllerId,
-                                                      textBoxFIO.Text, selectedDate);
+                                                      textBoxFIO.Text, (byte)comboBoxTypeKey.SelectedIndex, selectedDate);
                 
                     if (setkey == true)
                     {
                         RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
                         if (roomSelection != null) 
-                            _keysCollectionL.Fill(roomSelection.RoomId);
+                            roomSelection.Keys.Fill(roomSelection.RoomId);
                     }
                     else
                     {
@@ -209,11 +208,11 @@ namespace ALFA_Client
             if (roomSelectionToUnsetKey != null && keySelection != null)
             {
                 bool unsetkey = _clientService.UnsetKey(_yComPort, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
-                if (unsetkey == true)
+                if (unsetkey)
                 {
                     RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
                     if (roomSelection != null) 
-                        _keysCollectionL.Fill(roomSelection.RoomId);
+                        roomSelection.Keys.Fill(roomSelection.RoomId);
                 }
                 else
                 {
@@ -224,7 +223,7 @@ namespace ALFA_Client
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            foreach (RoomsEnter roomsEnter in RommsL)
+            foreach (RoomsEnter roomsEnter in _roomCollection)
             {
                 roomsEnter.Alarm = true;
             }

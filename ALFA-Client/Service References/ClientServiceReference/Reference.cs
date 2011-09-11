@@ -16,7 +16,7 @@ namespace ALFA_Client.ClientServiceReference {
     public interface IClientService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/SetKey", ReplyAction="http://tempuri.org/IClientService/SetKeyResponse")]
-        bool SetKey(byte[] key, byte number, string portName, byte controllerNumber, string name, System.DateTime endDate);
+        bool SetKey(byte[] key, byte number, string portName, byte controllerNumber, string name, byte type, System.DateTime endDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/UnsetKey", ReplyAction="http://tempuri.org/IClientService/UnsetKeyResponse")]
         bool UnsetKey(string portName, byte controllerNumber, byte number);
@@ -108,8 +108,8 @@ namespace ALFA_Client.ClientServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool SetKey(byte[] key, byte number, string portName, byte controllerNumber, string name, System.DateTime endDate) {
-            return base.Channel.SetKey(key, number, portName, controllerNumber, name, endDate);
+        public bool SetKey(byte[] key, byte number, string portName, byte controllerNumber, string name, byte type, System.DateTime endDate) {
+            return base.Channel.SetKey(key, number, portName, controllerNumber, name, type, endDate);
         }
         
         public bool UnsetKey(string portName, byte controllerNumber, byte number) {

@@ -44,6 +44,7 @@ namespace ALFA_Client
 
         public void AlertUnsetKey(string portName, byte controllerNumber)
         {
+            RoomCollection.UpdateKeys(portName, controllerNumber);
             _logger.Debug("unset key port name {0}, controller number {1}");
         }
 
