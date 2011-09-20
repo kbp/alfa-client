@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows;
@@ -220,12 +221,58 @@ namespace ALFA_Client
                 }
             }
         }
-
+        public string roomiid;
+        public int roomnumb;
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            foreach (RoomsEnter roomsEnter in _roomCollection)
+           // string roomiid;
+            try
             {
-                roomsEnter.Alarm = true;
+                _key = _clientService.ReadKey(_yComPort);
+                textBoxSetKey.Text = BitConverter.ToString(_key);
+
+
+
+                string conn = @"Data Source=192.168.244.86;Initial Catalog=Alfa; User ID=sa; Password=adminis; Integrated Security=False";
+                string Poisk_Key = @"SELECT RoomId
+                                    FROM Keys
+                                    WHERE (keyCode = '" + BitConverter.ToString(_key) + "')";
+
+
+                SqlConnection sqlConZapros_Key = new SqlConnection(conn);
+                sqlConZapros_Key.Open();
+                SqlCommand sqlPoisk_Key = new SqlCommand(Poisk_Key, sqlConZapros_Key);
+
+                SqlDataReader KEY = sqlPoisk_Key.ExecuteReader();
+                KEY.Read();
+                roomiid = (string)KEY["RoomId"];
+                KEY.Close();
+                sqlConZapros_Key.Close();
+
+                string Poisk_Room = @"SELECT RoomNumber
+                                    FROM Rooms
+                                    WHERE (RoomId = '" + roomiid + "')";
+
+
+                SqlConnection sqlConZapros_Room = new SqlConnection(conn);
+                sqlConZapros_Room.Open();
+                SqlCommand sqlPoisk_Room = new SqlCommand(Poisk_Room, sqlConZapros_Room);
+
+                SqlDataReader ROOM = sqlPoisk_Room.ExecuteReader();
+                ROOM.Read();
+                roomnumb = (int)ROOM["RoomNumber"];
+                ROOM.Close();
+                sqlConZapros_Room.Close();
+
+                textBlock1.Text = "";
+                textBlock1.Text = roomnumb.ToString();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Не удалось считать ключ для проверки!");
+
             }
         }
     }

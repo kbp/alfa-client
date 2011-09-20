@@ -259,8 +259,8 @@
 <!--        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
         <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Path=Keys}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True"/>
         <Button Content="Считать ключ" Margin="0,0,477,258" Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
-        <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,51" Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
-        <Button Content="Отменить ключ" Margin="0,0,264,51" Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />
+        <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,92" Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
+        <Button Content="Отменить ключ" Margin="0,0,264,92" Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />
         <TextBox Margin="0,0,264,258" Name="textBoxSetKey" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="192" />
         <TextBox Margin="0,0,264,163" Name="textBoxFIO" HorizontalAlignment="Right" Width="192" Height="23" VerticalAlignment="Bottom" />
         <ComboBox Margin="0,0,264,211" Name="comboBoxTypeKey" HorizontalAlignment="Right" Width="192" Height="23" VerticalAlignment="Bottom">
@@ -272,8 +272,9 @@
         <Label Content="Тип ключа:" Height="28" HorizontalAlignment="Right" Margin="0,0,518.996,211" Name="label4" VerticalAlignment="Bottom" />
         <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Right" Margin="0,0,490.056,160" Name="label5" VerticalAlignment="Bottom" />
         <my:Dameer  Margin="0,0,22,252" Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="198" />
-        <Button Content="Button" Margin="0,0,78,85" Name="button1" Click="button1_Click" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="75" />
+        <Button Content="Проверка ключа" Margin="0,0,68,92" Name="button1" Click="button1_Click" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="168" />
         <ListBox ItemsSource="{Binding}" Margin="10,10,0,51" Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="213" IsSynchronizedWithCurrentItem="True"/>
         <TextBlock Text="{Binding Path=Counter}" HorizontalAlignment="Left" Margin="12,0,0,12" Name="textCounter" Width="211" Height="23" VerticalAlignment="Bottom" />
+        <TextBlock Height="53" HorizontalAlignment="Left" Margin="241,0,0,12" Name="textBlock1" VerticalAlignment="Bottom" Width="512" TextAlignment="Center" FontSize="28" />
     </Grid>
 </Window>

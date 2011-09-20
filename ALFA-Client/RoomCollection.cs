@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading;
 
 namespace ALFA_Client
 {
@@ -134,18 +135,30 @@ namespace ALFA_Client
          public RoomCollection()
          {
              _roomCollection = this;
+             _stopAlarm = new Thread(SetAlertFalse);
          }
 
          private static RoomCollection _roomCollection;
 
+         private static Thread _stopAlarm;
+         private void SetAlertFalse(object index)
+         {
+             Thread.Sleep(3000);
+             _roomCollection[(int)index].Alarm = false;
+         }
+
          public static void UpdateGerkon(long roomId)
          {
+             int index = 0;
              foreach (RoomsEnter roomsEnter in _roomCollection)
              {
                  if (roomsEnter.RoomId == roomId)
                  {
                      roomsEnter.Alarm = true;
+                     _stopAlarm.Start(index);
                  }
+
+                 index++;
              }
          }
 
