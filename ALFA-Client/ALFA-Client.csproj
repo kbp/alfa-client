@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="FloorCollection.cs" />
     <Compile Include="KeysCollection.cs" />
+    <Compile Include="Models\LogCollection.cs" />
     <Compile Include="RoomCollection.cs" />
     <Compile Include="Service References\ClientServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>

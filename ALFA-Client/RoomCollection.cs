@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
@@ -72,9 +73,16 @@ namespace ALFA_Client
                             select rooms).FirstOrDefault();
                 if (room != null)
                 {
-                    if (ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(room.Floors.ComPort, _controllerId, value))
+                    try
                     {
-                        _guardOn = value;
+                        if (ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(room.Floors.ComPort, _controllerId, value))
+                        {
+                            _guardOn = value;
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show(e.ToString());
                     }
                 }
             }
@@ -93,10 +101,18 @@ namespace ALFA_Client
                             select rooms).FirstOrDefault();
                 if (room != null)
                 {
-                    if (ServiceClient.GetInstance().GetClientServiceClient().SetLight(room.Floors.ComPort, _controllerId, value))
+                    try
                     {
-                        _lightOn = value;
+                        if (ServiceClient.GetInstance().GetClientServiceClient().SetLight(room.Floors.ComPort, _controllerId, value))
+                        {
+                            _lightOn = value;
+                        }
                     }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString());
+                    }
+
                 }
             }
         }
@@ -165,6 +181,7 @@ namespace ALFA_Client
          public void Fill(int floorId)
          {
              _roomsCount = 0;
+             int roomsIsProtected = 0;
              AlfaEntities alfaEntities = new AlfaEntities();
              IEnumerable<Rooms> rooms = from roomse in alfaEntities.Rooms
                                         where roomse.FloorId == floorId
@@ -186,6 +203,11 @@ namespace ALFA_Client
 
                  if (room.RoomNumber != null)
                  {
+                     if (room.IsProtected == true)
+                     {
+                         roomsIsProtected++;
+                     }
+
                      if (room.OnLine != null)
                          this.Add(new RoomsEnter(room.RoomId, (int) room.RoomNumber, (bool) room.IsProtected,
                                                  (bool)room.LightOn, (byte)room.ConrollerId, (bool)room.OnLine));
@@ -193,9 +215,9 @@ namespace ALFA_Client
                  }
              }
 
-             Counter = "" + this.Count + "/" + _roomsCount;
-             Counter = "" + this.Count + "/" + _roomsCount;
-             //todo wtf
+             RoomsCount = _roomsCount;
+             RoomsOnline = _roomsOnline;
+             RoomsProtected = roomsIsProtected;
          }
 
          public static void RemoveByControllerNumber(byte controllerNumber)
@@ -207,7 +229,7 @@ namespace ALFA_Client
                      _roomCollection.Remove(roomsEnter);
                  }
              }
-             _roomCollection.Counter = "" + _roomCollection.Count + "/" + _roomCollection._roomsCount;
+             _roomCollection.RoomsCount = _roomCollection.Count;
          }
 
          public static void AddByControllerNumber(string portName, byte controllerNumber)
@@ -234,7 +256,7 @@ namespace ALFA_Client
                      (byte) room.ConrollerId, (bool)room.OnLine));
              }
 
-             _roomCollection.Counter = "" + _roomCollection.Count + "/" + _roomCollection._roomsCount;
+             _roomCollection.RoomsCount = _roomCollection.Count;
          }
 
          public static void UpdateKeys(string portName, byte controllerNumber)
@@ -250,20 +272,39 @@ namespace ALFA_Client
          }
 
          private int _roomsCount;
-
-         private string _counter;
-         public string Counter
+         public int RoomsCount
          {
-             get { return _counter; }
+             get { return _roomsCount; }
              set
              {
-                 NotifyPropertyChanged("Counter");
-                 _counter = value;
+                 NotifyPropertyChanged("RoomsCount");
+                 _roomsCount = value;
+             }
+         }
+
+         private int _roomsOnline;
+         public int RoomsOnline
+         {
+             get { return _roomsOnline; }
+             set
+             {
+                 NotifyPropertyChanged("RoomsOnline");
+                 _roomsOnline = value;
+             }
+         }
+
+         private int _roomsProtected;
+         public int RoomsProtected
+         {
+             get { return _roomsProtected; }
+             set
+             {
+                 NotifyPropertyChanged("RoomsProtected");
+                 _roomsProtected = value;
              }
          }
 
          public event PropertyChangedEventHandler PropertyChanged;
-
          private void NotifyPropertyChanged(String info)
          {
              if (PropertyChanged != null)

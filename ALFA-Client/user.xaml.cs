@@ -5,6 +5,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Linq;
+using ALFA_Client.Models;
 using NLog;
 
 
@@ -24,10 +25,10 @@ namespace ALFA_Client
 
             Logger logger = LogManager.GetCurrentClassLogger();
             logger.Info("user windows init");
+
             _clientService = ServiceClient.GetInstance().GetClientServiceClient();
-//            ррбля!
             _roomCollection = this.Resources["RoomsDataSource"] as RoomCollection;
-//            _keysCollectionL = this.Resources["KeysDataSource"] as KeysCollection;
+            _alfaEventLog = Resources["LogCollectionDataSource"] as LogCollection;
 
             _floorId = floor;
 
@@ -39,11 +40,13 @@ namespace ALFA_Client
                          where floorse.FloorId == _floorId
                          select floorse.ComPort).FirstOrDefault();
 
-            _connection = new Thread(ConnectToService);
-            _connection.Start();
+            _connectionThread = new Thread(ConnectToService);
+            _connectionThread.Start();
         }
 
-        private Thread _connection;
+        private LogCollection _alfaEventLog = new LogCollection();
+
+        private readonly Thread _connectionThread;
 
         private int _floorId;
 
@@ -92,13 +95,6 @@ namespace ALFA_Client
             }
         }
 
-        private void ListBox1MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
-        {
-//            RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
-//            if (roomSelection != null) 
-//                _keysCollectionL.Fill(roomSelection.RoomId);
-        }
-
         private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
         {
             KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
@@ -137,18 +133,24 @@ namespace ALFA_Client
         }
 
         private byte[] _key;
-        private byte[] _yControllerId;
-        
+
         private void ButtonReadkeyClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                _key = _clientService.ReadKey(_yComPort);
+                
+                try
+                {
+                    _key = _clientService.ReadKey(_yComPort);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.ToString());
+                }
+                
                 textBoxSetKey.Text = BitConverter.ToString(_key);
                 ButtonSetkey.IsEnabled = true;
                 comboBoxTypeKey.IsEnabled = true;
-             //   comboBoxMinutes.IsEnabled = true;
-            //    comboBoxHour.IsEnabled = true;
                 textBoxFIO.IsEnabled = true;
                 dameer1.IsEnabled = true;
             }
@@ -205,7 +207,6 @@ namespace ALFA_Client
             KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
             RoomsEnter roomSelectionToUnsetKey = listBox1.SelectedItem as RoomsEnter;
 
-            //почему тут уже ControllerId byte а в setkey был int???????????
             if (roomSelectionToUnsetKey != null && keySelection != null)
             {
                 bool unsetkey = _clientService.UnsetKey(_yComPort, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
@@ -221,58 +222,36 @@ namespace ALFA_Client
                 }
             }
         }
-        public string roomiid;
-        public int roomnumb;
-        private void button1_Click(object sender, RoutedEventArgs e)
+
+        private void ButtonCheckKeyClick(object sender, RoutedEventArgs e)
         {
-           // string roomiid;
-            try
+            if (textBoxSetKey.Text != "00")
             {
-                _key = _clientService.ReadKey(_yComPort);
-                textBoxSetKey.Text = BitConverter.ToString(_key);
+                AlfaEntities alfaEntities = new AlfaEntities();
+                IQueryable<Keys> keys = from keyes in alfaEntities.Keys.Include("Rooms")
+                                        where (keyes.keyCode == textBoxSetKey.Text)
+                                        select keyes;
 
+                if (keys.Count() > 5)
+                {
+                    MessageBox.Show(
+                        "Данный ключ закреплен за множеством комнат, для уточнения информации обратитесь к администратору");
+                    return;
+                }
 
+                bool first = true;
+                string message = "";
+                foreach (Keys keyse in keys)
+                {
+                    if (first)
+                    {
+                        message = "Код ключа: " + keyse.keyCode + "\n";
+                        first = false;
+                    }
+                    message += "ФИО: " + keyse.FIO + "   " + "Комната №" + keyse.Rooms.RoomNumber;
+                }
 
-                string conn = @"Data Source=192.168.244.86;Initial Catalog=Alfa; User ID=sa; Password=adminis; Integrated Security=False";
-                string Poisk_Key = @"SELECT RoomId
-                                    FROM Keys
-                                    WHERE (keyCode = '" + BitConverter.ToString(_key) + "')";
-
-
-                SqlConnection sqlConZapros_Key = new SqlConnection(conn);
-                sqlConZapros_Key.Open();
-                SqlCommand sqlPoisk_Key = new SqlCommand(Poisk_Key, sqlConZapros_Key);
-
-                SqlDataReader KEY = sqlPoisk_Key.ExecuteReader();
-                KEY.Read();
-                roomiid = (string)KEY["RoomId"];
-                KEY.Close();
-                sqlConZapros_Key.Close();
-
-                string Poisk_Room = @"SELECT RoomNumber
-                                    FROM Rooms
-                                    WHERE (RoomId = '" + roomiid + "')";
-
-
-                SqlConnection sqlConZapros_Room = new SqlConnection(conn);
-                sqlConZapros_Room.Open();
-                SqlCommand sqlPoisk_Room = new SqlCommand(Poisk_Room, sqlConZapros_Room);
-
-                SqlDataReader ROOM = sqlPoisk_Room.ExecuteReader();
-                ROOM.Read();
-                roomnumb = (int)ROOM["RoomNumber"];
-                ROOM.Close();
-                sqlConZapros_Room.Close();
-
-                textBlock1.Text = "";
-                textBlock1.Text = roomnumb.ToString();
-
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Не удалось считать ключ для проверки!");
-
+                MessageBox.Show(message);
             }
         }
     }
