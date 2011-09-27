@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ALFA_Client.Models
 {
-    public class LogCollection : ObservableCollection<AlfaClientLog>
+    public class LogCollection : MTObservableCollection<AlfaClientLog>
     {
         static LogCollection _instance = null;
         static readonly object Lock = new object();
@@ -23,18 +23,21 @@ namespace ALFA_Client.Models
                 return _instance;
             }
         }
+
+        public void Info(string message)
+        {
+            Add(new AlfaClientLog(message));
+        }
     }
 
     public class AlfaClientLog
     {
-        public AlfaClientLog(DateTime time, string eve)
+        public AlfaClientLog(string message)
         {
-            Time = time;
-            Event = eve;
-//            Room = room;
+            Time = DateTime.Now;
+            Message = message;
         }
         public DateTime Time { get; set; }
-        public string Event { get; set; }
-        public string Room { get; set; }
+        public string Message { get; set; }
     }
 }

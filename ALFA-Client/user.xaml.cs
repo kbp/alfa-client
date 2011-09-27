@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.ServiceModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
@@ -18,17 +17,15 @@ namespace ALFA_Client
     /// </summary>
     public partial class User
     {
-        private readonly ClientServiceClient _clientService;
+        private ClientServiceClient _clientService;
         public User(string username, bool guartOn, bool alarmOn, bool keyOnOff, bool datX, int cellgroup, string catRoom, int floor)
         {
-            InitializeComponent();
 
             Logger logger = LogManager.GetCurrentClassLogger();
             logger.Info("user windows init");
 
-            _clientService = ServiceClient.GetInstance().GetClientServiceClient();
-            _roomCollection = this.Resources["RoomsDataSource"] as RoomCollection;
-            _alfaEventLog = Resources["LogCollectionDataSource"] as LogCollection;
+            InitializeComponent();
+
 
             _floorId = floor;
 
@@ -36,17 +33,12 @@ namespace ALFA_Client
             AlfaEntities alfaEntities = new AlfaEntities();
 
             // todo ошибочно считается что не может быть ситуации когда забит этаж и не указан ком порт, надо обработать это исключение
-            _yComPort = (from floorse in alfaEntities.Floors
+            _portName = (from floorse in alfaEntities.Floors
                          where floorse.FloorId == _floorId
                          select floorse.ComPort).FirstOrDefault();
-
-            _connectionThread = new Thread(ConnectToService);
-            _connectionThread.Start();
         }
 
-        private LogCollection _alfaEventLog = new LogCollection();
-
-        private readonly Thread _connectionThread;
+        private LogCollection _alfaEventLog;
 
         private int _floorId;
 
@@ -57,42 +49,41 @@ namespace ALFA_Client
         }
 
 
-        private string _yComPort;
-        public string ComPort
+        private static string _portName;
+        public static string PortName
         {
-            get { return _yComPort; }
-            set { _yComPort = value; }
+            get { return _portName; }
+            set { _portName = value; }
         } 
 
         private RoomCollection _roomCollection;
         
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-            _roomCollection.Fill(_floorId);
+            _clientService = ServiceClient.GetInstance().GetClientServiceClient();
+            _roomCollection = Resources["RoomsDataSource"] as RoomCollection;
+
+            _alfaEventLog = LogCollection.GetInstance();
+            listBoxLog.DataContext = _alfaEventLog;
+            gridCounter.DataContext = Counter.GetInstance();
+
+            checkBoxConnection.DataContext = ServiceClient.GetInstance();
+
+            if (_roomCollection != null)
+            {
+                _roomCollection.Fill(_floorId);
+            }
+
             ButtonSetkey.IsEnabled = false;
             ButtonUnsetkey.IsEnabled = false;
             comboBoxTypeKey.IsEnabled = false;
             textBoxFIO.IsEnabled = false;
             dameer1.IsEnabled = false;
             textBoxSetKey.IsEnabled = false;
-        }
 
-        private void ConnectToService()
-        {
-            try
-            {
-                if (_clientService.Join(_yComPort))
-                {
-                    return;
-                }
-                
-                Thread.Sleep(3000);
-                _clientService.Join(_yComPort);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.ToString());
-            }
+            _alfaEventLog.Info("Программа запущена");
+            checkBoxConnection.IsChecked = true;
+            _timerOnlineStatus = new Timer(CheckOnlineStatus, null, 0, 50000);
         }
 
         private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
@@ -141,7 +132,7 @@ namespace ALFA_Client
                 
                 try
                 {
-                    _key = _clientService.ReadKey(_yComPort);
+                    _key = _clientService.ReadKey(_portName);
                 }
                 catch (Exception exception)
                 {
@@ -184,7 +175,7 @@ namespace ALFA_Client
                 //почему номер ячейки в контроллере байтовский???????????????
                 if (keySelectionToset != null && roomSelectionTosetKey != null)
                 {
-                    bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _yComPort, roomSelectionTosetKey.ControllerId,
+                    bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _portName, roomSelectionTosetKey.ControllerId,
                                                       textBoxFIO.Text, (byte)comboBoxTypeKey.SelectedIndex, selectedDate);
                 
                     if (setkey == true)
@@ -209,7 +200,7 @@ namespace ALFA_Client
 
             if (roomSelectionToUnsetKey != null && keySelection != null)
             {
-                bool unsetkey = _clientService.UnsetKey(_yComPort, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
+                bool unsetkey = _clientService.UnsetKey(_portName, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
                 if (unsetkey)
                 {
                     RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
@@ -248,10 +239,63 @@ namespace ALFA_Client
                         message = "Код ключа: " + keyse.keyCode + "\n";
                         first = false;
                     }
-                    message += "ФИО: " + keyse.FIO + "   " + "Комната №" + keyse.Rooms.RoomNumber;
+                    message += "ФИО: " + keyse.FIO + "   " + "Комната №" + keyse.Rooms.RoomNumber + "\n";
                 }
 
                 MessageBox.Show(message);
+            }
+        }
+
+        private static bool _serverOnline;
+        public static bool ServerOnline
+        {
+            get { return _serverOnline; }
+            set
+            {
+                ServiceClient.GetInstance().ServerOnline = value;
+                System.Diagnostics.Debug.WriteLine(value);
+                _serverOnline = value;
+            }
+        }
+
+        private static bool _isJoin = false;
+        private Timer _timerOnlineStatus;
+        private static void CheckOnlineStatus(object state)
+        {
+            System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            bool online = false;
+            try
+            {
+//                if (_isJoin)
+//                {
+//                    online = ServiceClient.GetInstance().GetClientServiceClient().Ping();
+//                }
+//                else
+//                {
+                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
+//                }
+            }
+            catch (Exception)
+            {
+//                _isJoin = false;
+//                try
+//                {
+//                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
+//                }
+//                catch (Exception)
+//                {
+                    ServerOnline = false;
+//                }
+            }
+
+            if (online)
+            {
+                ServerOnline = true;
+            }
+            else
+            {
+                ServerOnline = false;
             }
         }
     }

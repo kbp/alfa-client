@@ -107,6 +107,12 @@
   <wsdl:message name="IClientService_SetDataBaseConnectionString_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetDataBaseConnectionStringResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
   <wsdl:message name="IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertAboutControllerNotResponsible" />
   </wsdl:message>
@@ -179,6 +185,10 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetDataBaseConnectionString">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetDataBaseConnectionString" message="tns:IClientService_SetDataBaseConnectionString_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetDataBaseConnectionStringResponse" message="tns:IClientService_SetDataBaseConnectionString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Ping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/Ping" message="tns:IClientService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/PingResponse" message="tns:IClientService_Ping_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerNotResponsible">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" message="tns:IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage" />
@@ -309,6 +319,15 @@
     </wsdl:operation>
     <wsdl:operation name="SetDataBaseConnectionString">
       <soap12:operation soapAction="http://tempuri.org/IClientService/SetDataBaseConnectionString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/Ping" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

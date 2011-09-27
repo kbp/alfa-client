@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections.ObjectModel;
 using ALFA_Client.Entities;
+using ALFA_Client.Models;
 
 namespace ALFA_Client
 {
@@ -54,7 +55,7 @@ namespace ALFA_Client
         }
     }
 
-    public class KeysCollection : ObservableCollection<KeysEnter>
+    public class KeysCollection : MTObservableCollection<KeysEnter>
     {
         public void Fill(int roomId)
         {

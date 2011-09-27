@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ALFA_Client.ClientServiceReference;
+using ALFA_Client.Models;
 
 namespace ALFA_Client
 {
@@ -68,7 +69,7 @@ namespace ALFA_Client
 
     }
 
-    public class FloorCollection : ObservableCollection<FloorsEnter>
+    public class FloorCollection : MTObservableCollection<FloorsEnter>
     {
         public FloorCollection()
         {

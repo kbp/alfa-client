@@ -190,6 +190,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AlertAboutControllerNotResponsible">
     <xs:complexType>
       <xs:sequence>

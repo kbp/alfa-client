@@ -16,14 +16,14 @@ namespace ALFA_Client
         {
 
             _logger.Debug("controller not responsible port name {0}, controller number {1}");
-            LogCollection.GetInstance().Add(new AlfaClientLog(DateTime.Now, "контроллер №" + controllerNumber + " перестал отвечать"));
+            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " перестал отвечать");
             RoomCollection.RemoveByControllerNumber(controllerNumber);
         }
 
         public void AlertAboutControllerBeganRespond(string portName, byte controllerNumber)
         {
             _logger.Debug("controller began respond port name {0}, controller number {1}");
-            LogCollection.GetInstance().Add(new AlfaClientLog(DateTime.Now, "контроллер №" + controllerNumber + " начал отвечать"));
+            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " начал отвечать");
             RoomCollection.AddByControllerNumber(portName, controllerNumber);
         }
 
@@ -33,14 +33,13 @@ namespace ALFA_Client
 
         public void AlertComPortBeganRespond(string portName)
         {
-            throw new NotImplementedException();
         }
 
         public void AlertGerkon(long roomId)
         {
             _logger.Debug("gercon port name {0}, controller number {1}");
+            LogCollection.GetInstance().Info("комната с идентификатором " + roomId + " была открыта");
             RoomCollection.UpdateGerkon(roomId);
-            LogCollection.GetInstance().Add(new AlfaClientLog(DateTime.Now, "комната с идентификатором " + roomId + " была открыта"));
         }
 
         public void AlertUnsetKey(string portName, byte controllerNumber)
