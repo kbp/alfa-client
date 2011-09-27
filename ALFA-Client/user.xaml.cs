@@ -83,7 +83,7 @@ namespace ALFA_Client
 
             _alfaEventLog.Info("Программа запущена");
             checkBoxConnection.IsChecked = true;
-            _timerOnlineStatus = new Timer(CheckOnlineStatus, null, 0, 50000);
+            _timerOnlineStatus = new Timer(CheckOnlineStatus, null, 0, 30000);
         }
 
         private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
@@ -262,7 +262,7 @@ namespace ALFA_Client
         private Timer _timerOnlineStatus;
         private static void CheckOnlineStatus(object state)
         {
-            System.Diagnostics.Stopwatch stopwatch = new Stopwatch();
+            Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             bool online = false;
             try
