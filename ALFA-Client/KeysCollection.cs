@@ -9,17 +9,17 @@ namespace ALFA_Client
 {
     public class KeysEnter
     {
-        public KeysEnter(int number, int tipeKey, string name, string key, DateTime? finishDate)
+        public KeysEnter(int number, int typeKey, string name, string key, DateTime? finishDate)
         {
             _number = number;
-            _tipeKey = tipeKey;
+            _typeKey = typeKey;
             _name = name;
             _key = key;
             _finishDate = finishDate;
         }
 
         private int _number;
-        private int _tipeKey;
+        private int _typeKey;
         private string _name;
         private string _key;
         private DateTime? _finishDate;
@@ -30,10 +30,26 @@ namespace ALFA_Client
             set { _number = value; }
         }
 
-        public int TipeKey
+        public int TypeKey
         {
-            get { return _tipeKey; }
-            set { _tipeKey = value; }
+            get { return _typeKey; }
+            set
+            {
+                _typeKey = value;
+                DisplayTypeKey = value.ToString();
+            }
+        }
+
+        public string DisplayTypeKey
+        {
+            get
+            {
+                return _keyTypes[_typeKey];
+            }
+            set
+            {
+                _typeKey = int.Parse(value);
+            }
         }
 
         public string Name
@@ -53,6 +69,8 @@ namespace ALFA_Client
             get { return _finishDate; }
             set { _finishDate = value; }
         }
+
+        private string[] _keyTypes = new string[] { "Гостевой", "Горничный", "Тех. служебный"};
     }
 
     public class KeysCollection : MTObservableCollection<KeysEnter>

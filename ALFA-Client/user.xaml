@@ -130,16 +130,65 @@
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="660" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock FontFamily="Segoe UI"    x:Name="TextBlock1" Grid.Column="1"  Width="Auto"  Text="{Binding Number, Mode=OneWay}" Margin="-0.5,0,15.5,12.4666666666666" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto"/>
-                    <TextBlock  FontFamily="Segoe UI" Margin="0,0,0,0" Width="Auto" Height="16.6666666666668" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TextBlock1_Copy" Text="{Binding TipeKey, Mode=OneWay}"   FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis"/>
-                    <TextBlock  FontFamily="Segoe UI" x:Name="TextBlock2"  Grid.Column="2" Width="60"  Text="{Binding Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="8.005,0,11.995,14.466" Height="Auto" Grid.ColumnSpan="1"/>
-                    <TextBlock FontFamily="Segoe UI"  FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Margin="0,14.401,0,0.065" Width="60" Height="Auto" Grid.Column="2" Grid.ColumnSpan="1" x:Name="TextBlock2_Copy" Text="{Binding Key, Mode=OneWay}"  HorizontalAlignment="Center" Background="{x:Null}"/>
-                    <TextBlock  FontFamily="Segoe UI" x:Name="TextBlock" Grid.Column="3"  Text="{Binding FinishDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Bottom" Margin="18.4,0,0,-0.001" Height="15.667" HorizontalAlignment="Stretch"/>
+                    <TextBlock FontFamily="Segoe UI"    x:Name="TextBlockNumber" Grid.Column="1"  Width="Auto"  Text="{Binding Number, Mode=OneWay}" Margin="-0.5,0,15.5,12.4666666666666" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto"/>
+                    <TextBlock FontFamily="Segoe UI" Margin="0,0,0,0" Width="Auto" Height="16.6666666666668" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TextBlockTypeKey" Text="{Binding DisplayTypeKey, Mode=OneWay}"   FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis"/>
+                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockName"  Grid.Column="2" Width="60"  Text="{Binding Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="8.005,0,11.995,14.466" Height="Auto" Grid.ColumnSpan="1"/>
+                    <TextBlock FontFamily="Segoe UI"  FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Margin="0,14.401,0,0.065" Width="60" Height="Auto" Grid.Column="2" Grid.ColumnSpan="1" x:Name="TextBlockKey" Text="{Binding Key, Mode=OneWay}"  HorizontalAlignment="Center" Background="{x:Null}"/>
+                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockFinishDate" Grid.Column="3"  Text="{Binding FinishDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Bottom" Margin="18.4,0,0,-0.001" Height="15.667" HorizontalAlignment="Stretch"/>
                 </Grid>
 
             </Grid>
 
         </DataTemplate>
+        <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+        	<Setter Property="Background" Value="Transparent"/>
+        	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        	<Setter Property="Padding" Value="2,0,0,0"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="{x:Type ListBoxItem}">
+        				<ControlTemplate.Resources>
+        					<Storyboard x:Key="IsNotRead"/>
+        					<Storyboard x:Key="IsRead"/>
+        				</ControlTemplate.Resources>
+        				<Grid x:Name="grid" Background="{x:Null}">
+        					<Grid.ColumnDefinitions>
+        						<ColumnDefinition Width="0.25*"/>
+        						<ColumnDefinition Width="0.75*"/>
+        					</Grid.ColumnDefinitions>
+							<TextBlock Grid.Column="0" Text="{Binding Path=Time}" HorizontalAlignment="Left"></TextBlock>
+							<TextBlock Grid.Column="1" Text="{Binding Path=Message}" HorizontalAlignment="Left"></TextBlock>		
+						</Grid>
+        				<ControlTemplate.Triggers>
+        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        					<DataTrigger Binding="{Binding IsRead}" Value="False">
+        						<DataTrigger.EnterActions>
+        							<BeginStoryboard Storyboard="{StaticResource IsNotRead}"/>
+        						</DataTrigger.EnterActions>                                                     
+        					</DataTrigger>
+        					<DataTrigger Binding="{Binding IsRead}" Value="True">
+        						<DataTrigger.EnterActions>
+        							<BeginStoryboard Storyboard="{StaticResource IsRead}"/>
+        						</DataTrigger.EnterActions>                                                     
+        					</DataTrigger>							
+        					<MultiTrigger>
+        						<MultiTrigger.Conditions>
+        							<Condition Property="IsSelected" Value="true"/>
+        							<Condition Property="Selector.IsSelectionActive" Value="false"/>
+        						</MultiTrigger.Conditions>
+        						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        					</MultiTrigger>
+        					<Trigger Property="IsEnabled" Value="false">
+        						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+        					</Trigger>
+        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+        				</ControlTemplate.Triggers>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
+        </Style>
     </Window.Resources>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -170,7 +219,7 @@
         <Button Content="Проверка ключа" Margin="0,0,68,92" x:Name="buttonCheckKey" Click="ButtonCheckKeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="168" />
         <ListBox ItemsSource="{Binding}" Margin="10,10,0,92" x:Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="213" IsSynchronizedWithCurrentItem="True"/>
         <!--DataContext="{Binding Source={StaticResource AlfaEventLogData}}" -->
-        <ListBox Height="74" Margin="241,0,12,12" x:Name="listBoxLog" VerticalAlignment="Bottom" ItemsSource="{Binding}" DisplayMemberPath="Message" />
+        <ListBox Height="74" Margin="241,0,12,12" x:Name="listBoxLog" VerticalAlignment="Bottom" ItemsSource="{Binding}" DisplayMemberPath="Message" ItemContainerStyle="{DynamicResource ListBoxItemStyle}" SelectionChanged="ListBoxLogSelectionChanged" />
         <Grid HorizontalAlignment="Left" Margin="12,0,0,12" x:Name="gridCounter" Width="211" Height="74" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.75*" />

@@ -23,26 +23,24 @@
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml.cs" caret="476" fromTop="11" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:UserCollection.cs" caret="290" fromTop="12" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="706" fromTop="3" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1414" fromTop="16" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="376" fromTop="14" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:NLog.config" caret="0" fromTop="0" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="1462" fromTop="18" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:FloorCollection.cs" caret="2267" fromTop="32" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="9388" fromTop="18" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="14159" fromTop="4" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1507" fromTop="16" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="10648" fromTop="311" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:NLog.config" caret="547" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11276" fromTop="31" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1620" fromTop="9" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="166" fromTop="8" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="5908" fromTop="14" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="2048" fromTop="31" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="9010" fromTop="28" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="7384" fromTop="13" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="10176" fromTop="22" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2525" fromTop="22" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2841" fromTop="27" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11272" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11253" fromTop="22" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2143" fromTop="27" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="15406" fromTop="4" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="1510" fromTop="18" />
@@ -64,6 +62,8 @@
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="10122" fromTop="22" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="9795" fromTop="19" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="9480" fromTop="5" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10201" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2818" fromTop="17" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace ALFA_Client.Models
 {
@@ -12,6 +14,8 @@ namespace ALFA_Client.Models
         {
         }
 
+
+        private CollectionViewSource _sortedCollectionViewSource;
         public static LogCollection GetInstance()
         {
             lock (Lock)
@@ -23,9 +27,19 @@ namespace ALFA_Client.Models
                 return _instance;
             }
         }
+        public CollectionViewSource GetCollectionView()
+        {
+            _sortedCollectionViewSource = new CollectionViewSource();
+            _sortedCollectionViewSource.SortDescriptions.Add(new SortDescription("Time",ListSortDirection.Descending));
+            _sortedCollectionViewSource.Source = this;
+
+            return _sortedCollectionViewSource;
+        }
 
         public void Info(string message)
         {
+            //todo вставить норм звук 
+            System.Media.SystemSounds.Beep.Play();
             Add(new AlfaClientLog(message));
         }
     }
@@ -39,5 +53,6 @@ namespace ALFA_Client.Models
         }
         public DateTime Time { get; set; }
         public string Message { get; set; }
+        public bool IsRead { get; set; }
     }
 }

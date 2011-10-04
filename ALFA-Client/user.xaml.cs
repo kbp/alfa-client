@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Linq;
 using ALFA_Client.Models;
@@ -64,7 +65,7 @@ namespace ALFA_Client
             _roomCollection = Resources["RoomsDataSource"] as RoomCollection;
 
             _alfaEventLog = LogCollection.GetInstance();
-            listBoxLog.DataContext = _alfaEventLog;
+            listBoxLog.DataContext = _alfaEventLog.GetCollectionView();
             gridCounter.DataContext = Counter.GetInstance();
 
             checkBoxConnection.DataContext = ServiceClient.GetInstance();
@@ -116,7 +117,7 @@ namespace ALFA_Client
                     dameer1.IsEnabled = true;
                     textBoxSetKey.Text = keySelection.Key;
                     textBoxFIO.Text = keySelection.Name;
-                    comboBoxTypeKey.SelectedIndex = keySelection.TipeKey;
+                    comboBoxTypeKey.SelectedIndex = keySelection.TypeKey;
                   //  dameer1.SelectedDate = keySelection.FinishDate;
                     //todo дописать часы и минуты
                 }
@@ -296,6 +297,15 @@ namespace ALFA_Client
             else
             {
                 ServerOnline = false;
+            }
+        }
+
+        private void ListBoxLogSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AlfaClientLog selectedItem = listBoxLog.SelectedItem as AlfaClientLog;
+            if (selectedItem != null)
+            {
+                selectedItem.IsRead = false;
             }
         }
     }
