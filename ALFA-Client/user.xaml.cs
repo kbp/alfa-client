@@ -308,5 +308,58 @@ namespace ALFA_Client
                 selectedItem.IsRead = false;
             }
         }
+
+        private void WindowKeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Key == Key.F4 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, true);
+            }
+            if (e.Key == Key.F5 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, false);
+            }
+            if (e.Key == Key.F6 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+
+            }
+            if (e.Key == Key.F7 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+
+            }
+
+
+            if (e.Key == Key.F4)
+            {
+                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, true);
+            }
+            if (e.Key == Key.F5)
+            {
+                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, false);
+            }
+            if (e.Key == Key.F6)
+            {
+            }
+            if (e.Key == Key.F7)
+            {
+            }
+//
+//
+//                    case Key.LeftShift :
+//                        ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, true);
+//                        break;
+//                    case Key.F5:
+//                        ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, false);
+//                        break;
+//                    case Key.F6:
+//
+//                        break;
+//                    case Key.F7:
+//
+//                        break;
+//                
+//            
+        }
     }
 }

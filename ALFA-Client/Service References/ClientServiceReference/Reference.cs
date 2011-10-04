@@ -53,6 +53,12 @@ namespace ALFA_Client.ClientServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClientService/Ping", ReplyAction="http://tempuri.org/IClientService/PingResponse")]
         bool Ping();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/SetAllRoomToProtect")]
+        void SetAllRoomToProtect(string portName, bool isProtected);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/SetAllRoomLight")]
+        void SetAllRoomLight(string portName, bool lightOn);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -161,6 +167,14 @@ namespace ALFA_Client.ClientServiceReference {
         
         public bool Ping() {
             return base.Channel.Ping();
+        }
+        
+        public void SetAllRoomToProtect(string portName, bool isProtected) {
+            base.Channel.SetAllRoomToProtect(portName, isProtected);
+        }
+        
+        public void SetAllRoomLight(string portName, bool lightOn) {
+            base.Channel.SetAllRoomLight(portName, lightOn);
         }
     }
 }

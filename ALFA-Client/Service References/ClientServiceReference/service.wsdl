@@ -113,6 +113,12 @@
   <wsdl:message name="IClientService_Ping_OutputMessage">
     <wsdl:part name="parameters" element="tns:PingResponse" />
   </wsdl:message>
+  <wsdl:message name="IClientService_SetAllRoomToProtect_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAllRoomToProtect" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetAllRoomLight_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAllRoomLight" />
+  </wsdl:message>
   <wsdl:message name="IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertAboutControllerNotResponsible" />
   </wsdl:message>
@@ -189,6 +195,12 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Ping">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientService/Ping" message="tns:IClientService_Ping_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/PingResponse" message="tns:IClientService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetAllRoomToProtect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetAllRoomToProtect" message="tns:IClientService_SetAllRoomToProtect_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetAllRoomLight">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetAllRoomLight" message="tns:IClientService_SetAllRoomLight_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerNotResponsible">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" message="tns:IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage" />
@@ -334,6 +346,18 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAllRoomToProtect">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetAllRoomToProtect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetAllRoomLight">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetAllRoomLight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="AlertAboutControllerNotResponsible">
       <soap12:operation soapAction="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" style="document" />

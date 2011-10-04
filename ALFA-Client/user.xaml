@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ALFA_Client"
         xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer" x:Class="ALFA_Client.User"
-        Title="user" Height="546" Width="843" Loaded="WindowLoaded">
+        Title="user" Height="546" Width="843" Loaded="WindowLoaded" KeyDown="WindowKeyDown">
     <Window.Resources>
         <local:RoomCollection x:Key="RoomsDataSource"/>
 <!--        <ObjectDataProvider x:Key="AlfaEventLogData" ObjectType="{x:Type models:LogCollection}" MethodName="GetInstance" />-->

@@ -202,6 +202,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetAllRoomToProtect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isProtected" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAllRoomLight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lightOn" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AlertAboutControllerNotResponsible">
     <xs:complexType>
       <xs:sequence>
