@@ -279,4 +279,12 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReloadRooms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="floorId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

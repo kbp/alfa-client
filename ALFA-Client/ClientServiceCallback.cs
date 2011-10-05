@@ -1,5 +1,4 @@
-﻿using System;
-using ALFA_Client.Models;
+﻿using ALFA_Client.Models;
 using NLog;
 
 
@@ -62,6 +61,12 @@ namespace ALFA_Client
         public void AlertChangeFloors(string portName)
         {
             _logger.Debug("change floors port name {0}");
+        }
+
+        public void ReloadRooms(string portName, long floorId)
+        {
+            RoomCollection.ReloadData((int)floorId);
+
         }
     }
 }

@@ -143,6 +143,9 @@
   <wsdl:message name="IClientService_AlertChangeFloors_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertChangeFloors" />
   </wsdl:message>
+  <wsdl:message name="IClientService_ReloadRooms_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ReloadRooms" />
+  </wsdl:message>
   <wsdl:portType msc:usingSession="true" name="IClientService">
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetKey">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetKey" message="tns:IClientService_SetKey_InputMessage" />
@@ -225,6 +228,9 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertChangeFloors">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertChangeFloors" message="tns:IClientService_AlertChangeFloors_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReloadRooms">
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/ReloadRooms" message="tns:IClientService_ReloadRooms_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IClientService" type="tns:IClientService">
@@ -403,6 +409,12 @@
     </wsdl:operation>
     <wsdl:operation name="AlertChangeFloors">
       <soap12:operation soapAction="http://tempuri.org/IClientService/AlertChangeFloors" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReloadRooms">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/ReloadRooms" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

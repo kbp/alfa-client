@@ -208,6 +208,7 @@ namespace ALFA_Client
              }
          }
 
+         private string _portName;
          public void Fill(int floorId)
          {
              int roomsCount = 0;
@@ -215,6 +216,13 @@ namespace ALFA_Client
              int roomsLightOn = 0;
 
              AlfaEntities alfaEntities = new AlfaEntities();
+
+             Floors floor = (from floorse in alfaEntities.Floors
+                            where floorse.FloorId == floorId 
+                            select floorse).FirstOrDefault();
+
+             _portName = floor.ComPort;
+
              IEnumerable<Rooms> rooms = from roomse in alfaEntities.Rooms
                                         where roomse.FloorId == floorId
                                         select roomse;
@@ -310,6 +318,83 @@ namespace ALFA_Client
 //                     return;
 //                 }
              }
+         }
+
+         public static Dictionary<long, bool> GetGuardState()
+         {
+             Dictionary<long, bool> state = new Dictionary<long, bool>();
+             foreach (RoomsEnter roomsEnter in _roomCollection)
+             {
+                 state.Add(roomsEnter.RoomId, roomsEnter.GuardOn);
+             }
+
+             return state;
+         }
+
+         public static bool SetGuardState(Dictionary<long, bool> state)
+         {
+             foreach (RoomsEnter roomsEnter in _roomCollection)
+             {
+                 foreach (KeyValuePair<long, bool> roomsState in state)
+                 {
+                     if (roomsState.Key == roomsEnter.RoomId)
+                     {
+                         if (ServiceClient.GetInstance().ServerOnline)
+                         {
+                             ServiceClient.GetInstance().GetClientServiceClient().SetRoomToProtect(
+                                 _roomCollection._portName, roomsEnter.ControllerId, roomsState.Value);
+                             break;
+                         }
+                         else
+                         {
+                             return false;
+                         }
+                     }
+                 }
+             }
+
+             return true;
+         }
+
+         public Dictionary<long, bool> GetLightState()
+         {
+             Dictionary<long, bool> state = new Dictionary<long, bool>();
+             foreach (RoomsEnter roomsEnter in this)
+             {
+                 state.Add(roomsEnter.RoomId, roomsEnter.LightOn);
+             }
+
+             return state;
+         }
+
+         public bool SetLightState(Dictionary<long, bool> state)
+         {
+             foreach (RoomsEnter roomsEnter in this)
+             {
+                 foreach (KeyValuePair<long, bool> roomsState in state)
+                 {
+                     if (roomsState.Key == roomsEnter.RoomId)
+                     {
+                         if (ServiceClient.GetInstance().ServerOnline)
+                         {
+                             ServiceClient.GetInstance().GetClientServiceClient().SetLight(
+                                 this._portName, roomsEnter.ControllerId, roomsState.Value);
+                             break;
+                         }
+                         else
+                         {
+                             return false;
+                         }
+                     }
+                 }
+             }
+
+             return true;
+         }
+
+         public static void ReloadData(int floorId)
+         {
+             _roomCollection.Fill(floorId);
          }
      }
 }

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Security.AccessControl;
+using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -311,31 +315,58 @@ namespace ALFA_Client
 
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.F4 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+
+            if (e.Key == Key.F4 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
-                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, true);
+                // включить свет на этаже
+                MessageBox.Show("shift + f4");
+                if (ServiceClient.GetInstance().ServerOnline)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, true);
+                }
             }
-            if (e.Key == Key.F5 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            if (e.Key == Key.F5 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
-                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, false);
+                // выключить свет на этаже
+                if (ServiceClient.GetInstance().ServerOnline)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, false);
+                }
             }
-            if (e.Key == Key.F6 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            if (e.Key == Key.F6 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
+                // сохранить состояние света
+                TextWriter textWriter = new StreamWriter("protected.txt", false, Encoding.UTF8);
+
+                Dictionary<long, bool> state = _roomCollection.GetLightState();
+
+                foreach (KeyValuePair<long, bool> keyValuePair in state)
+                {
+                    textWriter.WriteLine("" + keyValuePair.Key + "," + keyValuePair.Value);
+                }
+                textWriter.Flush();
+                textWriter.Close();
 
             }
-            if (e.Key == Key.F7 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            if (e.Key == Key.F7 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
-
+                // загрузить сохраненное состояние света
             }
 
 
             if (e.Key == Key.F4)
             {
-                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, true);
+                if (ServiceClient.GetInstance().ServerOnline)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, true);
+                }
             }
             if (e.Key == Key.F5)
             {
-                ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, false);
+                if (ServiceClient.GetInstance().ServerOnline)
+                {
+                    ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, false);
+                }
             }
             if (e.Key == Key.F6)
             {

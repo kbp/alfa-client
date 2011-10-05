@@ -87,6 +87,9 @@ namespace ALFA_Client.ClientServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertChangeFloors")]
         void AlertChangeFloors(string portName);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/ReloadRooms")]
+        void ReloadRooms(string portName, long floorId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
