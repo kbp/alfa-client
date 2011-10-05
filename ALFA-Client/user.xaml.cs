@@ -311,7 +311,6 @@ namespace ALFA_Client
 
         private void WindowKeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.Key == Key.F4 && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
                 ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, true);
@@ -344,22 +343,6 @@ namespace ALFA_Client
             if (e.Key == Key.F7)
             {
             }
-//
-//
-//                    case Key.LeftShift :
-//                        ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, true);
-//                        break;
-//                    case Key.F5:
-//                        ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomToProtect(_portName, false);
-//                        break;
-//                    case Key.F6:
-//
-//                        break;
-//                    case Key.F7:
-//
-//                        break;
-//                
-//            
         }
     }
 }

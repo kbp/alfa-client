@@ -252,6 +252,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="roomId" type="xs:long" />
+        <xs:element minOccurs="0" name="keyNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="alarm" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

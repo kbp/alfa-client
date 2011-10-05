@@ -77,7 +77,7 @@ namespace ALFA_Client.ClientServiceReference {
         void AlertComPortBeganRespond(string portName);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertGerkon")]
-        void AlertGerkon(long roomId);
+        void AlertGerkon(long roomId, byte keyNumber, bool alarm);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IClientService/AlertUnsetKey")]
         void AlertUnsetKey(string portName, byte controllerNumber);

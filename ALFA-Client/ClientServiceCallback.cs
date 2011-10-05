@@ -35,11 +35,17 @@ namespace ALFA_Client
         {
         }
 
-        public void AlertGerkon(long roomId)
+        public void AlertGerkon(long roomId, byte keyNumber, bool alarm)
         {
             _logger.Debug("gercon port name {0}, controller number {1}");
             LogCollection.GetInstance().Info("комната с идентификатором " + roomId + " была открыта");
             RoomCollection.UpdateGerkon(roomId);
+
+            if (alarm)
+            {
+                System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer { SoundLocation = "sounds/alarm.wav" };
+                myPlayer.Play();
+            }
         }
 
         public void AlertUnsetKey(string portName, byte controllerNumber)
