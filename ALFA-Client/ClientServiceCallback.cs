@@ -1,5 +1,7 @@
-﻿using ALFA_Client.Models;
+﻿using ALFA_Client.Entities;
+using ALFA_Client.Models;
 using NLog;
+using System.Linq;
 
 
 namespace ALFA_Client
@@ -37,7 +39,13 @@ namespace ALFA_Client
         public void AlertGerkon(long roomId, byte keyNumber, bool alarm)
         {
             _logger.Debug("gercon port name {0}, controller number {1}");
-            LogCollection.GetInstance().Info("комната с идентификатором " + roomId + " была открыта");
+
+            AlfaEntities alfaEntities = new AlfaEntities();
+            Rooms room = (from roomes in alfaEntities.Rooms
+                         where roomes.RoomId == roomId
+                         select roomes).FirstOrDefault();
+
+            LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта");
             RoomCollection.UpdateGerkon(roomId);
 
             if (alarm)

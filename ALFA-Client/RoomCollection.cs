@@ -83,12 +83,12 @@ namespace ALFA_Client
                                 if (value)
                                 {
                                     Counter.GetInstance().RoomsProtected++;
-                                    LogCollection.GetInstance().Info("Комната roomId = " + room.RoomId + " поставлена на охрану");
+                                    LogCollection.GetInstance().Info("Комната номер = " + room.RoomNumber + " поставлена на охрану");
                                 }
                                 else
                                 {
                                     Counter.GetInstance().RoomsProtected--;
-                                    LogCollection.GetInstance().Info("Комната roomId = " + room.RoomId + " снята с охраны");
+                                    LogCollection.GetInstance().Info("Комната номер  = " + room.RoomNumber + " снята с охраны");
                                 }
                                 
 
@@ -127,12 +127,12 @@ namespace ALFA_Client
                                 if (value)
                                 {
                                     Counter.GetInstance().RoomsLightOn++;
-                                    LogCollection.GetInstance().Info("В комнате roomId = " + room.RoomId + " включен свет");
+                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " включен свет");
                                 }
                                 else
                                 {
                                     Counter.GetInstance().RoomsLightOn--;
-                                    LogCollection.GetInstance().Info("В комнате roomId = " + room.RoomId + " выключен свет");
+                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " выключен свет");
                                 }
                             }
                         }
@@ -209,6 +209,7 @@ namespace ALFA_Client
          }
 
          private string _portName;
+         private int _floorId;
          public void Fill(int floorId)
          {
              int roomsCount = 0;
@@ -222,6 +223,7 @@ namespace ALFA_Client
                             select floorse).FirstOrDefault();
 
              _portName = floor.ComPort;
+             _floorId = floorId;
 
              IEnumerable<Rooms> rooms = from roomse in alfaEntities.Rooms
                                         where roomse.FloorId == floorId
@@ -320,7 +322,7 @@ namespace ALFA_Client
              }
          }
 
-         public static Dictionary<long, bool> GetGuardState()
+         public Dictionary<long, bool> GetGuardState()
          {
              Dictionary<long, bool> state = new Dictionary<long, bool>();
              foreach (RoomsEnter roomsEnter in _roomCollection)
@@ -331,7 +333,7 @@ namespace ALFA_Client
              return state;
          }
 
-         public static bool SetGuardState(Dictionary<long, bool> state)
+         public bool SetGuardState(Dictionary<long, bool> state)
          {
              foreach (RoomsEnter roomsEnter in _roomCollection)
              {
@@ -353,6 +355,7 @@ namespace ALFA_Client
                  }
              }
 
+             ReloadData(_floorId);
              return true;
          }
 
@@ -389,11 +392,13 @@ namespace ALFA_Client
                  }
              }
 
+             ReloadData(_floorId);
              return true;
          }
 
          public static void ReloadData(int floorId)
          {
+             _roomCollection.Clear();
              _roomCollection.Fill(floorId);
          }
      }

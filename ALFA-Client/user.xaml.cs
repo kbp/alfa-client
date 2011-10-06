@@ -319,7 +319,6 @@ namespace ALFA_Client
             if (e.Key == Key.F4 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
                 // включить свет на этаже
-                MessageBox.Show("shift + f4");
                 if (ServiceClient.GetInstance().ServerOnline)
                 {
                     ServiceClient.GetInstance().GetClientServiceClient().SetAllRoomLight(_portName, true);
@@ -336,7 +335,7 @@ namespace ALFA_Client
             if (e.Key == Key.F6 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
                 // сохранить состояние света
-                TextWriter textWriter = new StreamWriter("protected.txt", false, Encoding.UTF8);
+                TextWriter textWriter = new StreamWriter("light.txt", false, Encoding.UTF8);
 
                 Dictionary<long, bool> state = _roomCollection.GetLightState();
 
@@ -351,6 +350,22 @@ namespace ALFA_Client
             if (e.Key == Key.F7 && (Keyboard.Modifiers & ModifierKeys.Shift) == ModifierKeys.Shift)
             {
                 // загрузить сохраненное состояние света
+                string[] stateFromFile = File.ReadAllLines("light.txt");
+        
+                Dictionary<long, bool> state = new Dictionary<long, bool>();
+                
+                string[] values;
+                foreach (string s in stateFromFile)
+                {
+                    if (s != "")
+                    {
+                        values = s.Split(',');
+
+                        state.Add(long.Parse(values[0]), bool.Parse(values[1]));
+                    }
+                }
+
+                _roomCollection.SetLightState(state);
             }
 
 
@@ -370,9 +385,37 @@ namespace ALFA_Client
             }
             if (e.Key == Key.F6)
             {
+                // сохранить состояние охраны
+                TextWriter textWriter = new StreamWriter("protected.txt", false, Encoding.UTF8);
+
+                Dictionary<long, bool> state = _roomCollection.GetGuardState();
+
+                foreach (KeyValuePair<long, bool> keyValuePair in state)
+                {
+                    textWriter.WriteLine("" + keyValuePair.Key + "," + keyValuePair.Value);
+                }
+                textWriter.Flush();
+                textWriter.Close();
             }
             if (e.Key == Key.F7)
             {
+                // загрузить сохраненное состояние охраны
+                string[] stateFromFile = File.ReadAllLines("protected.txt");
+
+                Dictionary<long, bool> state = new Dictionary<long, bool>();
+
+                string[] values;
+                foreach (string s in stateFromFile)
+                {
+                    if (s != "")
+                    {
+                        values = s.Split(',');
+
+                        state.Add(long.Parse(values[0]), bool.Parse(values[1]));
+                    }
+                }
+
+                _roomCollection.SetGuardState(state);
             }
         }
     }

@@ -16,54 +16,55 @@
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml" caret="258" fromTop="1" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:App.xaml" caret="0" fromTop="0" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="10925" fromTop="16" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml.cs" caret="476" fromTop="11" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:UserCollection.cs" caret="290" fromTop="12" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="706" fromTop="3" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:FloorCollection.cs" caret="2267" fromTop="32" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:NLog.config" caret="547" fromTop="15" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:MTObservableCollection.cs" caret="198" fromTop="5" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1507" fromTop="34" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="1462" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1336" fromTop="19" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Entities/f:AlfaModel.edmx" caret="23664" fromTop="18" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="3481" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="478" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="1" fromTop="0" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="2377" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="5" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="3003" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12473" fromTop="25" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15480" fromTop="51" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="9304" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:service.wsdl" caret="9590" fromTop="12" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="501" fromTop="18" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1539" fromTop="12" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4922" fromTop="25" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2154" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="16191" fromTop="4" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1640" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="13179" fromTop="3" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11578" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="16962" fromTop="4" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="18170" fromTop="5" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1209" fromTop="9" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1500" fromTop="26" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1262" fromTop="27" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1679" fromTop="26" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1190" fromTop="9" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="987" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="4393" fromTop="28" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="9344" fromTop="4" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="1055" fromTop="21" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="5" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13104" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13104" fromTop="27" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13574" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13104" fromTop="21" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13104" fromTop="29" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12631" fromTop="31" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12386" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12523" fromTop="26" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12336" fromTop="11" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11994" fromTop="9" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13104" fromTop="9" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11832" fromTop="14" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12519" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12795" fromTop="23" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13224" fromTop="26" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13007" fromTop="18" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13213" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="2707" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="170" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="2683" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="11008" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="11360" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12824" fromTop="23" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11984" fromTop="2" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="14721" fromTop="18" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13478" fromTop="24" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13602" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="6086" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13978" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15304" fromTop="19" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15780" fromTop="25" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13718" fromTop="19" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="6858" fromTop="7" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="7355" fromTop="21" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12282" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13573" fromTop="27" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2632" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2953" fromTop="21" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4488" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4778" fromTop="21" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="87" fromTop="3" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1737" fromTop="20" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -80,37 +81,37 @@
     <ItemStatistics item="Default">
       <Item value="LogIn" priority="0" />
       <Item value="StaticResourceExtension`0" priority="0" />
-      <Item value="static" priority="15" />
-      <Item value="void" priority="6" />
-      <Item value="if" priority="36" />
+      <Item value="static" priority="18" />
+      <Item value="void" priority="8" />
+      <Item value="if" priority="43" />
       <Item value="logintext" priority="1" />
-      <Item value="string" priority="38" />
+      <Item value="string" priority="41" />
       <Item value="L" priority="3" />
       <Item value="is" priority="2" />
-      <Item value="null" priority="14" />
+      <Item value="null" priority="15" />
       <Item value="P" priority="2" />
       <Item value="StylusOutOfRangeEvent" priority="0" />
-      <Item value="MessageBox`0" priority="17" />
+      <Item value="MessageBox`0" priority="18" />
       <Item value="Enter`0" priority="0" />
       <Item value="passtext" priority="0" />
-      <Item value="else" priority="19" />
-      <Item value="bool" priority="33" />
+      <Item value="else" priority="20" />
+      <Item value="bool" priority="36" />
       <Item value="l" priority="0" />
       <Item value="try" priority="10" />
-      <Item value="false" priority="28" />
-      <Item value="true" priority="11" />
+      <Item value="false" priority="30" />
+      <Item value="true" priority="12" />
       <Item value="allOK" priority="0" />
       <Item value="admin`0" priority="0" />
-      <Item value="new" priority="35" />
+      <Item value="new" priority="44" />
       <Item value="admin" priority="0" />
       <Item value="ArrayTypeMismatchException`0" priority="0" />
-      <Item value="private" priority="20" />
+      <Item value="private" priority="22" />
       <Item value="tipe" priority="1" />
       <Item value="user`0" priority="3" />
       <Item value="user" priority="13" />
       <Item value="login`0" priority="0" />
       <Item value="username" priority="5" />
-      <Item value="int" priority="17" />
+      <Item value="int" priority="19" />
       <Item value="guardOn" priority="2" />
       <Item value="alarmOn" priority="2" />
       <Item value="keyOnOff" priority="1" />
@@ -119,12 +120,12 @@
       <Item value="catRoom" priority="1" />
       <Item value="etagi" priority="0" />
       <Item value="TabContollers`0" priority="0" />
-      <Item value="public" priority="30" />
+      <Item value="public" priority="33" />
       <Item value="Rooms`0" priority="5" />
       <Item value="Floor" priority="2" />
       <Item value="ObservableCollection" priority="0" />
-      <Item value="RoomsEnter`0" priority="1" />
-      <Item value="floor" priority="6" />
+      <Item value="RoomsEnter`0" priority="3" />
+      <Item value="floor" priority="9" />
       <Item value="String`0" priority="0" />
       <Item value="Convert`0" priority="1" />
       <Item value="listBox1_MouseLeftButtonClick`0" priority="0" />
@@ -133,7 +134,7 @@
       <Item value="DateTime`0" priority="17" />
       <Item value="Keys`0" priority="3" />
       <Item value="base" priority="2" />
-      <Item value="using" priority="7" />
+      <Item value="using" priority="8" />
       <Item value="ALFA_Client" priority="2" />
       <Item value="ClientServiceReference" priority="6" />
       <Item value="IClientServiceCallback`0" priority="0" />
@@ -169,18 +170,18 @@
       <Item value="Users`0" priority="5" />
       <Item value="entities" priority="0" />
       <Item value="users" priority="12" />
-      <Item value="from" priority="12" />
+      <Item value="from" priority="14" />
       <Item value="Entities" priority="5" />
-      <Item value="AlfaEntities`0" priority="5" />
-      <Item value="alfaEntities" priority="21" />
-      <Item value="AlfaEntities" priority="5" />
-      <Item value="System" priority="7" />
-      <Item value="Linq" priority="1" />
-      <Item value="where" priority="6" />
+      <Item value="AlfaEntities`0" priority="7" />
+      <Item value="alfaEntities" priority="23" />
+      <Item value="AlfaEntities" priority="6" />
+      <Item value="System" priority="8" />
+      <Item value="Linq" priority="2" />
+      <Item value="where" priority="8" />
       <Item value="userse" priority="3" />
       <Item value="login" priority="1" />
       <Item value="password" priority="0" />
-      <Item value="select" priority="7" />
+      <Item value="select" priority="9" />
       <Item value="Diagnostics" priority="2" />
       <Item value="Debug`0" priority="1" />
       <Item value="IEquatable" priority="1" />
@@ -188,25 +189,25 @@
       <Item value="OrderedParallelQuery" priority="0" />
       <Item value="IGrouping" priority="0" />
       <Item value="roomCateory" priority="1" />
-      <Item value="floorId" priority="1" />
+      <Item value="floorId" priority="5" />
       <Item value="Window`0" priority="0" />
-      <Item value="floorse" priority="1" />
+      <Item value="floorse" priority="4" />
       <Item value="IEnumerable" priority="2" />
       <Item value="Rooms" priority="0" />
       <Item value="roomses" priority="0" />
       <Item value="roomse" priority="1" />
-      <Item value="foreach" priority="4" />
-      <Item value="this" priority="7" />
+      <Item value="foreach" priority="11" />
+      <Item value="this" priority="11" />
       <Item value="RoomsEnter" priority="0" />
       <Item value="room" priority="15" />
-      <Item value="return" priority="17" />
+      <Item value="return" priority="22" />
       <Item value="PreviewTouchUpEvent" priority="0" />
       <Item value="ConnectToService`0" priority="0" />
       <Item value="portName" priority="1" />
       <Item value="exception" priority="4" />
       <Item value="Keys" priority="0" />
       <Item value="keyses" priority="1" />
-      <Item value="roomId" priority="1" />
+      <Item value="roomId" priority="2" />
       <Item value="KeysEnter" priority="0" />
       <Item value="keyse" priority="11" />
       <Item value="selectedDate" priority="4" />
@@ -214,16 +215,16 @@
       <Item value="dameer1" priority="2" />
       <Item value="ComponentModel" priority="0" />
       <Item value="INotifyPropertyChanged`0" priority="0" />
-      <Item value="RoomCollection`0" priority="9" />
+      <Item value="RoomCollection`0" priority="16" />
       <Item value="_instance" priority="9" />
       <Item value="RoomCollection" priority="1" />
       <Item value="rc" priority="0" />
-      <Item value="roomsEnter" priority="4" />
-      <Item value="long" priority="1" />
+      <Item value="roomsEnter" priority="10" />
+      <Item value="long" priority="4" />
       <Item value="roomCollection" priority="0" />
-      <Item value="_roomCollection" priority="1" />
+      <Item value="_roomCollection" priority="9" />
       <Item value="clientServiceClient" priority="0" />
-      <Item value="ServiceClient`0" priority="15" />
+      <Item value="ServiceClient`0" priority="17" />
       <Item value="ServiceClient" priority="0" />
       <Item value="_client" priority="0" />
       <Item value="var" priority="1" />
@@ -250,7 +251,7 @@
       <Item value="loginbd" priority="1" />
       <Item value="passbd" priority="1" />
       <Item value="ip" priority="0" />
-      <Item value="Floors`0" priority="0" />
+      <Item value="Floors`0" priority="1" />
       <Item value="_floorsL" priority="0" />
       <Item value="Parse`0" priority="0" />
       <Item value="_roomL" priority="1" />
@@ -302,7 +303,7 @@
       <Item value="controllerNumber" priority="0" />
       <Item value="Add`0" priority="0" />
       <Item value="GetInstance`0" priority="0" />
-      <Item value="ResourceDictionary`0" priority="0" />
+      <Item value="ResourceDictionary`0" priority="1" />
       <Item value="pr" priority="0" />
       <Item value="lock" priority="0" />
       <Item value="serviceClient" priority="0" />
@@ -311,7 +312,7 @@
       <Item value="TimerCallback" priority="0" />
       <Item value="TimerCallback`0" priority="0" />
       <Item value="_serverOnline" priority="4" />
-      <Item value="_portName" priority="0" />
+      <Item value="_portName" priority="1" />
       <Item value="ServerOnline" priority="2" />
       <Item value="online" priority="0" />
       <Item value="_timerOnlineStatus" priority="0" />
@@ -337,10 +338,34 @@
       <Item value="F4" priority="0" />
       <Item value="switch" priority="0" />
       <Item value="case" priority="1" />
-      <Item value="break" priority="1" />
+      <Item value="break" priority="3" />
       <Item value="KeyUpEvent" priority="0" />
       <Item value="F5" priority="0" />
       <Item value="Key`0" priority="0" />
+      <Item value="textReader" priority="1" />
+      <Item value="TextWriter`0" priority="1" />
+      <Item value="textWriter" priority="3" />
+      <Item value="FileStream`0" priority="0" />
+      <Item value="fileStream" priority="1" />
+      <Item value="FileStream" priority="0" />
+      <Item value="CreateNew" priority="0" />
+      <Item value="Read" priority="1" />
+      <Item value="StreamWriter`0" priority="0" />
+      <Item value="streamWriter" priority="0" />
+      <Item value="StreamWriter" priority="0" />
+      <Item value="NewsStyleUriParser`0" priority="0" />
+      <Item value="Dictionary" priority="2" />
+      <Item value="Dictionary&lt;long,bool&gt;" priority="1" />
+      <Item value="state" priority="6" />
+      <Item value="roomsState" priority="1" />
+      <Item value="floors" priority="0" />
+      <Item value="keyValuePair" priority="1" />
+      <Item value="File`0" priority="1" />
+      <Item value="s" priority="2" />
+      <Item value="values" priority="2" />
+      <Item value="_floorId" priority="1" />
+      <Item value="rooms" priority="0" />
+      <Item value="roomes" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
       <Item value="Text" priority="10" />
@@ -350,10 +375,10 @@
       <Item value="Length" priority="1" />
       <Item value="ToString`0" priority="3" />
       <Item value="Trim`0" priority="1" />
-      <Item value="Split`0" priority="1" />
+      <Item value="Split`0" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Windows.MessageBox">
-      <Item value="Show`0" priority="17" />
+      <Item value="Show`0" priority="18" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Int32">
       <Item value="Parse`0" priority="1" />
@@ -365,9 +390,10 @@
     <ItemStatistics item="Qualified:ALFA_Client.RoomsEnter">
       <Item value="Room" priority="0" />
       <Item value="RoomID" priority="0" />
-      <Item value="ControllerId" priority="2" />
-      <Item value="RoomId" priority="0" />
+      <Item value="ControllerId" priority="3" />
+      <Item value="RoomId" priority="2" />
       <Item value="Alarm" priority="2" />
+      <Item value="GuardOn" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Object">
       <Item value="ToString`0" priority="1" />
@@ -381,9 +407,10 @@
       <Item value="Join`0" priority="2" />
       <Item value="SetKey`0" priority="0" />
       <Item value="UnsetKey`0" priority="0" />
-      <Item value="SetRoomToProtect`0" priority="0" />
+      <Item value="SetRoomToProtect`0" priority="1" />
       <Item value="Ping`0" priority="0" />
       <Item value="SetAllRoomLight`0" priority="0" />
+      <Item value="SetLight`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.KeysEnter">
       <Item value="Key" priority="1" />
@@ -419,8 +446,8 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.Entities.AlfaEntities">
       <Item value="Users" priority="5" />
-      <Item value="Floors" priority="2" />
-      <Item value="Rooms" priority="3" />
+      <Item value="Floors" priority="3" />
+      <Item value="Rooms" priority="4" />
       <Item value="SaveChanges`0" priority="1" />
       <Item value="Keys" priority="1" />
     </ItemStatistics>
@@ -444,22 +471,22 @@
     <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
       <Item value="First`1" priority="1" />
       <Item value="Count`1" priority="1" />
-      <Item value="FirstOrDefault`1" priority="3" />
+      <Item value="FirstOrDefault`1" priority="5" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Diagnostics.Debug">
       <Item value="WriteLine`0" priority="1" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.Entities.Floors">
-      <Item value="FloorId" priority="2" />
-      <Item value="ComPort" priority="2" />
+      <Item value="FloorId" priority="3" />
+      <Item value="ComPort" priority="3" />
       <Item value="FloorName" priority="2" />
       <Item value="Online" priority="0" />
       <Item value="IsPolling" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.Entities.Rooms">
       <Item value="FloorId" priority="0" />
-      <Item value="RoomId" priority="2" />
-      <Item value="RoomNumber" priority="1" />
+      <Item value="RoomId" priority="3" />
+      <Item value="RoomNumber" priority="3" />
       <Item value="LightOn" priority="2" />
       <Item value="ConrollerId" priority="0" />
       <Item value="IsProtected" priority="1" />
@@ -469,11 +496,16 @@
     <ItemStatistics item="Qualified:ALFA_Client.RoomCollection">
       <Item value="Add`0" priority="0" />
       <Item value="UpdateGerkon`0" priority="0" />
-      <Item value="Fill`0" priority="0" />
-      <Item value="Clear`0" priority="0" />
+      <Item value="Fill`0" priority="1" />
+      <Item value="Clear`0" priority="1" />
       <Item value="Count" priority="2" />
       <Item value="RoomsCount" priority="0" />
       <Item value="RoomsProtected" priority="0" />
+      <Item value="_portName" priority="1" />
+      <Item value="GetLightState`0" priority="0" />
+      <Item value="GetGuardState`0" priority="0" />
+      <Item value="SetGuardState`0" priority="1" />
+      <Item value="SetLightState`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Exception">
       <Item value="ToString`0" priority="3" />
@@ -504,14 +536,16 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ALFA_Client.RoomCollection">
       <Item value="GetInstance`0" priority="0" />
+      <Item value="ReloadData`0" priority="1" />
+      <Item value="GetCollection`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.ServiceClient">
       <Item value="_client" priority="0" />
-      <Item value="GetClientServiceClient`0" priority="5" />
-      <Item value="ServerOnline" priority="3" />
+      <Item value="GetClientServiceClient`0" priority="6" />
+      <Item value="ServerOnline" priority="4" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ALFA_Client.ServiceClient">
-      <Item value="GetInstance`0" priority="9" />
+      <Item value="GetInstance`0" priority="11" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.Objects.ObjectSet`1">
       <Item value="Include`0" priority="2" />
@@ -616,6 +650,39 @@
       <Item value="F5" priority="0" />
       <Item value="LeftShift" priority="0" />
       <Item value="F4" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Input.ModifierKeys">
+      <Item value="Shift" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Text.Encoding">
+      <Item value="UTF7" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.TextWriter">
+      <Item value="WriteLine`0" priority="0" />
+      <Item value="Flush`0" priority="0" />
+      <Item value="Close`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.Dictionary`2">
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
+      <Item value="Key" priority="1" />
+      <Item value="Value" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.TextReader">
+      <Item value="ReadLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="ReadAllLines`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int64">
+      <Item value="TryParse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Boolean">
+      <Item value="TryParse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="CompareTo`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
