@@ -142,7 +142,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Entities\AlfaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AlfaModel.Designer.cs</LastGenOutput>

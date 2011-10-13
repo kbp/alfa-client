@@ -9,62 +9,48 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:admin.xaml" caret="9709" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:admin.xaml.cs" caret="1785" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Entities/f:AlfaModel.Designer.cs" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:App.xaml.cs" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml" caret="258" fromTop="1" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:App.xaml" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="0" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml.cs" caret="476" fromTop="11" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:UserCollection.cs" caret="290" fromTop="12" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:FloorCollection.cs" caret="2267" fromTop="32" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:NLog.config" caret="547" fromTop="15" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:MTObservableCollection.cs" caret="198" fromTop="5" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:Counter.cs" caret="1462" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Entities/f:AlfaModel.edmx" caret="23664" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="3481" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="478" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="1" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="2377" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15480" fromTop="51" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="9304" fromTop="11" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:service.wsdl" caret="9590" fromTop="12" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="501" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1539" fromTop="12" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4922" fromTop="25" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="9613" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:MainWindow.xaml.cs" caret="794" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="5445" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:UserCollection.cs" caret="0" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="2165" fromTop="59" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="402" fromTop="6" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1515" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="932" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="1330" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="838" fromTop="22" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12519" fromTop="13" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12795" fromTop="23" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13224" fromTop="26" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13007" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13213" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="2707" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="170" fromTop="9" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="2683" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="11008" fromTop="15" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="11360" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="12824" fromTop="23" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11984" fromTop="2" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="14721" fromTop="18" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13478" fromTop="24" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13602" fromTop="17" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="6086" fromTop="10" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="13978" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15304" fromTop="19" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="15780" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13718" fromTop="19" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="6858" fromTop="7" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="7355" fromTop="21" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="12282" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="13573" fromTop="27" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2632" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="2953" fromTop="21" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4488" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="4778" fromTop="21" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="87" fromTop="3" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ClientServiceCallback.cs" caret="1737" fromTop="20" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="271" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="3883" fromTop="59" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="825" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11944" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="9613" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="16185" fromTop="31" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10875" fromTop="26" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2644" fromTop="3" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11956" fromTop="10" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1362" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1987" fromTop="25" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="2204" fromTop="31" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="13" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1187" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="3226" fromTop="12" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="38" fromTop="1" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="122" fromTop="3" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2750" fromTop="14" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="3421" fromTop="19" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10503" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10626" fromTop="16" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1409" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1409" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="402" fromTop="6" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1361" fromTop="8" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1409" fromTop="12" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1796" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1515" fromTop="4" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="1664" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="843" fromTop="9" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -82,10 +68,10 @@
       <Item value="LogIn" priority="0" />
       <Item value="StaticResourceExtension`0" priority="0" />
       <Item value="static" priority="18" />
-      <Item value="void" priority="8" />
+      <Item value="void" priority="9" />
       <Item value="if" priority="43" />
       <Item value="logintext" priority="1" />
-      <Item value="string" priority="41" />
+      <Item value="string" priority="42" />
       <Item value="L" priority="3" />
       <Item value="is" priority="2" />
       <Item value="null" priority="15" />
@@ -95,17 +81,17 @@
       <Item value="Enter`0" priority="0" />
       <Item value="passtext" priority="0" />
       <Item value="else" priority="20" />
-      <Item value="bool" priority="36" />
+      <Item value="bool" priority="38" />
       <Item value="l" priority="0" />
       <Item value="try" priority="10" />
-      <Item value="false" priority="30" />
-      <Item value="true" priority="12" />
+      <Item value="false" priority="31" />
+      <Item value="true" priority="14" />
       <Item value="allOK" priority="0" />
       <Item value="admin`0" priority="0" />
       <Item value="new" priority="44" />
       <Item value="admin" priority="0" />
       <Item value="ArrayTypeMismatchException`0" priority="0" />
-      <Item value="private" priority="22" />
+      <Item value="private" priority="23" />
       <Item value="tipe" priority="1" />
       <Item value="user`0" priority="3" />
       <Item value="user" priority="13" />
@@ -175,7 +161,7 @@
       <Item value="AlfaEntities`0" priority="7" />
       <Item value="alfaEntities" priority="23" />
       <Item value="AlfaEntities" priority="6" />
-      <Item value="System" priority="8" />
+      <Item value="System" priority="9" />
       <Item value="Linq" priority="2" />
       <Item value="where" priority="8" />
       <Item value="userse" priority="3" />
@@ -200,7 +186,7 @@
       <Item value="this" priority="11" />
       <Item value="RoomsEnter" priority="0" />
       <Item value="room" priority="15" />
-      <Item value="return" priority="22" />
+      <Item value="return" priority="23" />
       <Item value="PreviewTouchUpEvent" priority="0" />
       <Item value="ConnectToService`0" priority="0" />
       <Item value="portName" priority="1" />
@@ -214,7 +200,7 @@
       <Item value="double" priority="0" />
       <Item value="dameer1" priority="2" />
       <Item value="ComponentModel" priority="0" />
-      <Item value="INotifyPropertyChanged`0" priority="0" />
+      <Item value="INotifyPropertyChanged`0" priority="1" />
       <Item value="RoomCollection`0" priority="16" />
       <Item value="_instance" priority="9" />
       <Item value="RoomCollection" priority="1" />
@@ -307,8 +293,8 @@
       <Item value="pr" priority="0" />
       <Item value="lock" priority="0" />
       <Item value="serviceClient" priority="0" />
-      <Item value="Timer`0" priority="5" />
-      <Item value="Timer" priority="2" />
+      <Item value="Timer`0" priority="6" />
+      <Item value="Timer" priority="3" />
       <Item value="TimerCallback" priority="0" />
       <Item value="TimerCallback`0" priority="0" />
       <Item value="_serverOnline" priority="4" />
@@ -316,7 +302,7 @@
       <Item value="ServerOnline" priority="2" />
       <Item value="online" priority="0" />
       <Item value="_timerOnlineStatus" priority="0" />
-      <Item value="Timers" priority="0" />
+      <Item value="Timers" priority="1" />
       <Item value="system" priority="0" />
       <Item value="Boolean`0" priority="0" />
       <Item value="checkBoxConnection" priority="0" />
@@ -366,6 +352,11 @@
       <Item value="_floorId" priority="1" />
       <Item value="rooms" priority="0" />
       <Item value="roomes" priority="2" />
+      <Item value="object" priority="2" />
+      <Item value="t" priority="2" />
+      <Item value="IServiceProvider`0" priority="0" />
+      <Item value="IsRead" priority="0" />
+      <Item value="isRead" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.TextBox">
       <Item value="Text" priority="10" />
@@ -432,6 +423,7 @@
       <Item value="Hour" priority="1" />
       <Item value="AddHours`0" priority="3" />
       <Item value="AddMinutes`0" priority="0" />
+      <Item value="ToString`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Controls.Calendar">
       <Item value="SelectedDate" priority="5" />
@@ -598,7 +590,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:ALFA_Client.Models.LogCollection">
       <Item value="Add`0" priority="1" />
-      <Item value="Info`0" priority="3" />
+      <Item value="Info`0" priority="4" />
       <Item value="GetCollectionView`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Data.ObjectDataProvider">
@@ -683,6 +675,13 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Boolean">
       <Item value="CompareTo`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Timers.Timer">
+      <Item value="Interval" priority="0" />
+      <Item value="Start`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Window">
+      <Item value="CultureInfoIetfLanguageTagConverter`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

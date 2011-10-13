@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Data;
 
@@ -30,7 +29,7 @@ namespace ALFA_Client.Models
         public CollectionViewSource GetCollectionView()
         {
             _sortedCollectionViewSource = new CollectionViewSource();
-            _sortedCollectionViewSource.SortDescriptions.Add(new SortDescription("Time",ListSortDirection.Descending));
+            _sortedCollectionViewSource.SortDescriptions.Add(new SortDescription("Time", ListSortDirection.Descending));
             _sortedCollectionViewSource.Source = this;
 
             return _sortedCollectionViewSource;
@@ -38,21 +37,44 @@ namespace ALFA_Client.Models
 
         public void Info(string message)
         {
-            //todo вставить норм звук 
-            System.Media.SystemSounds.Beep.Play();
             Add(new AlfaClientLog(message));
         }
     }
 
-    public class AlfaClientLog
+    public class AlfaClientLog: INotifyPropertyChanged
     {
         public AlfaClientLog(string message)
         {
-            Time = DateTime.Now;
+            Time = DateTime.Now.ToString("dd.MM  hh:mm");
             Message = message;
         }
-        public DateTime Time { get; set; }
+
+        public string Time
+        {
+            get; set;
+        }
+
         public string Message { get; set; }
-        public bool IsRead { get; set; }
+
+        private bool _isRead;
+        public bool IsRead
+        {
+            get { return _isRead; }
+            set
+            {
+                _isRead = value;
+                NotifyPropertyChanged("IsRead");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(String info)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(info));
+            }
+        }
     }
 }

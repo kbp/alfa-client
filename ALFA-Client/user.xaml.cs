@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
-using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Windows;
@@ -25,12 +25,10 @@ namespace ALFA_Client
         private ClientServiceClient _clientService;
         public User(string username, bool guartOn, bool alarmOn, bool keyOnOff, bool datX, int cellgroup, string catRoom, int floor)
         {
-
             Logger logger = LogManager.GetCurrentClassLogger();
             logger.Info("user windows init");
 
             InitializeComponent();
-
 
             _floorId = floor;
 
@@ -70,7 +68,10 @@ namespace ALFA_Client
 
             _alfaEventLog = LogCollection.GetInstance();
             listBoxLog.DataContext = _alfaEventLog.GetCollectionView();
+
+            _alfaEventLog.Info("trololo");
             gridCounter.DataContext = Counter.GetInstance();
+
 
             checkBoxConnection.DataContext = ServiceClient.GetInstance();
 
@@ -258,18 +259,19 @@ namespace ALFA_Client
             set
             {
                 ServiceClient.GetInstance().ServerOnline = value;
-                System.Diagnostics.Debug.WriteLine(value);
+                Debug.WriteLine(value);
                 _serverOnline = value;
             }
         }
 
-        private static bool _isJoin = false;
+//        private static bool _isJoin = false;
         private Timer _timerOnlineStatus;
         private static void CheckOnlineStatus(object state)
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             bool online = false;
+
             try
             {
 //                if (_isJoin)
@@ -309,7 +311,7 @@ namespace ALFA_Client
             AlfaClientLog selectedItem = listBoxLog.SelectedItem as AlfaClientLog;
             if (selectedItem != null)
             {
-                selectedItem.IsRead = false;
+                selectedItem.IsRead = true;
             }
         }
 

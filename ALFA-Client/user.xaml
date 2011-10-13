@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ALFA_Client"
         xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer" x:Class="ALFA_Client.User"
-        Title="user" Height="546" Width="843" Loaded="WindowLoaded" KeyDown="WindowKeyDown">
+        Title="user" Height="546" Width="843" Loaded="WindowLoaded" KeyDown="WindowKeyDown" Margin="-7,0,0,0"    >
     <Window.Resources>
         <local:RoomCollection x:Key="RoomsDataSource"/>
-<!--        <ObjectDataProvider x:Key="AlfaEventLogData" ObjectType="{x:Type models:LogCollection}" MethodName="GetInstance" />-->
         <Style x:Key="ListBoxItemStyle3" TargetType="{x:Type ListBoxItem}">
-                      
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
             <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
@@ -16,31 +14,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                        
-                        <ControlTemplate.Resources>
-                            <Storyboard x:Key="Storyboard2">
-                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="stackPanel">
-                                    <EasingColorKeyFrame KeyTime="0" Value="#FFFF0202"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:1" Value="#00141212"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:2" Value="Red"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:3" Value="#00FF0000"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:4" Value="Red"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:5" Value="#00FF0000"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:6" Value="Red"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:7" Value="#00FF0000"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:8" Value="Red"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:9" Value="#00FF0000"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:10" Value="Red"/>
-                                    <EasingColorKeyFrame KeyTime="0:0:11" Value="#00FF0000"/>
-                                </ColorAnimationUsingKeyFrames>
-                            </Storyboard>
-                        </ControlTemplate.Resources>
-                        <Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                        <Border x:Name="Bd" SnapsToDevicePixels="true" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" >
                             <StackPanel x:Name="stackPanel" Orientation="Horizontal" Background="#00000000">
-                                <TextBlock Text="{Binding Room}"  FontSize="20" FontWeight="Bold" TextAlignment="Center" />
-<!--                                <CheckBox Content="Охрана" IsChecked="{Binding GuardOn}"/>-->
-
-                                <CheckBox IsChecked="{Binding GuardOn}">
+                                <TextBlock Text="{Binding Room}"  FontSize="20" FontWeight="Bold" Margin="5,0" TextAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding GuardOn}" Width="32" Height="32">
                                     <CheckBox.Template>
                                         <ControlTemplate TargetType="{x:Type CheckBox}">
                                             <StackPanel>
@@ -54,7 +31,7 @@
                                         </ControlTemplate>
                                     </CheckBox.Template>
                                 </CheckBox>
-                                <CheckBox IsChecked="{Binding LightOn}">
+                                <CheckBox IsChecked="{Binding LightOn}" Width="32" Height="32">
                                     <CheckBox.Template>
                                         <ControlTemplate TargetType="{x:Type CheckBox}">
                                             <StackPanel Orientation="Horizontal">
@@ -72,9 +49,24 @@
 <!--                                <CheckBox Content="Свет" IsChecked="{Binding LightOn}"/>-->
                             </StackPanel>
                         </Border>
-                        
-             
-                        
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="Storyboard2">
+                                <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)" Storyboard.TargetName="stackPanel">
+                                    <EasingColorKeyFrame KeyTime="0" Value="#FFFF0202"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:1" Value="#00141212"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:3" Value="#00FF0000"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:4" Value="Red"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:5" Value="#00FF0000"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:6" Value="Red"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:7" Value="#00FF0000"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:8" Value="Red"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:9" Value="#00FF0000"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:10" Value="Red"/>
+                                    <EasingColorKeyFrame KeyTime="0:0:11" Value="#00FF0000"/>
+                                </ColorAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>                        
                         <ControlTemplate.Triggers>
 
                             <Trigger Property="IsSelected" Value="true">
@@ -103,44 +95,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
-      
-        <DataTemplate x:Key="EquityTemplate">
 
-            <Grid>
-
-                <Rectangle Margin="2" >
-
-                    <Rectangle.Fill>
-
-                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                            <LinearGradientBrush.GradientStops>
-                                <GradientStopCollection>
-                                    <GradientStop Color="#aaffffff" Offset="0"/>
-                                    <GradientStop Color="transparent" Offset="1"/>
-                                </GradientStopCollection>
-                            </LinearGradientBrush.GradientStops>
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
-
-                <Grid x:Name="StackPanel1" Height="29.1333333333334" Margin="5" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="660" />
-                    </Grid.ColumnDefinitions>
-                    <TextBlock FontFamily="Segoe UI"    x:Name="TextBlockNumber" Grid.Column="1"  Width="Auto"  Text="{Binding Number, Mode=OneWay}" Margin="-0.5,0,15.5,12.4666666666666" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto"/>
-                    <TextBlock FontFamily="Segoe UI" Margin="0,0,0,0" Width="Auto" Height="16.6666666666668" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TextBlockTypeKey" Text="{Binding DisplayTypeKey, Mode=OneWay}"   FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis"/>
-                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockName"  Grid.Column="2" Width="60"  Text="{Binding Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="8.005,0,11.995,14.466" Height="Auto" Grid.ColumnSpan="1"/>
-                    <TextBlock FontFamily="Segoe UI"  FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Margin="0,14.401,0,0.065" Width="60" Height="Auto" Grid.Column="2" Grid.ColumnSpan="1" x:Name="TextBlockKey" Text="{Binding Key, Mode=OneWay}"  HorizontalAlignment="Center" Background="{x:Null}"/>
-                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockFinishDate" Grid.Column="3"  Text="{Binding FinishDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Bottom" Margin="18.4,0,0,-0.001" Height="15.667" HorizontalAlignment="Stretch"/>
-                </Grid>
-
-            </Grid>
-
-        </DataTemplate>
-        <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+    	<Style x:Key="ListBoxItemStyleLog" TargetType="{x:Type ListBoxItem}">
         	<Setter Property="Background" Value="Transparent"/>
         	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
@@ -148,42 +104,39 @@
         	<Setter Property="Template">
         		<Setter.Value>
         			<ControlTemplate TargetType="{x:Type ListBoxItem}">
-        				<ControlTemplate.Resources>
-        					<Storyboard x:Key="IsNotRead"/>
-        					<Storyboard x:Key="IsRead"/>
-        				</ControlTemplate.Resources>
-        				<Grid x:Name="grid" Background="{x:Null}">
+        				<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+        					<Grid x:Name="grid" Background="{x:Null}">
         					<Grid.ColumnDefinitions>
-        						<ColumnDefinition Width="0.25*"/>
-        						<ColumnDefinition Width="0.75*"/>
+        						<ColumnDefinition Width="0.10*"/>
+        						<ColumnDefinition Width="0.90*"/>
         					</Grid.ColumnDefinitions>
 							<TextBlock Grid.Column="0" Text="{Binding Path=Time}" HorizontalAlignment="Left"></TextBlock>
 							<TextBlock Grid.Column="1" Text="{Binding Path=Message}" HorizontalAlignment="Left"></TextBlock>		
 						</Grid>
+        				</Border>
         				<ControlTemplate.Triggers>
-        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
-        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
-        					<DataTrigger Binding="{Binding IsRead}" Value="False">
-        						<DataTrigger.EnterActions>
-        							<BeginStoryboard Storyboard="{StaticResource IsNotRead}"/>
-        						</DataTrigger.EnterActions>                                                     
+							<DataTrigger Binding="{Binding IsRead}" Value="False">      
+								<Setter Property="Background" Value="#ff0000"/>                                            
         					</DataTrigger>
-        					<DataTrigger Binding="{Binding IsRead}" Value="True">
-        						<DataTrigger.EnterActions>
-        							<BeginStoryboard Storyboard="{StaticResource IsRead}"/>
-        						</DataTrigger.EnterActions>                                                     
-        					</DataTrigger>							
+							<DataTrigger Binding="{Binding IsRead}" Value="True">      
+								<Setter Property="Background" Value="Transparent"/>                                           
+        					</DataTrigger>
+        					<Trigger Property="IsSelected" Value="true">
+        						<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+        						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+        					</Trigger>							
         					<MultiTrigger>
         						<MultiTrigger.Conditions>
         							<Condition Property="IsSelected" Value="true"/>
         							<Condition Property="Selector.IsSelectionActive" Value="false"/>
         						</MultiTrigger.Conditions>
+        						<Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
         						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         					</MultiTrigger>
         					<Trigger Property="IsEnabled" Value="false">
         						<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
         					</Trigger>
-        					<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+						
         				</ControlTemplate.Triggers>
         			</ControlTemplate>
         		</Setter.Value>
@@ -201,7 +154,9 @@
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
         <!--        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" ItemsSource="{Binding}" Margin="247,12,18,316" Name="listBox2" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
 <!--        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Keys}" ItemTemplate="{StaticResource EquityTemplate}"  x:Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True"/>
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316"  x:Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True">
+        	
+        </ListBox>
         <Button Content="Считать ключ" Margin="0,0,477,258" x:Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
         <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,92" x:Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
         <Button Content="Отменить ключ" Margin="0,0,264,92" x:Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />
@@ -217,9 +172,10 @@
         <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Right" Margin="0,0,490.056,160" x:Name="label5" VerticalAlignment="Bottom" />
         <my:Dameer  Margin="0,0,22,252" x:Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="198" />
         <Button Content="Проверка ключа" Margin="0,0,68,92" x:Name="buttonCheckKey" Click="ButtonCheckKeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="168" />
-        <ListBox ItemsSource="{Binding}" Margin="10,10,0,92" x:Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="213" IsSynchronizedWithCurrentItem="True"/>
+        <ListBox ItemsSource="{Binding}" Margin="12,12,0,112.667" x:Name="listBox1" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="149" IsSynchronizedWithCurrentItem="True"/>
         <!--DataContext="{Binding Source={StaticResource AlfaEventLogData}}" -->
-        <ListBox Height="74" Margin="241,0,12,12" x:Name="listBoxLog" VerticalAlignment="Bottom" ItemsSource="{Binding}" DisplayMemberPath="Message" ItemContainerStyle="{DynamicResource ListBoxItemStyle}" SelectionChanged="ListBoxLogSelectionChanged" />
+        <ListBox Height="74" Margin="245,0,8,8" x:Name="listBoxLog" VerticalAlignment="Bottom" ItemsSource="{Binding}" SelectionChanged="ListBoxLogSelectionChanged" ItemContainerStyle="{DynamicResource ListBoxItemStyleLog}" />
+
         <Grid HorizontalAlignment="Left" Margin="12,0,0,12" x:Name="gridCounter" Width="211" Height="74" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.75*" />
@@ -240,6 +196,6 @@
             <TextBlock Grid.Column="0" Grid.Row="3">Со включенным светом</TextBlock>
             <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding RoomsLightOn}"/>
         </Grid>
-        <CheckBox Content="Соединение с сервером" Height="16" Margin="0,0,18,223" Name="checkBoxConnection" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="202" IsChecked="{Binding Path=ServerOnline}"/>
+        <CheckBox IsHitTestVisible="False" Content="Соединение с сервером" Height="16" Margin="8,0,0,90" Name="checkBoxConnection" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="215" IsChecked="{Binding Path=ServerOnline}"/>
     </Grid>
 </Window>
