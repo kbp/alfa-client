@@ -95,8 +95,36 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-    	<Style x:Key="ListBoxItemStyleLog" TargetType="{x:Type ListBoxItem}">
+        <DataTemplate x:Key="EquityTemplate">
+            <Grid>
+                <Rectangle Margin="2" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#aaffffff" Offset="0"/>
+                                    <GradientStop Color="transparent" Offset="1"/>
+                                </GradientStopCollection>
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Grid x:Name="StackPanel1" Height="29.1333333333334" Margin="5" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="660" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontFamily="Segoe UI"    x:Name="TextBlockNumber" Grid.Column="1"  Width="Auto"  Text="{Binding Number, Mode=OneWay}" Margin="-0.5,0,15.5,12.4666666666666" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto"/>
+                    <TextBlock FontFamily="Segoe UI" Margin="0,0,0,0" Width="Auto" Height="16.6666666666668" Grid.Column="1" Grid.ColumnSpan="1" x:Name="TextBlockTypeKey" Text="{Binding DisplayTypeKey, Mode=OneWay}"   FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis"/>
+                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockName"  Grid.Column="2" Width="60"  Text="{Binding Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="8.005,0,11.995,14.466" Height="Auto" Grid.ColumnSpan="1"/>
+                    <TextBlock FontFamily="Segoe UI"  FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Margin="0,14.401,0,0.065" Width="60" Height="Auto" Grid.Column="2" Grid.ColumnSpan="1" x:Name="TextBlockKey" Text="{Binding Key, Mode=OneWay}"  HorizontalAlignment="Center" Background="{x:Null}"/>
+                    <TextBlock FontFamily="Segoe UI" x:Name="TextBlockFinishDate" Grid.Column="3"  Text="{Binding FinishDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Bottom" Margin="18.4,0,0,-0.001" Height="15.667" HorizontalAlignment="Stretch"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="ListBoxItemStyleLog" TargetType="{x:Type ListBoxItem}">
         	<Setter Property="Background" Value="Transparent"/>
         	<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         	<Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
@@ -152,11 +180,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
-        <!--        <ListBox DataContext="{Binding Source={StaticResource KeysDataSource}}" ItemsSource="{Binding}" Margin="247,12,18,316" Name="listBox2" ItemContainerStyle="{DynamicResource ListBoxItemStyle2}" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
-<!--        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Source={StaticResource KeysDataSource}}" ItemTemplate="{StaticResource EquityTemplate}"  Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" />-->
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316"  x:Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True">
-        	
-        </ListBox>
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden"  Margin="247,12,18,316" ItemsSource="{Binding Keys}" ItemTemplate="{StaticResource EquityTemplate}"  x:Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True"/>
         <Button Content="Считать ключ" Margin="0,0,477,258" x:Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="103" />
         <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,442,92" x:Name="ButtonSetkey" Width="138" Click="ButtonSetkeyClick" Height="51" VerticalAlignment="Bottom" />
         <Button Content="Отменить ключ" Margin="0,0,264,92" x:Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="51" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="151" />

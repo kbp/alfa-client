@@ -69,7 +69,6 @@ namespace ALFA_Client
             _alfaEventLog = LogCollection.GetInstance();
             listBoxLog.DataContext = _alfaEventLog.GetCollectionView();
 
-            _alfaEventLog.Info("trololo");
             gridCounter.DataContext = Counter.GetInstance();
 
 

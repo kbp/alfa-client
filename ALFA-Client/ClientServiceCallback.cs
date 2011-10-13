@@ -17,14 +17,14 @@ namespace ALFA_Client
         {
 
             _logger.Debug("controller not responsible port name {0}, controller number {1}");
-            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " перестал отвечать");
+//            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " перестал отвечать");
             RoomCollection.RemoveByControllerNumber(controllerNumber);
         }
 
         public void AlertAboutControllerBeganRespond(string portName, byte controllerNumber)
         {
             _logger.Debug("controller began respond port name {0}, controller number {1}");
-            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " начал отвечать");
+//            LogCollection.GetInstance().Info("контроллер №" + controllerNumber + " начал отвечать");
             RoomCollection.AddByControllerNumber(portName, controllerNumber);
         }
 
@@ -45,13 +45,19 @@ namespace ALFA_Client
                          where roomes.RoomId == roomId
                          select roomes).FirstOrDefault();
 
-            LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта");
+            
             RoomCollection.UpdateGerkon(roomId);
 
             if (alarm)
             {
                 System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer { SoundLocation = "sounds/alarm.wav" };
                 myPlayer.Play();
+                LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта физически");
+                
+            }
+            else
+            {
+                LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта");
             }
         }
 
@@ -74,7 +80,6 @@ namespace ALFA_Client
         public void ReloadRooms(string portName, long floorId)
         {
             RoomCollection.ReloadData((int)floorId);
-
         }
     }
 }

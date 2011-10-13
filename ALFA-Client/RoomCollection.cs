@@ -83,12 +83,12 @@ namespace ALFA_Client
                                 if (value)
                                 {
                                     Counter.GetInstance().RoomsProtected++;
-                                    LogCollection.GetInstance().Info("Комната номер = " + room.RoomNumber + " поставлена на охрану");
+//                                    LogCollection.GetInstance().Info("Комната номер = " + room.RoomNumber + " поставлена на охрану");
                                 }
                                 else
                                 {
                                     Counter.GetInstance().RoomsProtected--;
-                                    LogCollection.GetInstance().Info("Комната номер  = " + room.RoomNumber + " снята с охраны");
+//                                    LogCollection.GetInstance().Info("Комната номер  = " + room.RoomNumber + " снята с охраны");
                                 }
                                 
 
@@ -127,12 +127,12 @@ namespace ALFA_Client
                                 if (value)
                                 {
                                     Counter.GetInstance().RoomsLightOn++;
-                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " включен свет");
+//                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " включен свет");
                                 }
                                 else
                                 {
                                     Counter.GetInstance().RoomsLightOn--;
-                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " выключен свет");
+//                                    LogCollection.GetInstance().Info("В комнате номер = " + room.RoomNumber + " выключен свет");
                                 }
                             }
                         }
