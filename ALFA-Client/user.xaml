@@ -107,8 +107,8 @@
         				<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
         					<Grid x:Name="grid" Background="{x:Null}">
         					<Grid.ColumnDefinitions>
-        						<ColumnDefinition Width="0.10*"/>
-        						<ColumnDefinition Width="0.90*"/>
+        						<ColumnDefinition Width="0.15*"/>
+        						<ColumnDefinition Width="0.85*"/>
         					</Grid.ColumnDefinitions>
 							<TextBlock Grid.Column="0" Text="{Binding Path=Time}" HorizontalAlignment="Left"></TextBlock>
 							<TextBlock Grid.Column="1" Text="{Binding Path=Message}" HorizontalAlignment="Left"></TextBlock>		
