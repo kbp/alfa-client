@@ -14,35 +14,14 @@
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:RoomCollection.cs" caret="5445" fromTop="13" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:UserCollection.cs" caret="0" fromTop="0" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:KeysCollection.cs" caret="2165" fromTop="59" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="402" fromTop="6" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1515" fromTop="10" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="932" fromTop="10" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ServiceClient.cs" caret="1330" fromTop="10" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="838" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="0" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="893" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="15610" fromTop="6" />
     </RecentFiles>
     <RecentEdits>
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="271" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="3883" fromTop="59" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="825" fromTop="13" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11944" fromTop="11" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Service References/d:ClientServiceReference/f:Reference.cs" caret="9613" fromTop="10" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="16185" fromTop="31" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10875" fromTop="26" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2644" fromTop="3" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="11956" fromTop="10" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1362" fromTop="22" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1987" fromTop="25" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="2204" fromTop="31" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="13" fromTop="0" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1187" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="3226" fromTop="12" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:app.config" caret="38" fromTop="1" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="122" fromTop="3" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="2750" fromTop="14" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="3421" fromTop="19" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10503" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="10626" fromTop="16" />
-      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1409" fromTop="13" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1409" fromTop="13" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="402" fromTop="6" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1361" fromTop="8" />
@@ -51,6 +30,28 @@
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/d:Models/f:LogCollection.cs" caret="1515" fromTop="4" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="1664" fromTop="15" />
       <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml.cs" caret="843" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="6225" fromTop="9" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="5611" fromTop="2" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="6432" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="51307" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="205641" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="173607" fromTop="13" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="53626" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="53415" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:ExpressionLight.xaml" caret="893" fromTop="22" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="26" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="7" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="15" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="4" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="17" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="14" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7590" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7590" fromTop="0" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="7461" fromTop="5" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="16021" fromTop="11" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="14530" fromTop="3" />
+      <File id="2F70F97B-6E73-40AC-8BCA-61AF0D4DEC41/f:user.xaml" caret="15610" fromTop="6" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -682,6 +683,9 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Windows.Window">
       <Item value="CultureInfoIetfLanguageTagConverter`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames">
+      <Item value="Color`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
