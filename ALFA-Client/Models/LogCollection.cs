@@ -45,7 +45,7 @@ namespace ALFA_Client.Models
     {
         public AlfaClientLog(string message)
         {
-            Time = DateTime.Now.ToString("dd.MM  hh:mm");
+            Time = DateTime.Now.ToString("dd.MM  HH:mm");
             Message = message;
         }
 
