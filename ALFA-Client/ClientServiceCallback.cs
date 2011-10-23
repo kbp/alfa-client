@@ -52,12 +52,12 @@ namespace ALFA_Client
             {
                 System.Media.SoundPlayer myPlayer = new System.Media.SoundPlayer { SoundLocation = "sounds/alarm.wav" };
                 myPlayer.Play();
-                LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта физически");
+                LogCollection.GetInstance().Info("Комната " + room.RoomNumber + " была открыта БЕЗ карточки");
                 
             }
             else
             {
-                LogCollection.GetInstance().Info("комната номер " + room.RoomNumber + " была открыта");
+                LogCollection.GetInstance().Info("Комната " + room.RoomNumber + " была открыта карточкой");
             }
         }
 

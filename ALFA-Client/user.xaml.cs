@@ -78,55 +78,54 @@ namespace ALFA_Client
             {
                 _roomCollection.Fill(_floorId);
             }
-
-            ButtonSetkey.IsEnabled = false;
-            ButtonUnsetkey.IsEnabled = false;
-            comboBoxTypeKey.IsEnabled = false;
-            textBoxFIO.IsEnabled = false;
-            dameer1.IsEnabled = false;
-            textBoxSetKey.IsEnabled = false;
+//
+//            ButtonSetkey.IsEnabled = false;
+//            ButtonUnsetkey.IsEnabled = false;
+//            comboBoxTypeKey.IsEnabled = false;
+//            textBoxFIO.IsEnabled = false;
+//            dameer1.IsEnabled = false;
+//            textBoxSetKey.IsEnabled = false;
 
             _alfaEventLog.Info("Программа запущена");
-            checkBoxConnection.IsChecked = true;
             _timerOnlineStatus = new Timer(CheckOnlineStatus, null, 0, 30000);
         }
-
-        private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
-        {
-            KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
-            if (keySelection != null)
-            {
-                if (keySelection.Key == "-")
-                {
-                    ButtonSetkey.IsEnabled = false;
-                    ButtonUnsetkey.IsEnabled = false;
-                    comboBoxTypeKey.IsEnabled = false;
-                   // comboBoxMinutes.IsEnabled = false;
-                   // comboBoxHour.IsEnabled = false;
-                    textBoxFIO.IsEnabled = false;
-                    textBoxSetKey.Text = "Пусто";
-                    dameer1.IsEnabled = false;
-                    comboBoxTypeKey.SelectedIndex = 1;
-                 //   comboBoxHour.SelectedIndex = 13;
-                  //  comboBoxMinutes.SelectedIndex = 2;
-                }
-                else
-                {
-                    ButtonSetkey.IsEnabled = true;
-                    ButtonUnsetkey.IsEnabled = true;
-                    comboBoxTypeKey.IsEnabled = true;
-                 //   comboBoxMinutes.IsEnabled = true;
-                 //   comboBoxHour.IsEnabled = true;
-                    textBoxFIO.IsEnabled = true;
-                    dameer1.IsEnabled = true;
-                    textBoxSetKey.Text = keySelection.Key;
-                    textBoxFIO.Text = keySelection.Name;
-                    comboBoxTypeKey.SelectedIndex = keySelection.TypeKey;
-                  //  dameer1.SelectedDate = keySelection.FinishDate;
-                    //todo дописать часы и минуты
-                }
-            }
-        }
+//
+//        private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
+//        {
+//            KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
+//            if (keySelection != null)
+//            {
+//                if (keySelection.Key == "-")
+//                {
+//                    ButtonSetkey.IsEnabled = false;
+//                    ButtonUnsetkey.IsEnabled = false;
+//                    comboBoxTypeKey.IsEnabled = false;
+//                   // comboBoxMinutes.IsEnabled = false;
+//                   // comboBoxHour.IsEnabled = false;
+//                    textBoxFIO.IsEnabled = false;
+//                    textBoxSetKey.Text = "Пусто";
+//                    dameer1.IsEnabled = false;
+//                    comboBoxTypeKey.SelectedIndex = 1;
+//                 //   comboBoxHour.SelectedIndex = 13;
+//                  //  comboBoxMinutes.SelectedIndex = 2;
+//                }
+//                else
+//                {
+//                    ButtonSetkey.IsEnabled = true;
+//                    ButtonUnsetkey.IsEnabled = true;
+//                    comboBoxTypeKey.IsEnabled = true;
+//                 //   comboBoxMinutes.IsEnabled = true;
+//                 //   comboBoxHour.IsEnabled = true;
+//                    textBoxFIO.IsEnabled = true;
+//                    dameer1.IsEnabled = true;
+//                    textBoxSetKey.Text = keySelection.Key;
+//                    textBoxFIO.Text = keySelection.Name;
+//                    comboBoxTypeKey.SelectedIndex = keySelection.TypeKey;
+//                  //  dameer1.SelectedDate = keySelection.FinishDate;
+//                    //todo дописать часы и минуты
+//                }
+//            }
+//        }
 
         private byte[] _key;
 
@@ -157,27 +156,51 @@ namespace ALFA_Client
             }
         }
 
+        private bool CheckPosibleSetKey()
+        {
+            bool error = false;
+            string errorMessage = "";
+
+            if (textBoxSetKey.Text == "" || textBoxSetKey.Text == "00" || textBoxSetKey.Text == "00-00-00-00-00")
+            {
+                error = true;
+                errorMessage += "Не считан ключ.\n";
+            }
+            if (textBoxFIO.Text == "")
+            {
+                error = true;
+                errorMessage += "Не указаны ФИО владельца ключа.\n";
+            }
+            if (dameer1.Value <= DateTime.Now)
+            {
+                error = true;
+                errorMessage += "Дата окончания действия ключа меньше текущей даты.\n";
+            }
+
+            if (error)
+            {
+                MessageBox.Show(errorMessage);
+                return false;
+            }
+
+            return true;
+        }
         private void ButtonSetkeyClick(object sender, RoutedEventArgs e)
         {
+            if (!CheckPosibleSetKey())
+            {
+                return;
+            }
+
             KeysEnter keySelectionToset = listBox2.SelectedItem as KeysEnter;
             RoomsEnter roomSelectionTosetKey = listBox1.SelectedItem as RoomsEnter;
             //todo дописать условие проверки установленной даты и времени (д.б. больше текущего значения)
             if (textBoxFIO.Text != "")
             {
                 DateTime selectedDate = new DateTime();
-               // if (calendar1.SelectedDate != null)
-                //{
-                    //selectedDate = (DateTime)calendar1.SelectedDate;
-                    //selectedDate.AddHours(double.Parse(comboBoxHour.SelectedValue.ToString()));
-                    //selectedDate.AddMinutes(double.Parse(comboBoxMinutes.SelectedValue.ToString()));
-                
-                    if (dameer1.Value != null) selectedDate=(DateTime)dameer1.Value;
-                //}
 
+                if (dameer1.Value != null) selectedDate=(DateTime)dameer1.Value;
 
-               // string dataFinish = calendar1.SelectedDate.ToString();
-                //todo дописать часы и минуты
-                //почему номер ячейки в контроллере байтовский???????????????
                 if (keySelectionToset != null && roomSelectionTosetKey != null)
                 {
                     bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _portName, roomSelectionTosetKey.ControllerId,
@@ -198,8 +221,34 @@ namespace ALFA_Client
             else MessageBox.Show("Не введено имя гостя, либо указаны не верно Дата и время отмены ключа.");
         }
 
+
+        private bool CheckPosibleUnsetKey()
+        {
+            bool error = false;
+            string errorMessage = "";
+
+            if (listBox2.SelectedIndex < 0)
+            {
+                error = true;
+                errorMessage += "Не выбран ключ.\n";
+            }
+
+
+            if (error)
+            {
+                MessageBox.Show(errorMessage);
+                return false;
+            }
+
+            return true;
+        }
+
         private void ButtonUnsetkeyClick(object sender, RoutedEventArgs e)
         {
+            if (!CheckPosibleUnsetKey())
+            {
+                return;
+            }
             KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
             RoomsEnter roomSelectionToUnsetKey = listBox1.SelectedItem as RoomsEnter;
 
@@ -219,36 +268,58 @@ namespace ALFA_Client
             }
         }
 
+        private bool CheckPosibleCheckKey()
+        {
+            bool error = false;
+            string errorMessage = "";
+
+            if (textBoxSetKey.Text == "" || textBoxSetKey.Text == "00" || textBoxSetKey.Text == "00-00-00-00-00")
+            {
+                error = true;
+                errorMessage += "Не считан ключ.\n";
+            }
+
+            if (error)
+            {
+                MessageBox.Show(errorMessage);
+                return false;
+            }
+
+            return true;
+        }
+
         private void ButtonCheckKeyClick(object sender, RoutedEventArgs e)
         {
-            if (textBoxSetKey.Text != "00")
+            if (!CheckPosibleCheckKey())
             {
-                AlfaEntities alfaEntities = new AlfaEntities();
-                IQueryable<Keys> keys = from keyes in alfaEntities.Keys.Include("Rooms")
-                                        where (keyes.keyCode == textBoxSetKey.Text)
-                                        select keyes;
-
-                if (keys.Count() > 5)
-                {
-                    MessageBox.Show(
-                        "Данный ключ закреплен за множеством комнат, для уточнения информации обратитесь к администратору");
-                    return;
-                }
-
-                bool first = true;
-                string message = "";
-                foreach (Keys keyse in keys)
-                {
-                    if (first)
-                    {
-                        message = "Код ключа: " + keyse.keyCode + "\n";
-                        first = false;
-                    }
-                    message += "ФИО: " + keyse.FIO + "   " + "Комната №" + keyse.Rooms.RoomNumber + "\n";
-                }
-
-                MessageBox.Show(message);
+                return;
             }
+
+            AlfaEntities alfaEntities = new AlfaEntities();
+            IQueryable<Keys> keys = from keyes in alfaEntities.Keys.Include("Rooms")
+                                    where (keyes.keyCode == textBoxSetKey.Text)
+                                    select keyes;
+
+            if (keys.Count() > 5)
+            {
+                MessageBox.Show(
+                    "Данный ключ закреплен за множеством комнат, для уточнения информации обратитесь к администратору");
+                return;
+            }
+
+            bool first = true;
+            string message = "";
+            foreach (Keys keyse in keys)
+            {
+                if (first)
+                {
+                    message = "Код ключа: " + keyse.keyCode + "\n";
+                    first = false;
+                }
+                message += "ФИО: " + keyse.FIO + "   " + "Комната №" + keyse.Rooms.RoomNumber + "\n";
+            }
+
+            MessageBox.Show(message);
         }
 
         private static bool _serverOnline;

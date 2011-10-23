@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ALFA_Client"
         xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ALFA_Client.User"
-        Title="Система управления контролем доступа АЛЬФА" Height="546" Width="753" Loaded="WindowLoaded" KeyDown="WindowKeyDown" Margin="-7,0,0,0" WindowStartupLocation="CenterScreen"    >
+        Title="Система управления контролем доступа АЛЬФА" Height="546" Width="753" Loaded="WindowLoaded" KeyDown="WindowKeyDown" Margin="-7,0,0,0" WindowStartupLocation="CenterScreen" Icon="/ALFA-Client;component/icons/user-window.png">
     <Window.Resources>
     	<local:RoomCollection x:Key="RoomsDataSource"/>
     	<Style x:Key="ListBoxItemStyle3" TargetType="{x:Type ListBoxItem}">
@@ -190,7 +190,7 @@
         			<TranslateTransform/>
         		</TransformGroup>
         	</Grid.RenderTransform>
-            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="39,0,5,266.5" ItemsSource="{Binding}" ItemTemplate="{StaticResource EquityTemplate}"  x:Name="listBox2" MouseDoubleClick="ListBox2MouseLeftButtonClick" IsSynchronizedWithCurrentItem="True" RenderTransformOrigin="0.5,0.5">
+            <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="39,0,5,266.5" ItemsSource="{Binding}" ItemTemplate="{StaticResource EquityTemplate}"  x:Name="listBox2" IsSynchronizedWithCurrentItem="True" RenderTransformOrigin="0.5,0.5">
             	<ListBox.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform ScaleX="-1"/>
@@ -210,7 +210,7 @@
             		</TransformGroup>
             	</Button.RenderTransform>
             </Button>
-            <TextBox Margin="0,0,128.382,197.5" x:Name="textBoxSetKey" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="183.086" Text="{Binding Key}" RenderTransformOrigin="0.5,0.5">
+            <TextBox Margin="0,0,128.382,197.5" x:Name="textBoxSetKey" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="183.086" Text="{Binding Key, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
             	<TextBox.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform ScaleX="-1"/>
@@ -220,7 +220,7 @@
             		</TransformGroup>
             	</TextBox.RenderTransform>
             </TextBox>
-            <TextBox Margin="0,0,128.382,130" x:Name="textBoxFIO" HorizontalAlignment="Right" Width="183.086" Height="23" VerticalAlignment="Bottom" Text="{Binding Name}" RenderTransformOrigin="0.5,0.5">
+            <TextBox Margin="0,0,128.382,130" x:Name="textBoxFIO" HorizontalAlignment="Right" Width="183.086" Height="23" VerticalAlignment="Bottom" Text="{Binding Name, Mode=OneWay}" RenderTransformOrigin="0.5,0.5">
             	<TextBox.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform ScaleX="-1"/>
@@ -230,7 +230,7 @@
             		</TransformGroup>
             	</TextBox.RenderTransform>
             </TextBox>
-            <ComboBox Margin="0,0,128.382,164" x:Name="comboBoxTypeKey" HorizontalAlignment="Right" Width="183.086" SelectedIndex="{Binding TypeKey}" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
+            <ComboBox Margin="0,0,128.382,164" x:Name="comboBoxTypeKey" HorizontalAlignment="Right" Width="183.086" SelectedIndex="{Binding TypeKey, Mode=OneWay}" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
             	<ComboBox.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform ScaleX="-1"/>
@@ -273,7 +273,7 @@
             		</TransformGroup>
             	</Label.RenderTransform>
             </Label>
-            <my:Dameer  Margin="0,0,338.217,173.5" x:Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" Value="{Binding FinishDate}" HorizontalAlignment="Right" Width="148.282" RenderTransformOrigin="0.5,0.5" >
+            <my:Dameer  Margin="0,0,338.217,173.5" x:Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" Value="{Binding FinishDate, Mode=OneWay}" HorizontalAlignment="Right" Width="148.282" RenderTransformOrigin="0.5,0.5" >
             	<my:Dameer.RenderTransform>
             		<TransformGroup>
             			<ScaleTransform ScaleX="-1"/>

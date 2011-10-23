@@ -82,7 +82,7 @@ namespace ALFA_Client
             AlfaEntities alfaEntities = new AlfaEntities();
 
             IEnumerable<Keys> keyses = from key in alfaEntities.Keys
-                                       where key.RoomId == roomId
+                                       where key.RoomId == roomId && key.CellNumber != 0
                                        select key;
 
             
