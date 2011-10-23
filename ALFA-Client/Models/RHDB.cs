@@ -11,7 +11,7 @@ namespace ALFA_Client.Models
         {
         }
 
-        public RHDBUser GetKeyParams(int roomNumber)
+        public RHDBUser GetUser(int roomNumber)
         {
             RHDBUser user = null;
 
@@ -27,7 +27,15 @@ namespace ALFA_Client.Models
                 myCommand.CommandType = CommandType.StoredProcedure;
                 myCommand.CommandText = "Alfa_Locks2";
                 myCommand.Parameters.Add("Numroom", SqlDbType.VarChar).Value = roomNumber.ToString();
-                conn.Open();
+                try
+                {
+                    conn.Open();
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Не удалось подключиться к базе данных гостиницы");
+                }
 
                 SqlDataReader dataReader = myCommand.ExecuteReader();
                 while (dataReader.Read())
@@ -39,8 +47,6 @@ namespace ALFA_Client.Models
                     user.Depar = DateTime.Parse(dataReader["Depar"].ToString());
                     user.Sex = byte.Parse(dataReader["sex"].ToString());
                     user.Guestidn = long.Parse(dataReader["Guestidn"].ToString());
-
-
                 }
                 dataReader.Close();
                 conn.Close();

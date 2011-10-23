@@ -146,9 +146,9 @@ namespace ALFA_Client
 
                     if (allOk == true && type == 1)
                     {
-                        User user = new User(username, guardOn, alarmOn, keyOnOff, datX, cellgroupId, roomCateory, floorId);
+                        UserWindow userWindow = new UserWindow(username, guardOn, alarmOn, keyOnOff, datX, cellgroupId, roomCateory, floorId);
                         this.Hide();
-                        user.Show();
+                        userWindow.Show();
                         this.Close();
                     }
                 }
