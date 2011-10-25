@@ -218,6 +218,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetKeyMass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumbers" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="cellNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="type" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetKeyMassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetKeyMassResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsetKeyMass">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="controllerNumbers" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="cellNumber" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnsetKeyMassResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnsetKeyMassResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AlertAboutControllerNotResponsible">
     <xs:complexType>
       <xs:sequence>

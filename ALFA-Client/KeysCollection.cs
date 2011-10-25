@@ -91,5 +91,22 @@ namespace ALFA_Client
                 base.Add(new KeysEnter(keyse.CellNumber, keyse.Type, keyse.FIO, keyse.keyCode, keyse.EndDate));
             }
         }
+
+        public void FillServiceKeys(int roomId)
+        {
+            base.Clear();
+
+            AlfaEntities alfaEntities = new AlfaEntities();
+
+            IEnumerable<Keys> keyses = from key in alfaEntities.Keys
+                                       where key.RoomId == roomId && key.CellNumber > 2
+                                       select key;
+
+
+            foreach (Keys keyse in keyses)
+            {
+                base.Add(new KeysEnter(keyse.CellNumber, keyse.Type, keyse.FIO, keyse.keyCode, keyse.EndDate));
+            }
+        }
     }
 }

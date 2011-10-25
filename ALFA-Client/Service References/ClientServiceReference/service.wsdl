@@ -4,27 +4,6 @@
     <wsp:ExactlyOne>
       <wsp:All>
         <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
-        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <wsp:Policy>
-            <sp:TransportToken>
-              <wsp:Policy>
-                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
-                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
-                </msf:WindowsTransportSecurity>
-              </wsp:Policy>
-            </sp:TransportToken>
-            <sp:AlgorithmSuite>
-              <wsp:Policy>
-                <sp:Basic256 />
-              </wsp:Policy>
-            </sp:AlgorithmSuite>
-            <sp:Layout>
-              <wsp:Policy>
-                <sp:Strict />
-              </wsp:Policy>
-            </sp:Layout>
-          </wsp:Policy>
-        </sp:TransportBinding>
         <wsaw:UsingAddressing />
       </wsp:All>
     </wsp:ExactlyOne>
@@ -119,6 +98,18 @@
   <wsdl:message name="IClientService_SetAllRoomLight_InputMessage">
     <wsdl:part name="parameters" element="tns:SetAllRoomLight" />
   </wsdl:message>
+  <wsdl:message name="IClientService_SetKeyMass_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetKeyMass" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_SetKeyMass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetKeyMassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UnsetKeyMass_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnsetKeyMass" />
+  </wsdl:message>
+  <wsdl:message name="IClientService_UnsetKeyMass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnsetKeyMassResponse" />
+  </wsdl:message>
   <wsdl:message name="IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:AlertAboutControllerNotResponsible" />
   </wsdl:message>
@@ -204,6 +195,14 @@
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetAllRoomLight">
       <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetAllRoomLight" message="tns:IClientService_SetAllRoomLight_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SetKeyMass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/SetKeyMass" message="tns:IClientService_SetKeyMass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/SetKeyMassResponse" message="tns:IClientService_SetKeyMass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UnsetKeyMass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClientService/UnsetKeyMass" message="tns:IClientService_UnsetKeyMass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClientService/UnsetKeyMassResponse" message="tns:IClientService_UnsetKeyMass_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="AlertAboutControllerNotResponsible">
       <wsdl:output wsaw:Action="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" message="tns:IClientService_AlertAboutControllerNotResponsible_OutputCallbackMessage" />
@@ -364,6 +363,24 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetKeyMass">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/SetKeyMass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnsetKeyMass">
+      <soap12:operation soapAction="http://tempuri.org/IClientService/UnsetKeyMass" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AlertAboutControllerNotResponsible">
       <soap12:operation soapAction="http://tempuri.org/IClientService/AlertAboutControllerNotResponsible" style="document" />

@@ -23,6 +23,8 @@ namespace ALFA_Client
             _alarm = false;
             _keys = new KeysCollection();
             _keys.Fill(roomId);
+            _serviceKeys = new KeysCollection();
+            _serviceKeys.FillServiceKeys(roomId);
         }
 
         private int _room;
@@ -163,6 +165,32 @@ namespace ALFA_Client
             }
         }
 
+        private KeysCollection _serviceKeys;
+        public KeysCollection ServiceKeys
+        {
+            get { return _serviceKeys; }
+            set
+            {
+                _serviceKeys = value;
+                NotifyPropertyChanged("ServiceKeys");
+            }
+        }
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            set
+            {
+                _isSelected = value;
+                NotifyPropertyChanged("IsSelected");
+            }
+            get
+            {
+                
+                return _isSelected;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         private void NotifyPropertyChanged(String info)
@@ -212,6 +240,7 @@ namespace ALFA_Client
          private int _floorId;
          public void Fill(int floorId)
          {
+             this.Clear();
              int roomsCount = 0;
              int roomsIsProtected = 0;
              int roomsLightOn = 0;

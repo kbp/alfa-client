@@ -34,7 +34,8 @@ namespace ALFA_Client.Models
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Не удалось подключиться к базе данных гостиницы");
+                    return null;
+                    //throw new Exception("Не удалось подключиться к базе данных гостиницы");
                 }
 
                 SqlDataReader dataReader = myCommand.ExecuteReader();

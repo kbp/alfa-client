@@ -458,10 +458,21 @@ namespace ALFA_Client
             if (roomsEnter != null)
             {
                 user = rhdb.GetUser(roomsEnter.Room);
-
-                textBoxFIO.Text = user.FIO;
-                dameer1.Value = user.Depar;
+                if (user != null)
+                {
+                    textBoxFIO.Text = user.FIO;
+                    // время отмены ключа выставляем в 12, не понятно по какой причине оно не возвращается таким из процедуры
+                    dameer1.Value = new DateTime(user.Depar.Year, user.Depar.Month, user.Depar.Day, 12, 0, 0);
+                }
+                else
+                {
+                    textBoxFIO.Text = "";
+                    DateTime today = DateTime.Now.AddDays(1);
+                    dameer1.Value = new DateTime(today.Year, today.Month, today.Day, 12, 0, 0);
+                    
+                }
             }
+            comboBoxTypeKey.SelectedIndex = 0;
         }
 
         private void ListBoxKeysSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -471,10 +482,26 @@ namespace ALFA_Client
             if (keysEnter != null && keysEnter.Name != "")
             {
                 textBoxFIO.Text = keysEnter.Name;
-                dameer1.Value = keysEnter.FinishDate;
+                if (keysEnter.FinishDate == null)
+                {
+                    DateTime today = DateTime.Now.AddDays(1);
+                    dameer1.Value = new DateTime(today.Year, today.Month, today.Day, 12, 0, 0);
+                }
+                else
+                {
+                    dameer1.Value = keysEnter.FinishDate;
+                }
+                
                 textBoxSetKey.Text = keysEnter.Key;
                 comboBoxTypeKey.SelectedIndex = keysEnter.TypeKey;
             }
+        }
+
+        private void ButtonAddServiceKeysClick(object sender, RoutedEventArgs e)
+        {
+            AddKeyWindow addKeyWindow = new AddKeyWindow(_floorId, _portName, _clientService);
+            addKeyWindow.ShowDialog();
+            _roomCollection.Fill(_floorId);
         }
     }
 }

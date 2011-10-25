@@ -110,6 +110,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddKeyWindow.xaml.cs">
+      <DependentUpon>AddKeyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="admin.xaml.cs">
       <DependentUpon>admin.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserCollection.cs" />
+    <Page Include="AddKeyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ExpressionLight.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
