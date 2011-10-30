@@ -70,6 +70,25 @@ namespace ALFA_Client
             set { _finishDate = value; }
         }
 
+        public string DisplayDate
+        {
+            get
+            {
+                if (_finishDate == null)
+                {
+                    return "";
+                }
+                else
+                {
+                    DateTime dateTime = (DateTime)_finishDate;
+                    return dateTime.ToString("dd MMMM yyyy г.  HH:mm");
+                }
+                
+                
+            }
+            
+        }
+
         private string[] _keyTypes = new string[] { "Гостевой", "Горничный", "Тех. служебный"};
     }
 
