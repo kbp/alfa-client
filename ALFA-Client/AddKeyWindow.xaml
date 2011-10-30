@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:my="clr-namespace:Loya.Dameer;assembly=Loya.Dameer" xmlns:local="clr-namespace:ALFA_Client" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ALFA_Client.AddKeyWindow"
-        Title="AddKeyWindow" Height="275" Width="681" Loaded="WindowLoaded">
+        Title="Назначение служебный ключей" Height="275" Width="681" Loaded="WindowLoaded" WindowStartupLocation="CenterScreen">
 	<Window.Resources>
 		<local:RoomCollection x:Key="RoomCollectionDataSource" d:IsDataSource="True"/>
 		<DataTemplate x:Key="DataTemplateRoom">
@@ -17,6 +17,14 @@
 		</DataTemplate>
 	</Window.Resources>
     <Grid DataContext="{Binding Source={StaticResource RoomCollectionDataSource}}">
+    	<Grid.Background>
+    		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    			<GradientStop Color="#FF5C5C5C" Offset="0"/>
+    			<GradientStop Color="White" Offset="1"/>
+    			<GradientStop Color="#FF757575" Offset="0.362"/>
+    			<GradientStop Color="#FFC3C3C3" Offset="0.823"/>
+    		</LinearGradientBrush>
+    	</Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="245*" />
             <RowDefinition Height="100" />

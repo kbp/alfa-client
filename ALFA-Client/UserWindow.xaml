@@ -98,7 +98,7 @@
 
     	<DataTemplate x:Key="EquityTemplate">
     		<Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-    			<Rectangle Margin="2,2,2,2" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    			<Rectangle Margin="2,2,2,2" Height="Auto" VerticalAlignment="Stretch" Width="1500">
     				<Rectangle.Fill>
     					<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
     						<LinearGradientBrush.GradientStops>
@@ -110,20 +110,20 @@
     					</LinearGradientBrush>
     				</Rectangle.Fill>
     			</Rectangle>
-    			<StackPanel Height="20" Margin="3" Orientation="Horizontal">
-    				<!--<Grid.ColumnDefinitions>
-    					<ColumnDefinition Width="10*"/>
-    					<ColumnDefinition Width="25*"/>
-    					<ColumnDefinition Width="25*"/>
-    					<ColumnDefinition Width="25*"/>
-    					<ColumnDefinition Width="15*" />
-    				</Grid.ColumnDefinitions>-->
+    			<Grid Height="20" Margin="3">
+    				<Grid.ColumnDefinitions>
+    					<ColumnDefinition Width="27.667"/>
+    					<ColumnDefinition Width="86.666"/>
+    					<ColumnDefinition Width="211.167"/>
+    					<ColumnDefinition Width="190.5"/>
+    					<ColumnDefinition Width="166.5"/>
+    				</Grid.ColumnDefinitions>
     				<TextBlock FontFamily="Segoe UI" x:Name="TextBlockNumber" Grid.Column="0"  Width="Auto"  Text="{Binding Number, Mode=OneWay}" FontSize="14" FontWeight="Bold" VerticalAlignment="Stretch" Height="Auto" HorizontalAlignment="Stretch" Margin="3"/>
     				<TextBlock FontFamily="Segoe UI" Grid.Column="1" Width="Auto" x:Name="TextBlockTypeKey" Text="{Binding DisplayTypeKey, Mode=OneWay}"   FontSize="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextTrimming="WordEllipsis" d:LayoutOverrides="Height" Margin="3"/>
     				<TextBlock FontFamily="Segoe UI" x:Name="TextBlockName"  Grid.Column="2" Text="{Binding Name, Mode=OneWay}"  FontSize="12" VerticalAlignment="Stretch" Margin="3"/>
     				<TextBlock FontFamily="Segoe UI" FontSize="12"  FontWeight="Bold" VerticalAlignment="Stretch" Grid.Column="3" x:Name="TextBlockKey" Text="{Binding Key, Mode=OneWay}"  HorizontalAlignment="Stretch" Width="Auto" Margin="3"/>
-    				<TextBlock FontFamily="Segoe UI" x:Name="TextBlockFinishDate" Grid.Column="4"  Text="{Binding FinishDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="3"/>
-    			</StackPanel>
+    				<TextBlock FontFamily="Segoe UI" x:Name="TextBlockFinishDate" Grid.Column="4"  Text="{Binding DisplayDate, Mode=OneWay}" FontSize="12" TextAlignment="Left" FontStyle="Normal" FontWeight="Bold" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="3"/>
+    			</Grid>
     		</Grid>
     	</DataTemplate>
     	<Style x:Key="ListBoxItemStyleLog" TargetType="{x:Type ListBoxItem}">
