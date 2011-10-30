@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
@@ -11,9 +12,9 @@ namespace ALFA_Client.Models
         {
         }
 
-        public RHDBUser GetUser(int roomNumber)
+        public List<RHDBUser> GetUsers(int roomNumber)
         {
-            RHDBUser user = null;
+            List<RHDBUser> users = new List<RHDBUser>();
 
             SqlConnection conn = new SqlConnection();
 
@@ -41,20 +42,21 @@ namespace ALFA_Client.Models
                 SqlDataReader dataReader = myCommand.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    user = new RHDBUser();
+                    var user = new RHDBUser();
                     user.RoomNumber = int.Parse(dataReader["nuroom"].ToString());
                     user.FIO = dataReader["fio"].ToString();
                     user.Arriv = DateTime.Parse(dataReader["Arriv"].ToString());
                     user.Depar = DateTime.Parse(dataReader["Depar"].ToString());
                     user.Sex = byte.Parse(dataReader["sex"].ToString());
                     user.Guestidn = long.Parse(dataReader["Guestidn"].ToString());
+                    users.Add(user);
                 }
                 dataReader.Close();
                 conn.Close();
 
 
             }
-            return user;
+            return users;
         }
     }
 

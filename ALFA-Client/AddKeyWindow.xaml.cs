@@ -66,7 +66,6 @@ namespace ALFA_Client
 
         private void ButtonSetKeyClick(object sender, RoutedEventArgs e)
         {
-            label2.Visibility = System.Windows.Visibility.Visible;
             if (dameer1.Value == null && dameer1.Value <= DateTime.Now)
             {
                 MessageBox.Show("Не верно указан срок действия ключа");
@@ -97,7 +96,7 @@ namespace ALFA_Client
 
             try
             {
-                if (_clientService.SetKeyMass(_key, _portName, checkedControllers.ToArray(), number, "Горничный", 1,
+                if (_clientService.SetKeyMass(_key, _portName, checkedControllers.ToArray(), number, textBoxFio.Text, 1,
                           (DateTime)dameer1.Value))
                 {
                     this.Close();

@@ -183,147 +183,31 @@
     </Window.Background>
     <Grid  DataContext="{Binding Source={StaticResource RoomsDataSource}}">
         <Grid Margin="177,14,11,98" RenderTransformOrigin="0.5,0.5">
-        	<Grid.RenderTransform>
-        		<TransformGroup>
-        			<ScaleTransform ScaleX="-1"/>
-        			<SkewTransform/>
-        			<RotateTransform/>
-        			<TranslateTransform/>
-        		</TransformGroup>
-        	</Grid.RenderTransform>
             <ListBox ScrollViewer.HorizontalScrollBarVisibility="Hidden" Margin="39,0,5,266.5" ItemsSource="{Binding Keys}" ItemTemplate="{StaticResource EquityTemplate}"  x:Name="listBoxKeys" IsSynchronizedWithCurrentItem="True" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListBoxKeysSelectionChanged" HorizontalContentAlignment="Stretch">
-            	<ListBox.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</ListBox.RenderTransform>
             </ListBox>
-            <Button Content="Считать ключ" Margin="0,0,12.999,197.5" x:Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="98.218" d:LayoutOverrides="HorizontalAlignment" RenderTransformOrigin="0.5,0.5" >
-            	<Button.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Button.RenderTransform>
+            <Button Content="Считать ключ" Margin="16,0,0,201" x:Name="ButtonReadkey" Click="ButtonReadkeyClick" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="98.218" d:LayoutOverrides="HorizontalAlignment" RenderTransformOrigin="0.5,0.5" >
             </Button>
-            <TextBox Margin="0,0,128.382,197.5" x:Name="textBoxSetKey" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="183.086" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
-            	<TextBox.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</TextBox.RenderTransform>
+            <TextBox Margin="151,0,0,202" x:Name="textBoxSetKey" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="183.086" RenderTransformOrigin="0.5,0.5" IsReadOnly="True">
             </TextBox>
-            <TextBox Margin="0,0,128.382,130" x:Name="textBoxFIO" HorizontalAlignment="Right" Width="183.086" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
-            	<TextBox.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</TextBox.RenderTransform>
+            <TextBox Margin="151,0,0,135" x:Name="textBoxFIO" HorizontalAlignment="Left" Width="183.086" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5">
             </TextBox>
-            <ComboBox Margin="0,0,128.382,164" x:Name="comboBoxTypeKey" HorizontalAlignment="Right" Width="183.086" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
-            	<ComboBox.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</ComboBox.RenderTransform>
+            <ComboBox Margin="151,0,0,169" x:Name="comboBoxTypeKey" HorizontalAlignment="Left" Width="183.086" Height="23" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="VerticalAlignment">
                 <ComboBoxItem Content="Гостевой"/>
                 <ComboBoxItem Content="Горничный"/>
                 <ComboBoxItem Content="Тех. служебный"/>
             </ComboBox>
-            <Label Content="Ключ действителен до:" Height="28" HorizontalAlignment="Right" Margin="0,0,336.261,200.5" x:Name="label1" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="139.031" >
-            	<Label.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Label.RenderTransform>
+            <Label Content="Ключ действителен до:" Height="28" HorizontalAlignment="Left" Margin="360,0,0,201" x:Name="label1" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="139.031" >
             </Label>
-            <Label Content="Тип ключа:" HorizontalAlignment="Right" Margin="0,0,21,155" x:Name="label4" Height="28" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="72.995" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" >
-            	<Label.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Label.RenderTransform>
+            <Label Content="Тип ключа:" HorizontalAlignment="Left" Margin="16,0,0,159" x:Name="label4" Height="28" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="72.995" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" >
             </Label>
-            <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Right" Margin="0,0,22.534,125" x:Name="label5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="76.233" d:LayoutOverrides="HorizontalAlignment" >
-            	<Label.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Label.RenderTransform>
-            </Label>
-            <my:Dameer  Margin="0,0,338.217,173.5" x:Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="148.282" RenderTransformOrigin="0.5,0.5" >
-            	<my:Dameer.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</my:Dameer.RenderTransform>
+            <Label Content="ФИО владельца:" Height="28" HorizontalAlignment="Left" Margin="16,0,0,130" x:Name="label5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Width="76.233" d:LayoutOverrides="HorizontalAlignment" ></Label>
+            <my:Dameer  Margin="360,0,0,172" x:Name="dameer1" Format="Custom" ShowCheckBox="False" ShowDropDown="True" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="150" RenderTransformOrigin="0.5,0.5" >
             </my:Dameer>
-            <Button Content="Назначить ключ" HorizontalAlignment="Right" Margin="0,0,19,62" x:Name="ButtonSetkey" Width="129.392" Click="ButtonSetkeyClick" Height="28.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="HorizontalAlignment" >
-            	<Button.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Button.RenderTransform>
-            </Button>
-            <Button Content="Отменить ключ" Margin="0,0,172.698,62" x:Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="28.5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="141.582" RenderTransformOrigin="0.5,0.5" >
-            	<Button.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Button.RenderTransform>
-            </Button>
-            <Button Content="Проверка ключа" Margin="0,0,342.479,62" x:Name="buttonCheckKey" Click="ButtonCheckKeyClick" Height="28.5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="157.521" RenderTransformOrigin="0.5,0.5" >
-            	<Button.RenderTransform>
-            		<TransformGroup>
-            			<ScaleTransform ScaleX="-1"/>
-            			<SkewTransform/>
-            			<RotateTransform/>
-            			<TranslateTransform/>
-            		</TransformGroup>
-            	</Button.RenderTransform>
-            </Button>
-            <Button Content="Назначение служебных ключей" Name="buttonAddServiceKeys" Height="28.5" HorizontalAlignment="Right" Margin="0,0,17,19" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Width="231" Click="ButtonAddServiceKeysClick">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1" />
-                        <SkewTransform />
-                        <RotateTransform />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
+            <Button Content="Назначить ключ" HorizontalAlignment="Left" Margin="16,0,0,62" x:Name="ButtonSetkey" Width="129.392" Click="ButtonSetkeyClick" Height="28.5" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="HorizontalAlignment" ></Button>
+            <Button Content="Отменить ключ" Margin="161,0,0,62" x:Name="ButtonUnsetkey" Click="ButtonUnsetkeyClick" Height="28.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="141.582" RenderTransformOrigin="0.5,0.5" ></Button>
+            <Button Content="Проверка ключа" Margin="319,0,0,62" x:Name="buttonCheckKey" Click="ButtonCheckKeyClick" Height="28.5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="157.521" RenderTransformOrigin="0.5,0.5" ></Button>
+            <Button Content="Назначение служебных ключей" Name="buttonAddServiceKeys" Height="28.5" Margin="16,0,0,15" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" Click="ButtonAddServiceKeysClick" HorizontalAlignment="Left" Width="231"></Button>
+            <Button Content="&gt;" Height="23" HorizontalAlignment="Left" Margin="340,236,0,0" Name="buttonNextUser" VerticalAlignment="Top" Width="12" Click="ButtonNextUserClick" />
             <!--DataContext="{Binding Source={StaticResource AlfaEventLogData}}" -->
         </Grid>
         <ListBox ItemsSource="{Binding}" Margin="12,12,0,112.667" x:Name="listBoxRooms" ItemContainerStyle="{DynamicResource ListBoxItemStyle3}"  HorizontalAlignment="Left" Width="149" IsSynchronizedWithCurrentItem="True" SelectionChanged="ListBoxRoomsSelectionChanged" />

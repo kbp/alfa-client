@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -291,7 +290,6 @@ namespace ALFA_Client
             }
         }
 
-//        private static bool _isJoin = false;
         private Timer _timerOnlineStatus;
         private static void CheckOnlineStatus(object state)
         {
@@ -301,26 +299,11 @@ namespace ALFA_Client
 
             try
             {
-//                if (_isJoin)
-//                {
-//                    online = ServiceClient.GetInstance().GetClientServiceClient().Ping();
-//                }
-//                else
-//                {
-                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
-//                }
+                online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
             }
             catch (Exception)
             {
-//                _isJoin = false;
-//                try
-//                {
-//                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
-//                }
-//                catch (Exception)
-//                {
-                    ServerOnline = false;
-//                }
+                ServerOnline = false;
             }
 
             if (online)
@@ -448,21 +431,25 @@ namespace ALFA_Client
             }
         }
 
+        List<RHDBUser> _rhdbUsers;
         private void ListBoxRoomsSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RHDB rhdb = new RHDB();
-            RHDBUser user;
+            
+
+            _userNumber = 0;
 
             RoomsEnter roomsEnter = listBoxRooms.SelectedItem as RoomsEnter;
 
             if (roomsEnter != null)
             {
-                user = rhdb.GetUser(roomsEnter.Room);
-                if (user != null)
+                _rhdbUsers = rhdb.GetUsers(roomsEnter.Room);
+                if (_rhdbUsers != null)
                 {
-                    textBoxFIO.Text = user.FIO;
+                    textBoxFIO.Text = _rhdbUsers[_userNumber].FIO;
                     // время отмены ключа выставляем в 12, не понятно по какой причине оно не возвращается таким из процедуры
-                    dameer1.Value = new DateTime(user.Depar.Year, user.Depar.Month, user.Depar.Day, 12, 0, 0);
+                    dameer1.Value = new DateTime(_rhdbUsers[_userNumber].Depar.Year, _rhdbUsers[_userNumber].Depar.Month,
+                        _rhdbUsers[_userNumber].Depar.Day, 12, 0, 0);
                 }
                 else
                 {
@@ -502,6 +489,16 @@ namespace ALFA_Client
             AddKeyWindow addKeyWindow = new AddKeyWindow(_floorId, _portName, _clientService);
             addKeyWindow.ShowDialog();
             _roomCollection.Fill(_floorId);
+        }
+
+        private int _userNumber = 0;
+
+        private void ButtonNextUserClick(object sender, RoutedEventArgs e)
+        {
+            _userNumber++;
+            textBoxFIO.Text = _rhdbUsers[_userNumber % _rhdbUsers.Count].FIO;
+            dameer1.Value = new DateTime(_rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Year,
+                _rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Month, _rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Day, 12, 0, 0);
         }
     }
 }
