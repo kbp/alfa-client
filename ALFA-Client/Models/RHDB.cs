@@ -14,6 +14,13 @@ namespace ALFA_Client.Models
 
         public List<RHDBUser> GetUsers(int roomNumber)
         {
+            string room = roomNumber.ToString();
+
+            while (room.Length < 4)
+            {
+                room = "0" + room;
+            }
+
             List<RHDBUser> users = new List<RHDBUser>();
 
             SqlConnection conn = new SqlConnection();
@@ -27,7 +34,7 @@ namespace ALFA_Client.Models
                 SqlCommand myCommand = conn.CreateCommand();
                 myCommand.CommandType = CommandType.StoredProcedure;
                 myCommand.CommandText = "Alfa_Locks2";
-                myCommand.Parameters.Add("Numroom", SqlDbType.VarChar).Value = roomNumber.ToString();
+                myCommand.Parameters.Add("Numroom", SqlDbType.VarChar).Value = room;
                 try
                 {
                     conn.Open();

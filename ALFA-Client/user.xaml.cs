@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -19,10 +20,10 @@ namespace ALFA_Client
     /// <summary>
     /// Interaction logic for user.xaml
     /// </summary>
-    public partial class UserWindow
+    public partial class User
     {
         private ClientServiceClient _clientService;
-        public UserWindow(string username, bool guartOn, bool alarmOn, bool keyOnOff, bool datX, int cellgroup, string catRoom, int floor)
+        public User(string username, bool guartOn, bool alarmOn, bool keyOnOff, bool datX, int cellgroup, string catRoom, int floor)
         {
             Logger logger = LogManager.GetCurrentClassLogger();
             logger.Info("user windows init");
@@ -77,10 +78,54 @@ namespace ALFA_Client
             {
                 _roomCollection.Fill(_floorId);
             }
+//
+//            ButtonSetkey.IsEnabled = false;
+//            ButtonUnsetkey.IsEnabled = false;
+//            comboBoxTypeKey.IsEnabled = false;
+//            textBoxFIO.IsEnabled = false;
+//            dameer1.IsEnabled = false;
+//            textBoxSetKey.IsEnabled = false;
 
             _alfaEventLog.Info("Программа запущена");
             _timerOnlineStatus = new Timer(CheckOnlineStatus, null, 0, 30000);
         }
+//
+//        private void ListBox2MouseLeftButtonClick(object sender, MouseButtonEventArgs e)
+//        {
+//            KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
+//            if (keySelection != null)
+//            {
+//                if (keySelection.Key == "-")
+//                {
+//                    ButtonSetkey.IsEnabled = false;
+//                    ButtonUnsetkey.IsEnabled = false;
+//                    comboBoxTypeKey.IsEnabled = false;
+//                   // comboBoxMinutes.IsEnabled = false;
+//                   // comboBoxHour.IsEnabled = false;
+//                    textBoxFIO.IsEnabled = false;
+//                    textBoxSetKey.Text = "Пусто";
+//                    dameer1.IsEnabled = false;
+//                    comboBoxTypeKey.SelectedIndex = 1;
+//                 //   comboBoxHour.SelectedIndex = 13;
+//                  //  comboBoxMinutes.SelectedIndex = 2;
+//                }
+//                else
+//                {
+//                    ButtonSetkey.IsEnabled = true;
+//                    ButtonUnsetkey.IsEnabled = true;
+//                    comboBoxTypeKey.IsEnabled = true;
+//                 //   comboBoxMinutes.IsEnabled = true;
+//                 //   comboBoxHour.IsEnabled = true;
+//                    textBoxFIO.IsEnabled = true;
+//                    dameer1.IsEnabled = true;
+//                    textBoxSetKey.Text = keySelection.Key;
+//                    textBoxFIO.Text = keySelection.Name;
+//                    comboBoxTypeKey.SelectedIndex = keySelection.TypeKey;
+//                  //  dameer1.SelectedDate = keySelection.FinishDate;
+//                    //todo дописать часы и минуты
+//                }
+//            }
+//        }
 
         private byte[] _key;
 
@@ -98,7 +143,6 @@ namespace ALFA_Client
                     MessageBox.Show(exception.ToString());
                 }
                 
-
                 textBoxSetKey.Text = BitConverter.ToString(_key);
                 ButtonSetkey.IsEnabled = true;
                 comboBoxTypeKey.IsEnabled = true;
@@ -148,8 +192,8 @@ namespace ALFA_Client
                 return;
             }
 
-            KeysEnter keySelectionToset = listBoxKeys.SelectedItem as KeysEnter;
-            RoomsEnter roomSelectionTosetKey = listBoxRooms.SelectedItem as RoomsEnter;
+            KeysEnter keySelectionToset = listBox2.SelectedItem as KeysEnter;
+            RoomsEnter roomSelectionTosetKey = listBox1.SelectedItem as RoomsEnter;
             //todo дописать условие проверки установленной даты и времени (д.б. больше текущего значения)
             if (textBoxFIO.Text != "")
             {
@@ -159,16 +203,14 @@ namespace ALFA_Client
 
                 if (keySelectionToset != null && roomSelectionTosetKey != null)
                 {
-                    bool setkey = _clientService.SetKey(_key, (byte) keySelectionToset.Number, _portName, roomSelectionTosetKey.ControllerId,
+                    bool setkey=_clientService.SetKey(_key, (byte) keySelectionToset.Number, _portName, roomSelectionTosetKey.ControllerId,
                                                       textBoxFIO.Text, (byte)comboBoxTypeKey.SelectedIndex, selectedDate);
                 
                     if (setkey == true)
                     {
-                        RoomsEnter roomSelection = listBoxRooms.SelectedItem as RoomsEnter;
+                        RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
                         if (roomSelection != null) 
                             roomSelection.Keys.Fill(roomSelection.RoomId);
-
-                        textBoxSetKey.Text = "";
                     }
                     else
                     {
@@ -185,7 +227,7 @@ namespace ALFA_Client
             bool error = false;
             string errorMessage = "";
 
-            if (listBoxKeys.SelectedIndex < 0)
+            if (listBox2.SelectedIndex < 0)
             {
                 error = true;
                 errorMessage += "Не выбран ключ.\n";
@@ -207,15 +249,15 @@ namespace ALFA_Client
             {
                 return;
             }
-            KeysEnter keySelection = listBoxKeys.SelectedItem as KeysEnter;
-            RoomsEnter roomSelectionToUnsetKey = listBoxRooms.SelectedItem as RoomsEnter;
+            KeysEnter keySelection = listBox2.SelectedItem as KeysEnter;
+            RoomsEnter roomSelectionToUnsetKey = listBox1.SelectedItem as RoomsEnter;
 
             if (roomSelectionToUnsetKey != null && keySelection != null)
             {
                 bool unsetkey = _clientService.UnsetKey(_portName, roomSelectionToUnsetKey.ControllerId, (byte) keySelection.Number);
                 if (unsetkey)
                 {
-                    RoomsEnter roomSelection = listBoxRooms.SelectedItem as RoomsEnter;
+                    RoomsEnter roomSelection = listBox1.SelectedItem as RoomsEnter;
                     if (roomSelection != null) 
                         roomSelection.Keys.Fill(roomSelection.RoomId);
                 }
@@ -292,6 +334,7 @@ namespace ALFA_Client
             }
         }
 
+//        private static bool _isJoin = false;
         private Timer _timerOnlineStatus;
         private static void CheckOnlineStatus(object state)
         {
@@ -301,11 +344,26 @@ namespace ALFA_Client
 
             try
             {
-                online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
+//                if (_isJoin)
+//                {
+//                    online = ServiceClient.GetInstance().GetClientServiceClient().Ping();
+//                }
+//                else
+//                {
+                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
+//                }
             }
             catch (Exception)
             {
-                ServerOnline = false;
+//                _isJoin = false;
+//                try
+//                {
+//                    online = ServiceClient.GetInstance().GetClientServiceClient().Join(_portName);
+//                }
+//                catch (Exception)
+//                {
+                    ServerOnline = false;
+//                }
             }
 
             if (online)
@@ -430,87 +488,6 @@ namespace ALFA_Client
                 }
 
                 _roomCollection.SetGuardState(state);
-            }
-        }
-
-        List<RHDBUser> _rhdbUsers;
-        private void ListBoxRoomsSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            RHDB rhdb = new RHDB();
-            
-
-            _userNumber = 0;
-
-            RoomsEnter roomsEnter = listBoxRooms.SelectedItem as RoomsEnter;
-
-            if (roomsEnter != null)
-            {
-                try
-                {
-                    _rhdbUsers = rhdb.GetUsers(roomsEnter.Room);
-                }
-                catch
-                {
-                    return;
-                }
-
-                if (_rhdbUsers.Count > 0)
-                {
-                    textBoxFIO.Text = _rhdbUsers[_userNumber].FIO;
-                    // время отмены ключа выставляем в 12, не понятно по какой причине оно не возвращается таким из процедуры
-                    dameer1.Value = new DateTime(_rhdbUsers[_userNumber].Depar.Year, _rhdbUsers[_userNumber].Depar.Month,
-                        _rhdbUsers[_userNumber].Depar.Day, 12, 0, 0);
-                }
-                else
-                {
-                    textBoxFIO.Text = "";
-                    DateTime today = DateTime.Now.AddDays(1);
-                    dameer1.Value = new DateTime(today.Year, today.Month, today.Day, 12, 0, 0);
-                    
-                }
-            }
-            comboBoxTypeKey.SelectedIndex = 0;
-        }
-
-        private void ListBoxKeysSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            KeysEnter keysEnter = listBoxKeys.SelectedItem as KeysEnter;
-
-            if (keysEnter != null && keysEnter.Name != "")
-            {
-                textBoxFIO.Text = keysEnter.Name;
-                if (keysEnter.FinishDate == null)
-                {
-                    DateTime today = DateTime.Now.AddDays(1);
-                    dameer1.Value = new DateTime(today.Year, today.Month, today.Day, 12, 0, 0);
-                }
-                else
-                {
-                    dameer1.Value = keysEnter.FinishDate;
-                }
-                
-                textBoxSetKey.Text = keysEnter.Key;
-                comboBoxTypeKey.SelectedIndex = keysEnter.TypeKey;
-            }
-        }
-
-        private void ButtonAddServiceKeysClick(object sender, RoutedEventArgs e)
-        {
-            AddKeyWindow addKeyWindow = new AddKeyWindow(_floorId, _portName, _clientService);
-            addKeyWindow.ShowDialog();
-            _roomCollection.Fill(_floorId);
-        }
-
-        private int _userNumber = 0;
-
-        private void ButtonNextUserClick(object sender, RoutedEventArgs e)
-        {
-            if (_rhdbUsers.Count > 0)
-            {
-                _userNumber++;
-                textBoxFIO.Text = _rhdbUsers[_userNumber % _rhdbUsers.Count].FIO;
-                dameer1.Value = new DateTime(_rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Year,
-                    _rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Month, _rhdbUsers[_userNumber % _rhdbUsers.Count].Depar.Day, 12, 0, 0);
             }
         }
     }
